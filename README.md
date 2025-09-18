@@ -1,0 +1,2 @@
+python run_task.py model=google/gemini-flash task=totems model.prompt_condition=CoT model.n_thinking_tokens=null
+python run_task.py model=anthropic/sonnet task=totems model.prompt_condition=CoT model.n_thinking_tokens=0

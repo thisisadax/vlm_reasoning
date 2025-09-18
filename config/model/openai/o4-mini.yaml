@@ -1,0 +1,8 @@
+defaults:
+  - base_vlm
+_target_: models.openai_model.OpenAIModel
+model_name: o3
+
+reasoning_effort: low
+cost_per_input_token: 1.10
+cost_per_output_token: 4.40

@@ -1,0 +1,2 @@
+Five images below follow a simple rule concerning a single elementary feature, but one is a clear exception. Find the oddball.
+Your response should conclude with the number of the oddball enclosed in square brackets (e.g., [3]).

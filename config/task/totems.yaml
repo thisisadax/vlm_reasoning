@@ -1,0 +1,5 @@
+defaults:
+  - base_task
+
+_target_: tasks.totems.TotemsTask
+task_name: totems

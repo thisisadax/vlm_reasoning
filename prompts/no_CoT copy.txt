@@ -1,0 +1,2 @@
+The images below follow a simple rule, but one is a clear exception. Find the oddball.
+Your response should consist solely of the number of the oddball enclosed in square brackets (e.g., [3]), with no additional reasoning or justification.

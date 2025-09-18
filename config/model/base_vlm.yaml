@@ -1,0 +1,6 @@
+api_file: ${paths.root_dir}/api_metadata.json
+prompt_condition: CoT
+prompt_file: ${paths.root_dir}/prompts/${.prompt_condition}.txt
+max_tokens: 8192
+n_thinking_tokens: 0
+sleep: 0

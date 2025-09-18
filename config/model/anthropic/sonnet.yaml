@@ -1,0 +1,9 @@
+defaults:
+  - base_vlm
+_target_: models.anthropic_model.AnthropicModel
+model_name: sonnet
+api_model_identifier: claude-sonnet-4-20250514
+
+n_thinking_tokens: 1024
+cost_per_input_token: 3.00
+cost_per_output_token: 15.00

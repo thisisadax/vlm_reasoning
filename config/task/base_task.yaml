@@ -1,0 +1,4 @@
+_target_: tasks.base_task.Task
+task_name: null  # task name
+data_dir: '${paths.data_dir}'  # Directory to save the dataset
+n_oddball_trials: 100  # Number of oddball trials per abstraction

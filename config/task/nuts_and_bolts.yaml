@@ -1,0 +1,5 @@
+defaults:
+  - base_task
+
+_target_: tasks.nuts_and_bolts.NutsAndBoltsTask
+task_name: nuts_and_bolts

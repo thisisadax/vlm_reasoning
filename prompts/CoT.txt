@@ -1,0 +1,2 @@
+Six images are shown below. Five share an elementary visual feature, while one is clearly different.
+Identify the outlier by responding with its number in square brackets (e.g., [3]) and a brief justification of your choice enclosed in curly brackets.

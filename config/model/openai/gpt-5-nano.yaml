@@ -1,0 +1,8 @@
+defaults:
+  - base_vlm
+_target_: models.openai_model.OpenAIModel
+model_name: gpt-5-nano
+
+reasoning_effort: low
+cost_per_input_token: 0.05
+cost_per_output_token: 0.40

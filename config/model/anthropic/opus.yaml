@@ -1,0 +1,9 @@
+defaults:
+  - base_vlm
+_target_: models.anthropic_model.AnthropicModel
+model_name: opus
+api_model_identifier: claude-opus-4-1-20250805
+
+n_thinking_tokens: 0
+cost_per_input_token: 15.00
+cost_per_output_token: 75.00

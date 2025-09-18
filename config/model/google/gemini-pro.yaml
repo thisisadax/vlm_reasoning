@@ -1,0 +1,6 @@
+defaults:
+  - base_vlm
+_target_: models.google_model.GoogleModel
+model_name: gemini-pro
+cost_per_input_token: 1.25
+cost_per_output_token: 10.00

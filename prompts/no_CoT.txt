@@ -1,0 +1,2 @@
+Six images are shown below. Five share an elementary visual feature, while one is clearly different.
+Respond immediately with the number of odd-one-out in square brackets (e.g., [3]) with no additional reasoning or justification.
