@@ -1,4 +1,18 @@
 # dsl_renderer/core.py
+"""
+Core functionality for the DSL renderer system.
+
+This module provides the foundational components for parsing S-expression based 
+domain-specific languages (DSLs) and rendering them as geometric graphics. It includes:
+- AST node representation for parsed DSL programs
+- S-expression parser for converting text programs to AST
+- Stroke rendering system using Cairo graphics
+- Image export utilities
+- CSV batch processing capabilities
+
+The system is designed to be extensible, allowing new DSLs to be added by implementing
+the BaseRenderer interface and registering language-specific primitives and functions.
+"""
 import os
 import imageio
 import numpy as np
@@ -8,13 +22,27 @@ from typing import List, Union
 
 
 ## --- Core Constants ---
-XYLIM = 5.0
-CANVAS_WIDTH_HEIGHT = 512
+XYLIM = 5.0  # Coordinate bounds for the rendering canvas (-XYLIM to +XYLIM)
+CANVAS_WIDTH_HEIGHT = 512  # Output image dimensions in pixels
 
 
 ## --- AST Representation ---
 class AstNode:
-    """A simple node to represent the DSL's Abstract Syntax Tree."""
+    """
+    A node in the Abstract Syntax Tree representing a DSL program element.
+    
+    Each AstNode represents either a function call or a primitive in the DSL.
+    Function calls have a name and list of arguments, while primitives have
+    a name and empty argument list.
+    
+    Attributes:
+        name (str): The function name or primitive identifier
+        args (list): List of arguments (AstNodes, floats, or ints)
+    
+    Examples:
+        >>> AstNode('circle', [])  # primitive circle
+        >>> AstNode('transform', [AstNode('translate', [1.0, 2.0]), AstNode('circle', [])])
+    """
     def __init__(self, name: str, args: list):
         self.name = name
         self.args = args
@@ -24,7 +52,26 @@ class AstNode:
 
 
 def _atom(token: str) -> Union[int, float, AstNode]:
-    """Converts a token into an int, float, or symbolic AstNode."""
+    """
+    Converts a string token into an appropriate data type.
+    
+    Attempts to parse the token as an integer first, then as a float.
+    If neither succeeds, treats it as a symbolic name and creates an AstNode.
+    
+    Args:
+        token: String token to convert
+        
+    Returns:
+        int, float, or AstNode depending on the token content
+        
+    Examples:
+        >>> _atom("42")
+        42
+        >>> _atom("3.14")
+        3.14
+        >>> _atom("circle")
+        AstNode('circle', [])
+    """
     try:
         return int(token)
     except ValueError:
@@ -37,7 +84,26 @@ def _atom(token: str) -> Union[int, float, AstNode]:
 
 ## --- S-Expression Parser (Shared) ---
 def _parse_recursive(tokens: List[str]) -> Union[AstNode, float, int]:
-    """Recursively consumes tokens to build the AST."""
+    """
+    Recursively parses tokens to build an Abstract Syntax Tree.
+    
+    This function implements a recursive descent parser for S-expressions.
+    It handles parentheses, function calls, and atomic values.
+    
+    Args:
+        tokens: List of string tokens to parse (modified in-place)
+        
+    Returns:
+        AstNode for function calls, or int/float for atomic values
+        
+    Raises:
+        ValueError: If parentheses are unmatched or tokens are malformed
+        
+    Examples:
+        >>> tokens = ['(', 'add', '1', '2', ')']
+        >>> _parse_recursive(tokens)
+        AstNode('add', [1, 2])
+    """
     if not tokens:
         raise ValueError("Unexpected end of program while parsing.")
 
@@ -63,7 +129,27 @@ def _parse_recursive(tokens: List[str]) -> Union[AstNode, float, int]:
 
 
 def parse_program(program_string: str) -> AstNode:
-    """Parses a program string in S-expression format into an AstNode structure."""
+    """
+    Parses a complete DSL program from S-expression format into an AST.
+    
+    Takes a string containing an S-expression program and converts it into
+    an AstNode tree structure that can be evaluated by a renderer.
+    
+    Args:
+        program_string: Complete S-expression program as a string
+        
+    Returns:
+        AstNode representing the root of the parsed program
+        
+    Raises:
+        ValueError: If the program has syntax errors or is not a valid expression
+        
+    Examples:
+        >>> parse_program("(T l 1.0 0.5)")
+        AstNode('T', [AstNode('l', []), 1.0, 0.5])
+        >>> parse_program("(C (T l 1 0) (T c 2 1))")
+        AstNode('C', [AstNode('T', [AstNode('l', []), 1, 0]), AstNode('T', [AstNode('c', []), 2, 1])])
+    """
     s_exp = program_string.replace('(', ' ( ').replace(')', ' ) ')
     tokens = s_exp.split()
     ast = _parse_recursive(tokens)
@@ -81,8 +167,29 @@ def render_strokes_to_image(
     line_width: float = 3.0
 ) -> np.ndarray:
     """
-    Renders a list of strokes to a numpy image array, elegantly handling
-    both colored (tuple) and non-colored (array) stroke data.
+    Renders a list of geometric strokes to a raster image using Cairo graphics.
+    
+    Converts stroke data (lists of 2D points) into a rendered PNG image. Supports
+    both plain strokes (list of numpy arrays) and colored strokes (tuples of 
+    (stroke_array, color)). The coordinate system is automatically scaled from
+    the logical bounds to the pixel canvas.
+    
+    Args:
+        strokes: List of strokes. Each stroke can be:
+                - numpy array of shape (N, 2) for uncolored strokes
+                - tuple of (stroke_array, (r, g, b)) for colored strokes
+        canvas_dim: Output image size in pixels (square canvas)
+        coord_bound: Logical coordinate bounds (-coord_bound to +coord_bound)
+        line_width: Stroke width in pixels
+        
+    Returns:
+        numpy array of shape (canvas_dim, canvas_dim, 3) with RGB values [0,1]
+        
+    Examples:
+        >>> line_stroke = np.array([[0.0, 0.0], [1.0, 1.0]])
+        >>> image = render_strokes_to_image([line_stroke])
+        >>> image.shape
+        (512, 512, 3)
     """
     scale = canvas_dim / (2 * coord_bound)
     surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, canvas_dim, canvas_dim)
@@ -121,7 +228,23 @@ def render_strokes_to_image(
 
 
 def export_image(image_array: np.ndarray, export_path: str):
-    """Saves a NumPy array as a PNG image."""
+    """
+    Exports a rendered image array to a PNG file.
+    
+    Takes a numpy array representing an image and saves it as a PNG file,
+    automatically creating the output directory if it doesn't exist.
+    
+    Args:
+        image_array: RGB image as numpy array with values in [0,1] range
+        export_path: File path where the PNG should be saved
+        
+    Raises:
+        OSError: If the output directory cannot be created
+        
+    Examples:
+        >>> image = np.random.random((512, 512, 3))
+        >>> export_image(image, "output/test.png")
+    """
     output_dir = os.path.dirname(export_path)
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)
@@ -130,7 +253,33 @@ def export_image(image_array: np.ndarray, export_path: str):
 ## --- CSV Processing Utility ---
 def render_from_csv(renderer, name: str, program_col: str = "program_string"):
     """
-    Loads a CSV, renders programs using the provided renderer, and saves results.
+    Batch processes DSL programs from a CSV file and renders them to images.
+    
+    Reads a CSV file containing DSL programs, renders each program using the
+    provided renderer, saves the resulting images, and creates an updated CSV
+    with image file paths. Handles errors gracefully by logging them and
+    continuing with the next program.
+    
+    Args:
+        renderer: A renderer instance (must implement evaluate() method)
+        name: Base name for input CSV file and output directory 
+        program_col: Column name containing the DSL program strings
+        
+    Input:
+        - Reads from: output/{name}.csv
+        
+    Output:
+        - Images saved to: output/{name}/images/{row_index}.png
+        - Updated CSV saved to: output/{name}/rendered.csv
+        
+    Raises:
+        FileNotFoundError: If the input CSV file doesn't exist
+        KeyError: If the specified program column isn't found in the CSV
+        
+    Examples:
+        >>> renderer = DeterministicRenderer()
+        >>> render_from_csv(renderer, "spirographs", "program_string")
+        # Processes output/spirographs.csv and saves images + updated CSV
     """
     input_csv_path = os.path.join("output", f"{name}.csv")
     if not os.path.exists(input_csv_path):

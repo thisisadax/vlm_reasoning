@@ -1,4 +1,22 @@
 # dsl_renderer/probabilistic.py
+"""
+Probabilistic drawing DSL renderer for organic, hand-drawn style graphics.
+
+This module implements a stateful, probabilistic DSL that simulates natural drawing
+with noise, smooth curves, and organic variations. It maintains drawing state (position,
+angle) and uses Bézier curves with procedural noise to create hand-drawn aesthetics.
+
+The DSL vocabulary includes:
+- Drawing commands: curve, dot, turn
+- State operations: lift (move without drawing)
+- Composition: C (compose operations in sequence)
+- Math functions: +, -, *, /, pi, sin, cos, tan
+
+Example programs:
+    "(curve 0.5 2.0 0.3)"  # Draw curved line with angle change, length, bend
+    "(C (curve 0 1 0) (turn 1.57) (curve 0 1 0))"  # L-shaped path
+    "(lift 1 1 0)"  # Move to position (1,1) facing up
+"""
 import math
 import numpy as np
 from typing import Dict, Union
@@ -6,18 +24,43 @@ from ..core import AstNode
 from .base import BaseRenderer
 
 
-## --- Noise & Drawing Hyperparameters (Updated to match legacy.py) ---
+## --- Noise & Drawing Hyperparameters ---
 NOISE_PARAMS = {
-    'sigma': 0.02, 'smooth_amp': 0.04, 'base_freq': 0.5,
-    'octaves': 3, 'persistence': 0.5,
+    'sigma': 0.02,        # Standard deviation for parameter noise
+    'smooth_amp': 0.04,   # Amplitude of smooth procedural noise 
+    'base_freq': 0.5,     # Base frequency for noise oscillations
+    'octaves': 3,         # Number of noise octaves to combine
+    'persistence': 0.5,   # Amplitude decay between octaves
 }
-BEZIER_NUM_POINTS = 40
-DOT_NUM_POINTS = 20
-State = Dict[str, Union[np.ndarray, float]]
+BEZIER_NUM_POINTS = 40    # Number of points to sample along Bézier curves
+DOT_NUM_POINTS = 20       # Number of points around circular dots
+State = Dict[str, Union[np.ndarray, float]]  # Type hint for drawing state
 
 
 ## --- Helper functions for curve generation ---
 def _generate_smooth_noise(num_points, amp, freq, oct, pers):
+    """
+    Generates smooth procedural noise for organic curve variations.
+    
+    Creates multi-octave noise using sinusoidal functions with random phases.
+    The noise is enveloped with a sine function to taper at the endpoints,
+    creating natural-looking curve variations.
+    
+    Args:
+        num_points: Number of noise samples to generate
+        amp: Base amplitude of the noise
+        freq: Base frequency of oscillations  
+        oct: Number of octaves to combine
+        pers: Persistence (amplitude decay) between octaves
+        
+    Returns:
+        numpy array of shape (num_points, 2) with x,y noise offsets
+        
+    Examples:
+        >>> noise = _generate_smooth_noise(40, 0.04, 0.5, 3, 0.5)
+        >>> noise.shape
+        (40, 2)
+    """
     # return array of zeros if amplitude or frequency is 0
     if amp == 0 or freq == 0: 
         return np.zeros((num_points, 2))  
@@ -35,6 +78,26 @@ def _generate_smooth_noise(num_points, amp, freq, oct, pers):
 
 
 def _bezier(p0, p1, p2, p3, num_points, smooth_noise):
+    """
+    Generates points along a cubic Bézier curve with added noise.
+    
+    Creates a smooth curve between p0 and p3 using control points p1 and p2,
+    then adds procedural noise for organic variation.
+    
+    Args:
+        p0, p1, p2, p3: Control points as 2D numpy arrays
+        num_points: Number of points to sample along the curve
+        smooth_noise: Noise array of shape (num_points, 2) to add
+        
+    Returns:
+        numpy array of shape (num_points, 2) with curve points
+        
+    Examples:
+        >>> p0, p3 = np.array([0,0]), np.array([1,1])  
+        >>> p1, p2 = np.array([0.3,0]), np.array([0.7,1])
+        >>> noise = np.zeros((40, 2))
+        >>> curve = _bezier(p0, p1, p2, p3, 40, noise)
+    """
     t = np.linspace(0, 1, num_points)[:, np.newaxis]
     points = ((1-t)**3*p0 + 3*(1-t)**2*t*p1 + 3*(1-t)*t**2*p2 + t**3*p3)
     return points + smooth_noise
@@ -42,6 +105,30 @@ def _bezier(p0, p1, p2, p3, num_points, smooth_noise):
 
 ## --- Stateful Drawing Functions ---
 def _curve(d_angle, length, bend, state):
+    """
+    Draws a curved line with probabilistic variations.
+    
+    Creates a Bézier curve from the current position in the given direction,
+    with noise added to all parameters for organic variation. Updates the
+    drawing state with the new position and angle.
+    
+    Args:
+        d_angle: Change in drawing angle (radians)
+        length: Length of the curve 
+        bend: Curve bendiness factor (0=straight, higher=more curved)
+        state: Current drawing state dict with 'pos' and 'angle'
+        
+    Returns:
+        (strokes, new_state) tuple where:
+        - strokes: List containing one Bézier curve stroke
+        - new_state: Updated state with new position and angle
+        
+    Examples:
+        >>> state = {'pos': np.array([0., 0.]), 'angle': 0.}
+        >>> strokes, new_state = _curve(0.5, 2.0, 0.3, state)
+        >>> len(strokes)
+        1
+    """
     n = NOISE_PARAMS
     d_angle_n = d_angle + np.random.normal(0, n['sigma'])
     length_n = abs(length + np.random.normal(0, n['sigma'] * length))

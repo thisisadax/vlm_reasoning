@@ -1,4 +1,15 @@
 # dsl_renderer/render.py
+"""
+Command-line interface for the DSL renderer system.
+
+This module provides a CLI for rendering geometric DSL programs either individually
+or in batch from CSV files. It supports multiple DSL types (deterministic, 
+probabilistic) and provides subcommands for different use cases.
+
+Usage:
+    python -m renderer.render single deterministic "(C l c)" output.png
+    python -m renderer.render csv probabilistic curves_dataset
+"""
 import argparse
 from .core import (
     parse_program, render_strokes_to_image, export_image, render_from_csv
@@ -8,7 +19,24 @@ from .languages.probabilistic import ProbabilisticRenderer
 
 
 def main():
-    """Main execution function with command-line parsing."""
+    """
+    Main CLI entry point with argument parsing and command dispatch.
+    
+    Sets up argument parsing for the two main commands:
+    - 'single': Render a single DSL program string to an image
+    - 'csv': Batch render programs from a CSV file
+    
+    Supports multiple renderer types and handles command execution with
+    appropriate error handling.
+    
+    Command Line Arguments:
+        single <renderer> <program> <output>: Render single program
+        csv <renderer> <name> [--col <column>]: Batch render from CSV
+        
+    Examples:
+        $ python -m renderer.render single deterministic "(T l 1 0)" line.png
+        $ python -m renderer.render csv probabilistic drawing_data --col programs
+    """
     parser = argparse.ArgumentParser(
         description="A unified renderer for deterministic and probabilistic DSLs.",
         formatter_class=argparse.RawTextHelpFormatter
