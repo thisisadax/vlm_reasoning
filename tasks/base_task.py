@@ -95,8 +95,10 @@ class Task(ABC):
                 strokes = self.renderer.evaluate(ast)
                 image_array = render_strokes_to_image(strokes, line_width=self.stroke_width)
                 export_image(image_array, str(output_path))
+                #error
                 filepaths.append(str(output_path))
             except Exception as e:
+                #error
                 print(f"❌ Error rendering program for row {i} ('{program_str[:50]}...'): {e}")
                 print(traceback.format_exc())
                 filepaths.append(None)

@@ -1,0 +1,5 @@
+defaults:
+  - base_task
+
+_target_: tasks.relational.RelationalChainsTask
+task_name: relational_chains
