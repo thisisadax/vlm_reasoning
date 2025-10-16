@@ -1,0 +1,3 @@
+Six images are shown below. Five share an elementary visual feature, while one is clearly different.
+Identify the outlier by responding with its number in square brackets (e.g., [3]) and a brief justification in curly brackets.
+Important: Ignore any printed numbers, labels, borders, or markings in the images—they are not part of the visual pattern. Base your choice only on the shapes/arrangements.

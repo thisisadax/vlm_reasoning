@@ -21,7 +21,7 @@ class GoogleModel(APIModel):
     def build_vlm_payload(self, trial_metadata: pd.Series) -> dict:
         prompt_text = self.prompt
         image_paths = [
-            Path(self.task.data_dir) / self.task.task_name / "trials" / f"trial={trial_metadata['trial_idx']}_{i}.png"
+            Path(self.task.data_dir) / self.task.task_root_name / "trials" / f"trial={trial_metadata['trial_idx']}_{i}.png"
             for i in range(1, 7)
         ]
         encoded_images = [self._encode_image(p) for p in image_paths if p.exists()]
@@ -42,7 +42,7 @@ class GoogleModel(APIModel):
     def _parse_response(self, response_json: dict) -> Tuple[str, str, dict]:
         print(response_json)
         if 'candidates' not in response_json or not response_json['candidates']:
-            return f"API Error: Content blocked or no candidates returned. Response: {response_json}"
+            raise ValueError(f"API Error: Content blocked or no candidates returned. Response: {response_json}")
         response_text = response_json['candidates'][0]['content']['parts'][0]['text']
         usage_metadata = response_json['usageMetadata']
         n_prompt_tokens = usage_metadata['promptTokenCount']

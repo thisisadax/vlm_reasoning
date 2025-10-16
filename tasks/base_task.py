@@ -1,237 +1,589 @@
-import pandas as pd
+# tasks/base_task.py
+from __future__ import annotations
+
+import json
 import random
-from abc import ABC, abstractmethod
-from pathlib import Path
-from typing import Tuple
-from PIL import Image, ImageDraw, ImageFont
 import traceback
+from abc import ABC, abstractmethod
+import os
+from pathlib import Path
+from typing import Any, Iterable
+
+import numpy as np
+import pandas as pd
+from PIL import Image, ImageDraw, ImageFont
 from tqdm import tqdm
 
-from renderer.languages.base import BaseRenderer
-from renderer.core import parse_program, render_strokes_to_image, export_image
+# renderer core (confirmed signatures)
+from renderer.core import (
+    parse_program,           # (program_string: str) -> AstNode
+    render_strokes_to_image, # (strokes: list, canvas_dim:int=512, coord_bound:float=5.0, line_width:float=3.0) -> np.ndarray
+    export_image,            # (image_array: np.ndarray, export_path: str) -> None
+)
 
 
 class Task(ABC):
-    """An abstract base class for generating task stimuli and oddball trials.
-
-    This class provides a framework for defining a task, generating visual stimuli
-    from program strings, and creating oddball-out trial sets based on abstract
-    features defined in the stimulus metadata.
+    """
+    Abstract base task.
+    Subclasses must set:
+      - renderer: instance exposing .evaluate(ast) -> strokes (list-like)
+      - generate_programs(): DataFrame with 'program_string' and abstraction columns
     """
 
     @property
     @abstractmethod
-    def renderer(self) -> BaseRenderer:
-        """An instance of a renderer class (e.g., DeterministicRenderer).
-        
-        This must be implemented by subclasses, typically as a class attribute.
-        e.g., `renderer = DeterministicRenderer()`
-        """
+    def renderer(self):
         pass
 
-    def __init__(self, task_name: str, data_dir: str = "data", n_trials: int = 100, stroke_width: float = 3.0, **kwargs):
-        """Initializes the Task instance, setting up paths and directories."""
+    def __init__(
+        self,
+        task_name: str,
+        data_dir: str = "data",
+        n_trials: int = 100,
+        n_dimensions: int = 3,
+        reference_variance: int = 1,
+        stroke_width: float = 3.0,
+        overwrite_existing: bool = False,
+        dup_factor: int = 1,
+        canvas_dim: int = 512,
+        coord_bound: float = 5.0,
+        exclude_abstraction_keywords: str | list[str] | None = None,  # <-- added
+        **kwargs,
+    ):
         self.task_name = task_name
         self.data_dir = Path(data_dir)
-        self.n_trials = n_trials
-        self.stroke_width = stroke_width
+        self.n_trials = int(n_trials)
+        self.n_dimensions = int(n_dimensions)
+        self.reference_variance = int(reference_variance)
+        self.stroke_width = float(stroke_width)
+        self.overwrite_existing = bool(overwrite_existing)
+        self.dup_factor = int(dup_factor)
+        self.canvas_dim = int(canvas_dim)
+        self.coord_bound = float(coord_bound)
+
+        # NEW: normalize exclude keywords; supports str (comma/space separated) or list[str]
+        if exclude_abstraction_keywords is None:
+            self.exclude_keywords: list[str] = []
+        elif isinstance(exclude_abstraction_keywords, str):
+            # allow comma or whitespace separation
+            parts: list[str] = []
+            for chunk in exclude_abstraction_keywords.replace(",", " ").split():
+                c = chunk.strip().lower()
+                if c:
+                    parts.append(c)
+            self.exclude_keywords = parts
+        else:
+            self.exclude_keywords = [
+                str(s).strip().lower()
+                for s in exclude_abstraction_keywords
+                if str(s).strip()
+            ]
+
+        # paths + dirs + params.json
         self._setup_paths()
         self._create_directories()
+        # legacy field used by some model codepaths
+        self.task_root_name = self.dataset_dir.name
+
+    # ---------------- paths ----------------
 
     def _setup_paths(self):
-        """Initializes all necessary directory and file paths."""
-        task_root = self.data_dir / self.task_name
-        self.images_dir = task_root / "images"
-        self.trials_dir = task_root / "trials"
-        self.summary_dir = task_root / "summaries"
-        self.metadata_path = task_root / "metadata.csv"
-        self.trials_metadata_path = task_root / "trials.csv"
+        self.dataset_dir = self.data_dir / f"{self.task_name}_dim{self.n_dimensions}_var{self.reference_variance}"
+        self.images_dir = self.dataset_dir / "images"
+        self.trials_dir = self.dataset_dir / "trials"
+        self.summaries_dir = self.dataset_dir / "summaries"
+
+        self.metadata_path = self.dataset_dir / "metadata.csv"
+        self.trials_metadata_path = self.dataset_dir / "trials.csv"
+        self.params_path = self.dataset_dir / "params.json"
 
     def _create_directories(self):
-        """Ensures that all required directories exist, creating them if necessary."""
-        for path in [self.images_dir, self.trials_dir, self.summary_dir]:
-            path.mkdir(parents=True, exist_ok=True)
+        self.images_dir.mkdir(parents=True, exist_ok=True)
+        self.trials_dir.mkdir(parents=True, exist_ok=True)
+        self.summaries_dir.mkdir(parents=True, exist_ok=True)
+        self.params_path.parent.mkdir(parents=True, exist_ok=True)
+        params = {
+            "task_name": self.task_name,
+            "n_dimensions": self.n_dimensions,
+            "reference_variance": self.reference_variance,
+            "n_trials": self.n_trials,
+            "stroke_width": self.stroke_width,
+            "dup_factor": self.dup_factor,
+            "canvas_dim": self.canvas_dim,
+            "coord_bound": self.coord_bound,
+            "exclude_keywords": self.exclude_keywords,
+            "data_dir": str(self.data_dir),
+            "dataset_dir": str(self.dataset_dir),
+        }
+        with open(self.params_path, "w") as f:
+            json.dump(params, f, indent=2)
+
+    # --------------- abstract ---------------
 
     @abstractmethod
     def generate_programs(self) -> pd.DataFrame:
-        """Generates program strings and their associated metadata."""
-        pass
+        """Return a DataFrame with at least 'program_string' and abstraction columns."""
+        raise NotImplementedError
 
-    # --- Main Orchestration ---
-    def run(self) -> Tuple[pd.DataFrame, pd.DataFrame]:
-        """
-        Executes the full pipeline. If trials.csv exists, load existing data.
-        Otherwise, generate, render, and create all stimuli, oddball trials, and trial summaries.
-        """
-        # check if the final output file (trials.csv) already exists.
-        if self.trials_metadata_path.exists():
-            print(f"✅ Found existing trial data at '{self.trials_metadata_path}'. Skipping generation.")
-            stimuli_df = pd.read_csv(self.metadata_path)
-            trials_df = pd.read_csv(self.trials_metadata_path)
-            return stimuli_df
-        # if not, generate all stimuli, oddball trials, and example trials
-        else:
-            print("🔍 No existing trial data found. Starting full generation pipeline...")
-            # 1. Generate and render all stimuli
-            stimuli_df = self._generate_and_render_stimuli()
-            # 2. Generate oddball trials from the stimuli
-            trials_df = self._generate_all_oddball_trials(stimuli_df)
-            # 3. Generate trial visualizations (visualize trial images and oddballs on a grid).
-            self._generate_trial_summaries(trials_df)
-            return stimuli_df, trials_df
+    # --------------- pipeline ---------------
 
-    # --- Step 1: Stimulus Generation & Rendering ---
+    def run(self):
+        if self.overwrite_existing:
+            self._clear_existing_outputs()
+
+        if (not self.overwrite_existing) and self.trials_metadata_path.exists():
+            print(f"✅ Found existing trials at {self.trials_metadata_path}. Loading…")
+            return pd.read_csv(self.metadata_path), pd.read_csv(self.trials_metadata_path)
+
+        print("🔍 No existing trial data found. Starting full generation pipeline...")
+        stimuli_df = self._generate_and_render_stimuli()
+        trials_df = self._generate_all_oddball_trials(stimuli_df)
+        self._generate_trial_summaries(trials_df)
+        return stimuli_df, trials_df
+
+    def _clear_existing_outputs(self):
+        try:
+            for p in (self.metadata_path, self.trials_metadata_path):
+                if p.exists():
+                    p.unlink()
+            for d in (self.images_dir, self.trials_dir, self.summaries_dir):
+                if d.exists():
+                    for f in d.glob("*"):
+                        try:
+                            f.unlink()
+                        except Exception:
+                            pass
+        except Exception as e:
+            print(f"⚠️ Could not fully clear outputs: {e}")
+
+    # ---------- step 1: render ----------
+
+    def _render_one(self, program_string: str) -> np.ndarray:
+        ast = parse_program(program_string)          # AstNode
+        strokes = self.renderer.evaluate(ast)        # list-like strokes
+        img_arr = render_strokes_to_image(           # to bitmap
+            strokes,
+            canvas_dim=self.canvas_dim,
+            coord_bound=self.coord_bound,
+            line_width=self.stroke_width,
+        )
+        return img_arr
+
     def _generate_and_render_stimuli(self) -> pd.DataFrame:
-        """Generates programs, renders them as images, and saves metadata."""
-        # 1. Generate programs
-        df = self.generate_programs()
-        # 2. Render programs using the integrated renderer library
+        df = self.generate_programs().copy()
+        assert "program_string" in df.columns, "generate_programs() must include 'program_string'"
+
         filepaths = []
-        for i, row in tqdm(df.iterrows(), desc="Rendering stimuli", unit="stimulus", leave=False, total=len(df)):
-            output_path = self.images_dir / f"{i}.png"
-            program_str = str(row['program_string'])
+        for i, row in tqdm(df.iterrows(), total=len(df), desc="🎨 Rendering stimuli", unit="stimulus"):
+            out_path = self.images_dir / f"{i}.png"
             try:
-                ast = parse_program(program_str)
-                strokes = self.renderer.evaluate(ast)
-                image_array = render_strokes_to_image(strokes, line_width=self.stroke_width)
-                export_image(image_array, str(output_path))
-                filepaths.append(str(output_path))
+                img_arr = self._render_one(str(row["program_string"]))
+                export_image(img_arr, str(out_path))
+                filepaths.append(str(out_path))
             except Exception as e:
-                print(f"❌ Error rendering program for row {i} ('{program_str[:50]}...'): {e}")
-                print(traceback.format_exc())
+                print(f"⚠️ Rendering failed for idx={i}: {e}")
                 filepaths.append(None)
-        
-        # 3. Save metadata
+
         df["render_filepath"] = filepaths
-        df.dropna(subset=['render_filepath'], inplace=True)
+        df = df.dropna(subset=["render_filepath"]).reset_index(drop=True)
         df.to_csv(self.metadata_path, index=False)
-        
-        print(f"✅ Rendered {len(df)} stimuli for task '{self.task_name}'")
-        print(f"✅ Images saved to: {self.images_dir}")
-        print(f"✅ Metadata saved to: {self.metadata_path}")
+        print(f"✅ Saved stimuli metadata to: {self.metadata_path}")
         return df
 
-    # --- Step 2: Oddball Trial Generation ---
+    # ---------- helpers ----------
+
+    @staticmethod
+    def _to_py(x: Any) -> Any:
+        if isinstance(x, (np.integer,)):
+            return int(x)
+        if isinstance(x, (np.floating,)):
+            return float(x)
+        if pd.isna(x):
+            return None
+        return x
+
+    def _row_features(self, row: pd.Series, cols: Iterable[str]) -> dict:
+        return {c: self._to_py(row[c]) for c in cols if c in row.index}
+
+    # ---------- step 2: trials ----------
+
+    def get_abstraction_columns(self, metadata_df: pd.DataFrame) -> list[str]:
+        """
+        Default: all non-admin columns truncated by n_dimensions.
+        Then apply keyword-based include/exclude filters (substring match).
+        """
+        admin = {"program_string", "render_filepath", "abstraction"}
+        cols = [c for c in metadata_df.columns if c not in admin]
+        cols = cols[: self.n_dimensions]
+
+        # Exclude if the column name contains any of the keywords
+        if getattr(self, "exclude_keywords", None):
+            lowered = [c.lower() for c in cols]
+            keep = []
+            for c, lc in zip(cols, lowered):
+                if any(k in lc for k in self.exclude_keywords):
+                    continue
+                keep.append(c)
+            # fall back to original if we filtered everything by mistake
+            if keep:
+                cols = keep
+
+        return cols
+
     def _generate_all_oddball_trials(self, metadata_df: pd.DataFrame) -> pd.DataFrame:
-        """Generates oddball trials for all specified abstractions."""
-        print(f"\n🎯 Generating oddball trials for task '{self.task_name}'")
-        excluded_cols = {'program_string', 'render_filepath'}
-        abstraction_cols = [col for col in metadata_df.columns if col not in excluded_cols]
-        print(f"📊 Found abstraction columns: {abstraction_cols}")
-        all_trials_data = []
+        abstraction_cols = self.get_abstraction_columns(metadata_df)
+        print(f"🧭 Using abstraction columns: {abstraction_cols}")
+
+        records = []
+        per_abs = self.n_trials
+        total = per_abs * len(abstraction_cols)
+        pbar = tqdm(total=total, desc="🧪 Building trials", unit="trial")
+
         for abstraction in abstraction_cols:
-            pbar =  tqdm(range(self.n_trials), 
-                         desc=f"🔄 Processing abstraction: {abstraction}", 
-                         unit="trial",
-                         leave=False)
-            for _ in pbar:
-                trial_data = self._create_single_trial(metadata_df, abstraction, abstraction_cols, len(all_trials_data))
-                if trial_data:
-                    all_trials_data.append(trial_data)
-            print(f"✅ Generated {self.n_trials} trials for abstraction: {abstraction}")
-        trials_df = pd.DataFrame(all_trials_data)
+            done = 0
+            attempts = 0
+            # Allow a hard cap on attempts per abstraction to avoid infinite search
+            max_attempts = int(os.environ.get("MAX_ATTEMPTS_PER_ABS", "50000"))
+            base_counts = metadata_df[abstraction].value_counts().to_dict()
+            while done < per_abs:
+                rec = self._create_single_trial(metadata_df, abstraction, abstraction_cols, trial_idx=len(records))
+                attempts += 1
+                if rec is not None:
+                    records.append(rec)
+                    done += 1
+                    pbar.update(1)
+                elif attempts % 5000 == 0:
+                    print(f"\n   ↳ still searching for {abstraction} (attempts={attempts}). value_counts={base_counts}")
+                if attempts >= max_attempts:
+                    print(f"⚠️ Giving up on {abstraction} after {attempts} attempts. Collected {done}/{per_abs} trials for this abstraction.")
+                    break
+        pbar.close()
+
+        trials_df = pd.DataFrame.from_records(records)
         if not trials_df.empty:
             trials_df.to_csv(self.trials_metadata_path, index=False)
-            print(f"✅ Generated {len(trials_df)} oddball trials")
+            print(f"✅ Saved trials index to: {self.trials_metadata_path}")
+        else:
+            print("⚠️ No trials generated.")
         return trials_df
 
-    def _create_single_trial(self, df: pd.DataFrame, abstraction: str, all_abstractions: list, trial_idx: int) -> dict | None:
-        """Attempts to create and save all assets for a single valid oddball trial."""
+    def _create_single_trial(self, df: pd.DataFrame, abstraction: str, all_abstractions: list[str], trial_idx: int) -> dict | None:
         try:
-            target_value = random.choice(df[abstraction].unique())
-            reference_stimuli = self._sample_reference_stimuli(df, abstraction, target_value, all_abstractions)
-            oddball_stimulus = self._find_oddball_stimulus(df, reference_stimuli, abstraction, target_value)
-            if oddball_stimulus is None or reference_stimuli is None: 
+            target_value = random.choice(df[abstraction].unique().tolist())
+            refs = self._sample_reference_stimuli(df, abstraction, target_value, all_abstractions)
+            if refs is None:
                 return None
-            return self._process_and_save_trial_assets(reference_stimuli, oddball_stimulus, abstraction, trial_idx)
+            odd = self._find_oddball_stimulus(df, refs, abstraction, target_value)
+            if odd is None or odd.empty:
+                return None
+
+            # Final guard: ensure no-singleton across *six* for non-oddball dims
+            if not self._six_no_singleton_ok(refs, odd.iloc[0], abstraction, all_abstractions):
+                return None
+
+            return self._process_and_save_trial_assets(refs, odd, abstraction, trial_idx, all_abstractions)
         except Exception as e:
             print(f"❌ Error generating trial for {abstraction}: {e}")
             print(traceback.format_exc())
             return None
 
-    def _sample_reference_stimuli(self, df: pd.DataFrame, abstraction: str, value: any, all_abstractions: list, max_attempts=int(5e4)) -> pd.DataFrame | None:
-        """Samples 5 reference stimuli, ensuring no singletons on other dimensions."""
-        matching_stimuli = df[df[abstraction] == value]
-        if len(matching_stimuli) < 5:
+    def _sample_reference_stimuli(
+        self,
+        df: pd.DataFrame,
+        abstraction: str,
+        value: Any,
+        used_abstractions: list[str],
+        max_attempts: int = 20_000
+    ) -> pd.DataFrame | None:
+        """
+        Return 5 references with:
+        - target abstraction fixed to `value`
+        - exactly `reference_variance` other dims varying (or fewer if infeasible)
+        - for each varying dim among the 5 refs: no singletons (each value count ≥2)
+        - all other non-oddball dims constant
+        """
+        # pool with the oddball-dimension fixed
+        base = df[df[abstraction] == value]
+        if base.empty:
             return None
+
+        if self.dup_factor > 1:
+            base = pd.concat([base] * self.dup_factor, ignore_index=True)
+
+        non_target = [c for c in used_abstractions if c != abstraction]
+
+        # Which dims are even capable of varying
+        feasibles = []
+        for c in non_target:
+            vc = base[c].value_counts()
+            if vc.nunique() >= 1 and vc.index.size >= 2 and vc.max() >= 2:
+                feasibles.append(c)
+
+        import itertools, random as _random
+        K = min(self.reference_variance, len(feasibles))
+        vary_sets = list(itertools.combinations(feasibles, K)) if K > 0 else [tuple()]
+
         for _ in range(max_attempts):
-            sample = matching_stimuli.sample(n=5)
-            has_singleton = any(
-                (sample[col].nunique() > 1 and (sample[col].value_counts() == 1).any())
-                for col in all_abstractions if col != abstraction
-            )
-            if not has_singleton:
+            varying = set(_random.choice(vary_sets))
+            constants = [c for c in non_target if c not in varying]
+
+            # choose a concrete value for every constant dim
+            const_vals = {c: _random.choice(base[c].unique().tolist()) for c in constants}
+
+            # filter pool to rows that actually satisfy constant values
+            pool = base.copy()
+            for c, v in const_vals.items():
+                pool = pool[pool[c] == v]
+                if pool.empty:
+                    break
+            if pool.empty:
+                continue
+
+            # get candidate values per varying dim (each value must have >=2 availability)
+            choices = {}
+            for c in varying:
+                avail = pool[c].value_counts()
+                popular = [v for v, cnt in avail.items() if cnt >= 2]
+                if len(popular) < 2:
+                    choices = None
+                    break
+                # pick either 2 or 3 values to allow
+                vals = (_random.sample(popular, 3) if len(popular) >= 3 and _random.random() < 0.3
+                        else _random.sample(popular, 2))
+                choices[c] = vals
+            if choices is None:
+                continue
+
+            # construct a multi-set of 5 assignments for each varying column (no singletons)
+            col_bags = {}
+            for c, vals in choices.items():
+                if len(vals) == 3:
+                    col = [vals[0], vals[0], vals[1], vals[1], vals[2]]  # provisional 2/2/1
+                else:
+                    v1, v2 = vals
+                    col = [v1, v1, v1, v2, v2]  # 3/2
+                _random.shuffle(col)
+                col_bags[c] = col
+
+            # realize 5 actual rows consistent with all column assignments simultaneously
+            taken_idx = set()
+            chosen_rows = []
+            for i in range(5):
+                sub = pool
+                for c in varying:
+                    sub = sub[sub[c] == col_bags[c][i]]
+                    if sub.empty:
+                        break
+                if sub.empty:
+                    chosen_rows = []
+                    break
+                sub = sub[~sub.index.isin(taken_idx)]
+                if sub.empty:
+                    # allow reuse as last resort
+                    sub = pool
+                    for c in varying:
+                        sub = sub[sub[c] == col_bags[c][i]]
+                pick = sub.sample(n=1).iloc[0]
+                chosen_rows.append(pick)
+                taken_idx.add(pick.name)
+
+            if not chosen_rows:
+                continue
+
+            sample = pd.DataFrame(chosen_rows)
+
+            # verify constraints across the 5 references
+            ok = True
+            if any(sample[c].nunique() != 1 for c in constants):
+                ok = False
+            for c in varying:
+                vc = sample[c].value_counts()
+                if sample[c].nunique() < 2 or vc.min() < 2:
+                    ok = False
+                    break
+
+            if ok:
                 return sample
+
         return None
 
-    def _find_oddball_stimulus(self, df: pd.DataFrame, reference: pd.DataFrame, abstraction: str, target_value: any) -> pd.DataFrame | None:
-        """Finds a valid oddball stimulus that differs only on the target abstraction."""
-        allowed_values = {col: set(reference[col].unique()) for col in reference.columns if col not in {'program_string', 'render_filepath', abstraction}}
+
+    def _find_oddball_stimulus(
+        self,
+        df: pd.DataFrame,
+        reference: pd.DataFrame,
+        abstraction: str,
+        target_value: Any
+    ) -> pd.DataFrame | None:
+        """
+        Pick an oddball differing on `abstraction`, matching allowed sets on others,
+        and preserving no-singleton across the 6 images.
+        """
+        non_target_cols = [
+            c for c in reference.columns
+            if c not in {"program_string", "render_filepath"} and c != abstraction
+        ]
+        # allowed sets for non-target dims are the sets realized in refs
+        allowed = {c: set(reference[c].unique()) for c in non_target_cols}
+
         mask = (df[abstraction] != target_value)
-        for col, values in allowed_values.items():
-            mask &= df[col].isin(values)
-        candidates = df[mask]
-        return candidates.sample(n=1) if not candidates.empty else None
+        for c, vals in allowed.items():
+            # constants (len==1) and varying dims are both respected by constraining to the realized sets
+            mask &= df[c].isin(vals)
+        cands = df[mask]
+        if cands.empty:
+            return None
 
-    def _process_and_save_trial_assets(self, reference: pd.DataFrame, oddball: pd.DataFrame, abstraction: str, trial_idx: int) -> dict:
-        """Combines stimuli, creates labeled images, and returns trial metadata."""
-        trial_stimuli = pd.concat([reference, oddball])
-        oddball_original_idx = oddball.index[0]
-        shuffled_trial = trial_stimuli.sample(frac=1).reset_index()
-        oddball_pos = shuffled_trial[shuffled_trial['index'] == oddball_original_idx].index[0] + 1
-        for i, row in shuffled_trial.iterrows():
-            labeled_path = self.trials_dir / f"trial={trial_idx}_{i+1}.png"
-            self._add_label_to_image(row['render_filepath'], str(i + 1), str(labeled_path))
-        return {
-            'trial_idx': trial_idx,
-            'oddball_idx': oddball_pos,
-            'abstraction': abstraction,
-            'stimuli_indices': shuffled_trial['index'].tolist()
+        # sample some candidates and ensure adding the oddball won't create singletons
+        cands = cands.sample(n=min(len(cands), 256), replace=False)
+        for _, row in cands.iterrows():
+            ok = True
+            for c in non_target_cols:
+                combined = reference[c].tolist() + [row[c]]
+                vc = pd.Series(combined).value_counts()
+                # Only disallow singletons; allow constants (all 6 same) and 4/2, 3/3, etc.
+                if (vc == 1).any():
+                    ok = False
+                    break
+            if ok:
+                # avoid exact duplicate program across the six, if possible
+                if "program_string" in reference.columns and row.get("program_string") in set(reference["program_string"]):
+                    continue
+                return row.to_frame().T
+
+        return None
+
+    def _six_no_singleton_ok(self, refs: pd.DataFrame, odd_row: pd.Series, oddball_abs: str, all_abs: list[str]) -> bool:
+        """Final guard: across the 6 tiles, every non-oddball dim used must have count >=2 for each value."""
+        for c in all_abs:
+            if c == oddball_abs:
+                continue
+            combined = refs[c].tolist() + [odd_row[c]]
+            vc = pd.Series(combined).value_counts()
+            if vc.min() < 2:
+                return False
+        return True
+
+    def _process_and_save_trial_assets(
+        self,
+        refs: pd.DataFrame,
+        oddball: pd.DataFrame,
+        oddball_abstraction: str,
+        trial_idx: int,
+        abstraction_cols: list[str],
+    ) -> dict:
+        refs = refs.sample(frac=1.0, random_state=random.randint(0, 1_000_000)).reset_index(drop=True)
+        odd_row = oddball.iloc[0]
+        ref_paths = refs["render_filepath"].tolist()
+        odd_path = odd_row["render_filepath"]
+
+        # slot the oddball
+        odd_pos = random.randint(1, 6)
+        ordered_paths = []
+        ordered_feats = []
+        rptr = 0
+        for slot in range(1, 7):
+            if slot == odd_pos:
+                ordered_paths.append(odd_path)
+                ordered_feats.append(self._row_features(odd_row, abstraction_cols))
+            else:
+                ordered_paths.append(ref_paths[rptr])
+                ordered_feats.append(self._row_features(refs.iloc[rptr], abstraction_cols))
+                rptr += 1
+
+        # save six tiles
+        for i, src in enumerate(ordered_paths, 1):
+            dst = self.trials_dir / f"trial={trial_idx}_{i}.png"
+            Image.open(src).save(dst)
+
+        # compute counts across 6 and across refs
+        def _counts(vals):
+            s = pd.Series(vals)
+            vc = s.value_counts(dropna=False)
+            return {str(k) if k is not None else None: int(v) for k, v in vc.items()}
+
+        all6_value_counts = {c: _counts([f.get(c) for f in ordered_feats]) for c in abstraction_cols}
+        ref_value_counts  = {c: _counts([f.get(c) for i,f in enumerate(ordered_feats,1) if i != odd_pos]) for c in abstraction_cols}
+
+        ref_varying = [c for c, vc in ref_value_counts.items() if len([k for k,v in vc.items() if v>0]) > 1]
+        ref_singletons = [c for c, vc in ref_value_counts.items() if any(v == 1 for v in vc.values())]
+        nonodd_singletons = [c for c in abstraction_cols if c != oddball_abstraction and any(v == 1 for v in all6_value_counts[c].values())]
+
+        # sidecar JSON (rich)
+        tiles = []
+        for i, (p, feats) in enumerate(zip(ordered_paths, ordered_feats), 1):
+            tiles.append({
+                "index": i,
+                "image_path": str(self.trials_dir / f"trial={trial_idx}_{i}.png"),
+                "features": feats,
+            })
+
+        rec = {
+            "trial_idx": trial_idx,
+            "oddball_idx": odd_pos,
+            "oddball_abstraction": oddball_abstraction,
+            "reference_variance": self.reference_variance,
+            "n_dimensions": self.n_dimensions,
+            "abstraction_columns": abstraction_cols,
+            "ref_varying_dims_actual": ref_varying,
+            "ref_constant_dims_actual": [c for c in abstraction_cols if c not in ref_varying],
+            "ref_variance_count_actual": len(ref_varying),
+            "ref_variance_target": self.reference_variance,
+            "ref_singleton_columns": ref_singletons,
+            "all_nonoddball_singleton_columns": nonodd_singletons,
+            "all6_value_counts": all6_value_counts,
+            "ref_value_counts": ref_value_counts,
+            "tiles": tiles,
         }
+        with open(self.trials_dir / f"trial={trial_idx}_meta.json", "w") as f:
+            json.dump(rec, f, indent=2)
 
-    # --- Step 3: Trial Visualization ---
+        return rec
+
+    # ---------- step 3: summaries ----------
+
     def _generate_trial_summaries(self, trials_df: pd.DataFrame):
-        """Generates and saves 2x3 grid visualizations of example trials."""
-        print("\n🖼️ Generating example trial visualizations")
-        for abstraction in trials_df['abstraction'].unique():
-            abstraction_trials = trials_df[trials_df['abstraction'] == abstraction]
-            for i, (_, trial_row) in enumerate(abstraction_trials.iterrows()):
-                self._create_trial_grid_image(trial_row, abstraction, i)
-        print(f"✅ Trial visualizations saved to: {self.summary_dir}")
-
-    def _create_trial_grid_image(self, trial_row: pd.Series, abstraction: str, example_idx: int):
-        """Creates and saves a single 2x3 image grid for a given trial."""
-        images = []
-        for i in range(1, 7):
-            image_path = self.trials_dir / f"trial={trial_row['trial_idx']}_{i}.png"
-            if image_path.exists():
-                img = Image.open(image_path).convert('RGB')
-                border_color = "red" if i == trial_row['oddball_idx'] else "gray"
-                images.append(self._add_border_to_image(img, border_color))
-        if not images: 
+        if trials_df.empty:
+            print("⚠️ No trials generated, skipping visualizations")
             return
-        img_w, img_h = images[0].size
-        grid = Image.new("RGB", (3 * img_w, 2 * img_h), "white")
-        for i, img in enumerate(images):
-            grid.paste(img, ((i % 3) * img_w, (i // 3) * img_h))
-        grid.save(self.summary_dir / f"{abstraction}_{example_idx}.png")
+        for rec in tqdm(trials_df.to_dict("records"), desc="🖼️ Generating example trial visualizations"):
+            self._save_trial_grid(rec["trial_idx"], rec["oddball_idx"])
 
-    # --- Static Utility Methods ---
+    def _save_trial_grid(self, trial_idx: int, oddball_idx: int):
+        tiles = []
+        for i in range(1, 7):
+            img_path = self.trials_dir / f"trial={trial_idx}_{i}.png"
+            img = Image.open(img_path).convert("RGB")
+            color = "red" if i == oddball_idx else "green"
+            tiles.append(self._add_border(img, color, width=6))
+
+        w, h = tiles[0].width, tiles[0].height
+        grid = Image.new("RGB", (3 * w, 2 * h), "white")
+        positions = [(0, 0), (w, 0), (2*w, 0), (0, h), (w, h), (2*w, h)]
+        for tile, pos in zip(tiles, positions):
+            grid.paste(tile, pos)
+
+        grid.save(self.summaries_dir / f"trial={trial_idx}_grid.png")
+
+        # overlay numbers 1..6 on tiles (in-place)
+        for i in range(1, 7):
+            p = self.trials_dir / f"trial={trial_idx}_{i}.png"
+            self._overlay_text(p, f"{i}", p)
+
     @staticmethod
-    def _add_label_to_image(image_path: str, label: str, output_path: str):
-        """Adds a red text label to the upper left corner of an image."""
-        img = Image.open(image_path).convert('RGB')
+    def _add_border(img: Image.Image, color: str, width: int = 6) -> Image.Image:
+        out = Image.new("RGB", (img.width + 2 * width, img.height + 2 * width), color)
+        out.paste(img, (width, width))
+        return out
+
+    @staticmethod
+    def _overlay_text(image_path: Path, text: str, output_path: Path):
+        img = Image.open(image_path).convert("RGB")
         draw = ImageDraw.Draw(img)
         try:
+            # best effort; fallback if not present
             font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 75)
-        except IOError:
+        except Exception:
             font = ImageFont.load_default()
-        draw.text((15, 15), label, fill="red", font=font)
+        draw.text((15, 15), text, fill="red", font=font)
         img.save(output_path)
-    
-    @staticmethod
-    def _add_border_to_image(image: Image.Image, color: str, width: int = 10) -> Image.Image:
-        """Adds a colored border to an image."""
-        bordered_img = Image.new("RGB", (image.width + 2*width, image.height + 2*width), color)
-        bordered_img.paste(image, (width, width))
-        return bordered_img

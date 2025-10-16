@@ -72,6 +72,12 @@ class APIModel(ABC):
         """Abstract method for constructing the provider-specific API payload."""
         pass
 
+    @staticmethod
+    def _encode_image(image_path: Path) -> str:
+        """Encodes an image file to a base64 string."""
+        with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode('utf-8')
+
     @abstractmethod
     def _parse_response(self, response_json: dict) -> Tuple[str, str, dict]:
         """Abstract method for parsing the text from the API's JSON response."""
@@ -121,7 +127,7 @@ class APIModel(ABC):
             self.results_df.loc[i, 'answer'] = int(answer)
             self.results_df.loc[i, token_metadata.keys()] = token_metadata.values()
             print('response', response, '\n')
-            print(f'oddball_idx: {trial.get('oddball_idx')} model_answer: {answer}\n')
+            print(f"oddball_idx: {trial.get('oddball_idx')} model_answer: {answer}\n")
             p_bar.set_postfix({'cost': f'${self.calculate_cost():.4f}', 'accuracy': f'{self.calculate_accuracy()}%'})
             p_bar.update(1)
             time.sleep(self.sleep)

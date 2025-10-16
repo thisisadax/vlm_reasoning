@@ -13,11 +13,14 @@ class NutsAndBoltsTask(Task):
     # --- Specify the renderer for the task ---
     renderer = DeterministicRenderer()
 
-    def __init__(self, task_name=None, **kwargs):
+    def __init__(self, task_name=None, dup_factor: int = 1, **kwargs):
         """Initializes the NutsAndBoltsTask."""
         super().__init__(task_name=task_name or "nuts_and_bolts", **kwargs)
         self.polygon_map = {'c': 60, 't': 3, 's': 4, 'p': 5, 'h': 6}
         self.canvas_bound = 5.0
+        # Color options for the 6th dimension
+        self.colors = ['black', 'red', 'blue']
+        self.dup_factor = max(1, int(dup_factor))
 
     # --- Shape generation helpers ---
     def generate_polygon(self, n_sides, scale):
@@ -45,7 +48,7 @@ class NutsAndBoltsTask(Task):
 
     def generate_inner_ring(self, shape_type, n_shapes, radius):
         """Generates the program string for a radially repeating ring of shapes."""
-        shape_scale = 0.5
+        shape_scale = 0.5  # keep ring element scale stable for geometry feasibility
         base_shape = self.generate_shape_program(shape_type, shape_scale, is_radial=True)
         positioned_shape = f"(T {base_shape} (M 1 0 {radius} 0))"
         rotation_angle = (2 * math.pi) / n_shapes
@@ -56,15 +59,15 @@ class NutsAndBoltsTask(Task):
         Generates a single program and its record from a tuple of parameters,
         including dynamic geometry calculations.
         """
-        os1_type, os2_type, os3_scale, is_type, is_n = params
+        os1_type, os2_type, os3_scale, is_type, is_n, color = params
         outer_scale_large = self.canvas_bound - 0.25
         outer_scale_small = self.canvas_bound - 0.5
-        
+
         R_inner_central = os3_scale
         R_radial_shape = 0.5
         n_sides_outer = self.polygon_map[os1_type]
         apothem_outer = outer_scale_small * math.cos(math.pi / n_sides_outer)
-        
+
         min_radius = R_inner_central + R_radial_shape
         max_radius = apothem_outer - R_radial_shape
         valid_radius = (min_radius + max_radius) / 2.0
@@ -73,34 +76,40 @@ class NutsAndBoltsTask(Task):
         part2 = self.generate_shape_program(os1_type, outer_scale_large)
         part3 = self.generate_shape_program(os2_type, os3_scale)
         base_program = f"(C (C {part1} {part2}) {part3})"
-        
+
         inner_part = self.generate_inner_ring(is_type, is_n, valid_radius)
         program_string = f"(C {base_program} {inner_part})"
 
         return {
-            "outer_shape_type": os1_type, 
+            "outer_shape_type": os1_type,
             "nested_shape_type": os2_type,
-            "nested_shape_scale": os3_scale, 
+            "nested_shape_scale": os3_scale,
             "inner_shape_type": is_type,
-            "inner_n_shapes": is_n, 
+            "inner_n_shapes": is_n,
+            "color": color,
             "program_string": program_string
         }
 
     def generate_programs(self):
         """Generates a DataFrame of programs using an itertools-based approach."""
-        
-        # define the hyperparameter grid
+
+        # define the hyperparameter grid (always use all 6 dimensions for sufficient stimuli)
         param_grid = [
             ['c', 's', 'p', 'h'],      # outer_shape_types
             ['c', 's', 'p', 'h'],      # nested_shape_types
-            [1.0, 1.5, 2.0],           # third_shape_scales
+            # WIDENED nested shape scales (more separation but still canvas-safe with ring)
+            [0.9, 1.6, 2.3],           # third_shape_scales
             ['c', 's', 'p', 'h'],      # inner_shape_types
-            [3, 4, 5, 6]               # inner_n_shapes
+            [3, 4, 5, 6],              # inner_n_shapes
+            self.colors                # color (6th dimension)
         ]
+
         all_combinations = itertools.product(*param_grid)
-        
+
         # generate programs for all combinations of parameters.
         records = [self._create_program_record(p) for p in all_combinations]
+        #if self.dup_factor > 1:
+            #records = [rec for rec in records for _ in range(self.dup_factor)]
         print(f"✅ Generated {len(records)} total valid programs.")
         return pd.DataFrame(records)
 

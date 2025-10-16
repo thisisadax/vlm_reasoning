@@ -1,0 +1,9 @@
+defaults:
+  - base_vlm
+_target_: models.qwen_model.QwenModel
+model_name: qwen
+max_tokens: 512
+
+
+
+

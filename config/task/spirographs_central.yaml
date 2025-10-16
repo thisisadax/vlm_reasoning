@@ -1,0 +1,26 @@
+defaults:
+  - base_task
+
+_target_: tasks.spirographs_variants.SpirographsCentralTask
+task_name: spirographs_central
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

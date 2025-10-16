@@ -1,0 +1,8 @@
+Concisely describe the structure of this shape in terms of its constituent shapes. 
+Use literal geometric terms (circle, semicircle, triangle, hexagon, line, etc), exact counts (one-ten), and simple relations (in a row, next to, connected by a, etc)
+For example:
+1. four squares in a row
+2. two semicircles connected by a medium line to a small circle
+3. five sided snowflake with hexagons as arms
+4. two concentric circles
+5. a three stepped staircase

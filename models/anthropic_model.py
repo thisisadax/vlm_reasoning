@@ -25,7 +25,7 @@ class AnthropicModel(APIModel):
     def build_vlm_payload(self, trial_metadata: pd.Series) -> dict:
         prompt_text = self.prompt
         image_paths = [
-            Path(self.task.data_dir) / self.task.task_name / "trials" / f"trial={trial_metadata['trial_idx']}_{i}.png"
+            Path(self.task.data_dir) / self.task.task_root_name / "trials" / f"trial={trial_metadata['trial_idx']}_{i}.png"
             for i in range(1, 7)
         ]
         encoded_images = [self._encode_image(p) for p in image_paths if p.exists()]

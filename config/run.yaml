@@ -2,15 +2,22 @@ task_name: run_requests
 seed: 7777
 n_threads: 4
 use_gpu: True
+
+# expose root-level aliases so older configs using ${project_root}, ${data_dir}, etc. still resolve
+project_root: ${paths.project_root}
+data_dir: ${paths.data_dir}
+output_dir: ${paths.output_dir}
+prompts_dir: ${paths.prompts_dir}
+
 defaults:
   - _self_
   - model: base_vlm
   - task: base_task
   - paths: default
-  - override hydra/hydra_logging: disabled  
+  - override hydra/hydra_logging: disabled
   - override hydra/job_logging: disabled
 
-hydra:  
-  output_subdir: null  
-  run:  
+hydra:
+  output_subdir: null
+  run:
     dir: .

@@ -1,11 +1,11 @@
-# path to root directory
-root_dir: ${oc.env:PROJECT_ROOT} 
+# config/paths/default.yaml
+# These keys become cfg.paths.*
+project_root: ${oc.env:PROJECT_ROOT,${hydra:runtime.cwd}}
+# alias so older references to paths.root_dir still work
+root_dir: ${project_root}
 
-# path to data directory
-data_dir: ${paths.root_dir}/data
+data_dir: ${project_root}/data
+output_dir: ${project_root}/output
+prompts_dir: ${project_root}/prompts
+logs_dir: ${project_root}/logs
 
-# path to output directory
-output_dir: ${paths.root_dir}/output
-
-# path to working directory
-work_dir: ${hydra:runtime.cwd}

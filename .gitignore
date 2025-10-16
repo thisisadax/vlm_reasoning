@@ -1,3 +1,10 @@
 api_metadata.json
 output
 data
+
+# Environments, logs, caches, and artifacts
+.venv/
+logs/
+**/__pycache__/
+*.pyc
+*.zip

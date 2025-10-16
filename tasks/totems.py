@@ -12,11 +12,12 @@ class TotemsTask(Task):
     # --- specify the renderer for the task ---
     renderer = ColoredRenderer()
 
-    def __init__(self, task_name=None, **kwargs):
+    def __init__(self, task_name=None, dup_factor: int = 1, **kwargs):
         """Initializes the TotemsTask."""
         super().__init__(task_name=task_name or "totems", **kwargs)
         self.total_totem_height = 8.0
         self.stroke_width = 6.0
+        self.dup_factor = max(1, int(dup_factor))
 
     # --- shape generation helpers ---
     def _generate_polygon_by_radius(self, n_sides, radius, y_offset=0.0):
@@ -79,16 +80,18 @@ class TotemsTask(Task):
         return record
 
     def generate_programs(self):
-        """Generates totems with a fixed number of 3 modules and color options."""
-        # define the hyperparameter grid
-        num_modules = 3
+        """Generates totems with all 3 modules (6 dimensions total)."""
         shapes = ['circle', 'triangle', 'square']
         colors = ['red', 'green', 'blue']
         module_options = list(itertools.product(shapes, colors))
-        all_combinations = itertools.product(module_options, repeat=num_modules)
+
+        # Always generate all combinations for 3 modules (6 dimensions total)
+        all_combinations = itertools.product(module_options, repeat=3)
 
         # generate programs for all combinations of parameters
         records = [self._create_program_record(modules) for modules in all_combinations]
+        if self.dup_factor > 1:
+            records = [rec for rec in records for _ in range(self.dup_factor)]
         print(f"✅ Generated {len(records)} total unique programs.")
         return pd.DataFrame(records)
 

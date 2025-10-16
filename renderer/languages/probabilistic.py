@@ -161,6 +161,26 @@ def _turn(new_angle, state):
     return [], {'pos': state['pos'], 'angle': float(new_angle)}
 
 
+def _color(r, g, b, strokes):
+    """
+    Applies an RGB color to a list of probabilistic strokes.
+
+    Accepts either plain stroke arrays or already-colored (stroke, color) tuples
+    and returns a list of (stroke_array, (r, g, b)) tuples.
+    """
+    color_tuple = (float(r), float(g), float(b))
+    if not isinstance(strokes, list):
+        return []
+    colored = []
+    for s in strokes:
+        # s can be a numpy array (plain) or (array, color) tuple
+        if isinstance(s, tuple) and len(s) == 2:
+            colored.append((s[0], color_tuple))
+        else:
+            colored.append((s, color_tuple))
+    return colored
+
+
 class ProbabilisticRenderer(BaseRenderer):
     """Renderer for the stateful, probabilistic drawing DSL."""
     def __init__(self):
@@ -171,6 +191,10 @@ class ProbabilisticRenderer(BaseRenderer):
     def _register_dsl_specific(self):
         self.drawing_implementations.update({
             'curve': _curve, 'dot': _dot, 'turn': _turn,
+        })
+        # Support color application similar to the colored deterministic DSL
+        self.implementations.update({
+            'color': _color,
         })
 
     def evaluate(self, node: AstNode):
