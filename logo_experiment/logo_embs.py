@@ -8,9 +8,6 @@ import seaborn as sns
 from typing import Dict, Any, List
 from tqdm import tqdm
 
-np.random.seed(1248)
-
-
 # --- Configuration ---
 CONFIG = {
     "model_name": 'Qwen/Qwen3-Embedding-8B',#'clip-ViT-B-32',
@@ -78,84 +75,40 @@ class TrialLevelComparerV4:
         print("✅ Matched similarity scores calculated.")
 
     def _generate_report(self):
-        """Advisor-style report: matched vs shuffled null, above-null tests, per-trial p<.05, and paired test."""
-        # Matched similarities (already computed in _calculate_similarities)
-        prog = self.df['program_sim'].to_numpy()
-        vlm  = self.df['vlm_sim'].to_numpy()
-        n = len(self.df)
+        """Prints a concise summary focusing on the significance of similarity differences."""
+        vlm_wins = (self.df['vlm_sim'] > self.df['program_sim']).sum()
+        total_trials = len(self.df)
+        win_percent = (vlm_wins / total_trials) * 100 if total_trials > 0 else 0.0
+        mean_prog = float(self.df['program_sim'].mean())
+        mean_vlm = float(self.df['vlm_sim'].mean())
+        diff = self.df['vlm_minus_program'].to_numpy()
+        mean_diff = float(np.mean(diff))
+        std_diff = float(np.std(diff, ddof=1)) if len(diff) > 1 else np.nan
+        paired_t, paired_p = stats.ttest_rel(self.df['vlm_sim'], self.df['program_sim'])
+        # Cohen's d for paired samples (mean of differences divided by sd of differences)
+        cohens_d = mean_diff / std_diff if std_diff and not np.isnan(std_diff) and std_diff != 0 else np.nan
 
-        # --- Build shuffled nulls by permuting the human_description lists across rows ---
-        N_SHUFFLES = 200  # small but stable; bump to 1000 if you want tighter p-values
-        human_lists = self.df['human_description'].to_list()
-
-        prog_null_runs = []
-        vlm_null_runs = []
-        # Pre-grab the per-row program/model strings so we don't re-index in the loop
-        progs = self.df['program_description'].tolist()
-        vlms  = self.df['model_response'].tolist()
-
-        for _ in range(N_SHUFFLES):
-            perm = np.random.permutation(n)
-            shuffled_humans = [human_lists[i] for i in perm]
-
-            prog_null_runs.append(np.array([
-                self._get_mean_similarity_to_group(progs[i], shuffled_humans[i]) for i in range(n)
-            ]))
-            vlm_null_runs.append(np.array([
-                self._get_mean_similarity_to_group(vlms[i], shuffled_humans[i]) for i in range(n)
-            ]))
-
-        prog_null_runs = np.stack(prog_null_runs, axis=1)  # shape: (trials, shuffles)
-        vlm_null_runs  = np.stack(vlm_null_runs,  axis=1)
-
-        # Trial-wise null means
-        prog_null_mean = prog_null_runs.mean(axis=1)
-        vlm_null_mean  = vlm_null_runs.mean(axis=1)
-
-        # Above-null per trial
-        prog_above = prog - prog_null_mean
-        vlm_above  = vlm  - vlm_null_mean
-
-        # Per-trial one-sided p-values: P(null >= matched)
-        prog_p = (1.0 + (prog_null_runs >= prog[:, None]).sum(axis=1)) / (N_SHUFFLES + 1.0)
-        vlm_p  = (1.0 + (vlm_null_runs  >= vlm[:, None]).sum(axis=1)) / (N_SHUFFLES + 1.0)
-
-        # Global tests
-        t_prog, p_prog = stats.ttest_1samp(prog_above, 0.0)
-        t_vlm,  p_vlm  = stats.ttest_1samp(vlm_above,  0.0)
-        t_pair, p_pair = stats.ttest_rel(vlm, prog)
-
-        vlm_wins = int((vlm > prog).sum())
-
-        # Pretty print in advisor’s format
         report = f"""
-{'='*70}
-TRIAL-LEVEL SIMILARITY ANALYSIS
-{'='*70}
-Mean similarity to matched human descriptions:
-Program: {prog.mean():.4f}
-VLM:     {vlm.mean():.4f}
+{'-'*80}
+TRIAL-LEVEL SIMILARITY ANALYSIS (No Bootstrapping)
+{'-'*80}
 
-Mean similarity to shuffled (null) human descriptions:
-Program: {prog_null_mean.mean():.4f}
-VLM:     {vlm_null_mean.mean():.4f}
+SECTION: Which is closer to human descriptions? (Direct Comparison)
+------------------------------------------------------------------
+  - Mean Program Similarity: {mean_prog:.4f}
+  - Mean VLM Similarity:     {mean_vlm:.4f}
 
-Mean above-null performance (matched - shuffled):
-Program: {prog_above.mean():.4f}  (t={t_prog:.2f}, p={p_prog:.4f})
-VLM:     {vlm_above.mean():.4f}  (t={t_vlm:.2f}, p={p_vlm:.4f})
+  - Paired t-test (VLM vs Program to humans):
+    - t-statistic: {paired_t:.3f}
+    - p-value:     {paired_p:.4f}
+    - Mean Difference (VLM - Program): {mean_diff:.4f}
+    - Cohen's d (paired): {cohens_d:.3f}
 
-Trials significantly above null (p<0.05):
-Program: {(prog_p < 0.05).sum()}/{n} ({(prog_p < 0.05).mean()*100:.1f}%)
-VLM:     {(vlm_p  < 0.05).sum()}/{n} ({(vlm_p  < 0.05).mean()*100:.1f}%)
-
-Direct comparison (VLM vs Program at trial level):
-Mean difference (VLM - Program): {(vlm - prog).mean():.4f}
-Paired t-test: t={t_pair:.2f}, p={p_pair:.4f}
-VLM better on {vlm_wins}/{n} trials ({vlm_wins/n*100:.1f}%)
-{'='*70}
+  - Head-to-Head Count:
+    - VLM higher on {vlm_wins} out of {total_trials} trials ({win_percent:.1f}%).
+{'-'*80}
         """
         print(report.strip())
-
 
     def _plot_results(self):
         """Generates and saves plots focused on direct trial-level comparison."""
@@ -204,9 +157,5 @@ VLM better on {vlm_wins}/{n} trials ({vlm_wins/n*100:.1f}%)
         return self.df
 
 if __name__ == '__main__':
-    analyzer = TrialLevelComparerV4(
-        filepath="/scratch/gpfs/nb0564/vlm_reasoning/logo_experiment/output/logo/sonnet/logo_processed.csv",
-        config=CONFIG
-    )
+    analyzer = TrialLevelComparerV4(filepath='/scratch/gpfs/nb0564/vlm_reasoning/logo_experiment/output/logo/sonnet/logo_processedOLD.csv', config=CONFIG)
     results_df = analyzer.run_analysis()
-

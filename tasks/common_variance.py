@@ -8,40 +8,26 @@ RNG = random.Random()
 
 # ----------------- variance helpers -----------------
 def choose_ref_partition() -> List[int]:
-    # Always produce 5 refs as 3-of-A and 2-of-B
     return [3, 2]
 
 def _two_distinct_values(value_space: Sequence[Any], base_val: Any) -> tuple[Any, Any]:
-    # returns (A, B) two distinct values; prefers choosing A != base
     uniq = list(dict.fromkeys(value_space))
     if len(uniq) == 1:
         return uniq[0], uniq[0]
-    # choose A as a non-base if available, else any
     non_base = [v for v in uniq if v != base_val]
     if not non_base:
-        # all values equal to base (degenerate)
         return base_val, base_val
     A = RNG.choice(non_base)
-    # choose B distinct from A; prefer base if base != A (so we get alt+base)
     candidates = [v for v in uniq if v != A]
-    if base_val in candidates:
-        B = base_val
-    else:
-        B = RNG.choice(candidates)
+    B = base_val if base_val in candidates else RNG.choice(candidates)
     return A, B
 
 def assign_ref_values_for_dim(value_space: Sequence[Any], base_val: Any) -> List[Any]:
-    """
-    Build exactly 5 assignments for refs with at least 2 distinct values overall.
-    Pattern: 3 of value A and 2 of value B, then shuffle.
-    A is chosen (when possible) to differ from base_val, B is then chosen != A
-    (prefer B = base_val when possible).
-    """
     a, b = _two_distinct_values(value_space, base_val)
     part = choose_ref_partition()  # [3, 2]
     vals: List[Any] = [a] * part[0] + [b] * part[1]
     RNG.shuffle(vals)
-    return vals  # always length 5
+    return vals
 
 def pick_varying_dims(abstraction_columns: List[str],
                       oddball_abstraction: str,
@@ -117,34 +103,6 @@ def render_program_to_png(program_string: str, renderer, out_path: str,
     fig.savefig(out_path, bbox_inches='tight', pad_inches=0)
     plt.close(fig)
 
-# ---------- per-trial 6-up summary (annotated) ----------
-def save_trial_summary(tile_paths: List[str], oddball_idx: int, out_path: str) -> None:
-    import matplotlib.image as mpimg
-    import matplotlib.patches as patches
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    fig = plt.figure(figsize=(6, 4), dpi=200)
-
-    for i, p in enumerate(tile_paths, start=1):
-        ax = fig.add_subplot(2, 3, i)
-        ax.axis("off")
-        try:
-            img = mpimg.imread(p)
-            ax.imshow(img)
-        except Exception:
-            ax.text(0.5, 0.5, "missing", ha="center", va="center")
-        # index label
-        ax.text(0.05, 0.9, str(i), transform=ax.transAxes, fontsize=10,
-                bbox=dict(facecolor='white', edgecolor='black', pad=1.5, lw=0.8))
-        # red box around oddball
-        if i == oddball_idx:
-            rect = patches.Rectangle((0, 0), 1, 1, transform=ax.transAxes,
-                                     fill=False, edgecolor='red', linewidth=2.0)
-            ax.add_patch(rect)
-
-    fig.subplots_adjust(wspace=0.02, hspace=0.02)
-    fig.savefig(out_path, bbox_inches='tight', pad_inches=0)
-    plt.close(fig)
-
 # ---------- oddball helpers ----------
 def _counts(values: List[Any]) -> Dict[Any, int]:
     return dict(Counter(values))
@@ -158,7 +116,6 @@ def choose_oddball_nonoddball_values(ref_tiles: List[Dict[str, Any]],
             continue
         vals = [t["features"][d] for t in ref_tiles]
         counts = _counts(vals)
-        # pick the rarest among refs so that, once oddball is added, no singleton remains
         v_sorted = sorted(counts.items(), key=lambda kv: (kv[1], str(kv[0])))
         choice[d] = v_sorted[0][0]
     return choice
@@ -166,7 +123,6 @@ def choose_oddball_nonoddball_values(ref_tiles: List[Dict[str, Any]],
 def pick_oddball_value_excluding_refs(value_space: Sequence[Any],
                                       ref_values: Set[Any],
                                       current_value: Any) -> Any:
-    # prefer a value not seen in refs; else any value != current_value
     pool = [v for v in value_space if v not in ref_values]
     if pool:
         return RNG.choice(pool)

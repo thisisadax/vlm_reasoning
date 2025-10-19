@@ -43,14 +43,38 @@ class GoogleModel(APIModel):
         print(response_json)
         if 'candidates' not in response_json or not response_json['candidates']:
             raise ValueError(f"API Error: Content blocked or no candidates returned. Response: {response_json}")
-        response_text = response_json['candidates'][0]['content']['parts'][0]['text']
+        
+        # Handle different response formats from Gemini
+        candidate = response_json['candidates'][0]
+        if 'content' in candidate:
+            content = candidate['content']
+            if 'parts' in content:
+                response_text = content['parts'][0]['text']
+            elif 'text' in content:
+                response_text = content['text']
+            else:
+                # Empty response - model returned nothing
+                response_text = ""
+        else:
+            response_text = ""
         usage_metadata = response_json['usageMetadata']
         n_prompt_tokens = usage_metadata['promptTokenCount']
         n_thought_tokens = usage_metadata['thoughtsTokenCount'] if 'thoughtsTokenCount' in usage_metadata else 0
-        token_metadata = {'n_input_tokens': n_prompt_tokens, 'n_thought_tokens': n_thought_tokens, 'n_output_tokens': n_thought_tokens}
+        n_output_tokens = usage_metadata.get('candidatesTokenCount', 0)
+        token_metadata = {'n_input_tokens': n_prompt_tokens, 'n_thought_tokens': n_thought_tokens, 'n_output_tokens': n_output_tokens}
+        
+        # Handle empty responses
+        if not response_text:
+            return "", "0", token_metadata
+        
         matches = re.findall(r'\[([1-6])\]', response_text)
         if matches:
             answer = matches[-1]
         else:
-            raise ValueError(f'No answer found in response: {response_text}')
+            # If no bracketed answer found, try to extract any digit 1-6
+            digit_matches = re.findall(r'\b([1-6])\b', response_text)
+            if digit_matches:
+                answer = digit_matches[-1]
+            else:
+                answer = "0"  # Mark as incorrect if no valid answer
         return response_text, answer, token_metadata

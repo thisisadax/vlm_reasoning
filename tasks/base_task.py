@@ -47,7 +47,9 @@ class Task(ABC):
         dup_factor: int = 1,
         canvas_dim: int = 512,
         coord_bound: float = 5.0,
-        exclude_abstraction_keywords: str | list[str] | None = None,  # <-- added
+        exclude_abstraction_keywords: str | list[str] | None = None,
+        # NEW: let callers force the exact dataset directory (variants use this)
+        dataset_dir_override: str | None = None,
         **kwargs,
     ):
         self.task_name = task_name
@@ -60,12 +62,12 @@ class Task(ABC):
         self.dup_factor = int(dup_factor)
         self.canvas_dim = int(canvas_dim)
         self.coord_bound = float(coord_bound)
+        self._dataset_dir_override = Path(dataset_dir_override) if dataset_dir_override else None
 
-        # NEW: normalize exclude keywords; supports str (comma/space separated) or list[str]
+        # normalize exclude keywords; supports str (comma/space separated) or list[str]
         if exclude_abstraction_keywords is None:
             self.exclude_keywords: list[str] = []
         elif isinstance(exclude_abstraction_keywords, str):
-            # allow comma or whitespace separation
             parts: list[str] = []
             for chunk in exclude_abstraction_keywords.replace(",", " ").split():
                 c = chunk.strip().lower()
@@ -88,7 +90,17 @@ class Task(ABC):
     # ---------------- paths ----------------
 
     def _setup_paths(self):
-        self.dataset_dir = self.data_dir / f"{self.task_name}_dim{self.n_dimensions}_var{self.reference_variance}"
+        if self._dataset_dir_override is not None:
+            # exact path (variants pass their output_dir here)
+            self.dataset_dir = self._dataset_dir_override
+        else:
+            # Nested layout: data/<task_name>/dimX/varY
+            self.dataset_dir = (
+                self.data_dir
+                / self.task_name
+                / f"dim{self.n_dimensions}"
+                / f"var{self.reference_variance}"
+            )
         self.images_dir = self.dataset_dir / "images"
         self.trials_dir = self.dataset_dir / "trials"
         self.summaries_dir = self.dataset_dir / "summaries"
@@ -128,15 +140,42 @@ class Task(ABC):
     # --------------- pipeline ---------------
 
     def run(self):
+        """
+        Safe base pipeline:
+
+        - If BOTH metadata.csv and trials.csv exist and overwrite is false: load & return.
+        - Otherwise, ensure metadata.csv exists (render stimuli if needed).
+        - If trials.csv exists and overwrite is false: load trials and return with metadata.
+        - Else: build trials via the base pipeline and generate summaries.
+          (Variants that manage trials themselves should NOT call this method; they
+           should call _generate_and_render_stimuli() and then their custom generator.)
+        """
         if self.overwrite_existing:
             self._clear_existing_outputs()
 
-        if (not self.overwrite_existing) and self.trials_metadata_path.exists():
-            print(f"✅ Found existing trials at {self.trials_metadata_path}. Loading…")
+        meta_exists = self.metadata_path.exists()
+        trials_exists = self.trials_metadata_path.exists()
+
+        if (not self.overwrite_existing) and meta_exists and trials_exists:
+            print(f"✅ Found existing metadata and trials at {self.dataset_dir}. Loading…")
             return pd.read_csv(self.metadata_path), pd.read_csv(self.trials_metadata_path)
 
-        print("🔍 No existing trial data found. Starting full generation pipeline...")
-        stimuli_df = self._generate_and_render_stimuli()
+        # ensure metadata
+        if not meta_exists:
+            print("🎨 Generating stimuli and metadata…")
+            stimuli_df = self._generate_and_render_stimuli()
+        else:
+            print(f"📄 Using existing metadata at {self.metadata_path}")
+            stimuli_df = pd.read_csv(self.metadata_path)
+
+        # if trials already exist and we are not overwriting, just load them
+        if trials_exists and (not self.overwrite_existing):
+            print(f"✅ Found existing trials at {self.trials_metadata_path}. Loading…")
+            trials_df = pd.read_csv(self.trials_metadata_path)
+            return stimuli_df, trials_df
+
+        # otherwise, proceed with base trial generation
+        print("🧪 Building trials via base pipeline…")
         trials_df = self._generate_all_oddball_trials(stimuli_df)
         self._generate_trial_summaries(trials_df)
         return stimuli_df, trials_df
@@ -224,7 +263,6 @@ class Task(ABC):
                 if any(k in lc for k in self.exclude_keywords):
                     continue
                 keep.append(c)
-            # fall back to original if we filtered everything by mistake
             if keep:
                 cols = keep
 
@@ -242,7 +280,6 @@ class Task(ABC):
         for abstraction in abstraction_cols:
             done = 0
             attempts = 0
-            # Allow a hard cap on attempts per abstraction to avoid infinite search
             max_attempts = int(os.environ.get("MAX_ATTEMPTS_PER_ABS", "50000"))
             base_counts = metadata_df[abstraction].value_counts().to_dict()
             while done < per_abs:
@@ -302,7 +339,6 @@ class Task(ABC):
         - for each varying dim among the 5 refs: no singletons (each value count ≥2)
         - all other non-oddball dims constant
         """
-        # pool with the oddball-dimension fixed
         base = df[df[abstraction] == value]
         if base.empty:
             return None
@@ -347,7 +383,6 @@ class Task(ABC):
                 if len(popular) < 2:
                     choices = None
                     break
-                # pick either 2 or 3 values to allow
                 vals = (_random.sample(popular, 3) if len(popular) >= 3 and _random.random() < 0.3
                         else _random.sample(popular, 2))
                 choices[c] = vals
@@ -423,30 +458,25 @@ class Task(ABC):
             c for c in reference.columns
             if c not in {"program_string", "render_filepath"} and c != abstraction
         ]
-        # allowed sets for non-target dims are the sets realized in refs
         allowed = {c: set(reference[c].unique()) for c in non_target_cols}
 
         mask = (df[abstraction] != target_value)
         for c, vals in allowed.items():
-            # constants (len==1) and varying dims are both respected by constraining to the realized sets
             mask &= df[c].isin(vals)
         cands = df[mask]
         if cands.empty:
             return None
 
-        # sample some candidates and ensure adding the oddball won't create singletons
         cands = cands.sample(n=min(len(cands), 256), replace=False)
         for _, row in cands.iterrows():
             ok = True
             for c in non_target_cols:
                 combined = reference[c].tolist() + [row[c]]
                 vc = pd.Series(combined).value_counts()
-                # Only disallow singletons; allow constants (all 6 same) and 4/2, 3/3, etc.
                 if (vc == 1).any():
                     ok = False
                     break
             if ok:
-                # avoid exact duplicate program across the six, if possible
                 if "program_string" in reference.columns and row.get("program_string") in set(reference["program_string"]):
                     continue
                 return row.to_frame().T
@@ -454,7 +484,6 @@ class Task(ABC):
         return None
 
     def _six_no_singleton_ok(self, refs: pd.DataFrame, odd_row: pd.Series, oddball_abs: str, all_abs: list[str]) -> bool:
-        """Final guard: across the 6 tiles, every non-oddball dim used must have count >=2 for each value."""
         for c in all_abs:
             if c == oddball_abs:
                 continue
@@ -491,12 +520,12 @@ class Task(ABC):
                 ordered_feats.append(self._row_features(refs.iloc[rptr], abstraction_cols))
                 rptr += 1
 
-        # save six tiles
+        # save six tiles with clean red numerals (original style)
         for i, src in enumerate(ordered_paths, 1):
             dst = self.trials_dir / f"trial={trial_idx}_{i}.png"
-            Image.open(src).save(dst)
+            self._add_label_to_image(src, str(i), dst)
 
-        # compute counts across 6 and across refs
+        # counts across 6 and across refs
         def _counts(vals):
             s = pd.Series(vals)
             vc = s.value_counts(dropna=False)
@@ -511,7 +540,7 @@ class Task(ABC):
 
         # sidecar JSON (rich)
         tiles = []
-        for i, (p, feats) in enumerate(zip(ordered_paths, ordered_feats), 1):
+        for i, feats in enumerate(ordered_feats, 1):
             tiles.append({
                 "index": i,
                 "image_path": str(self.trials_dir / f"trial={trial_idx}_{i}.png"),
@@ -528,7 +557,6 @@ class Task(ABC):
             "ref_varying_dims_actual": ref_varying,
             "ref_constant_dims_actual": [c for c in abstraction_cols if c not in ref_varying],
             "ref_variance_count_actual": len(ref_varying),
-            "ref_variance_target": self.reference_variance,
             "ref_singleton_columns": ref_singletons,
             "all_nonoddball_singleton_columns": nonodd_singletons,
             "all6_value_counts": all6_value_counts,
@@ -554,8 +582,8 @@ class Task(ABC):
         for i in range(1, 7):
             img_path = self.trials_dir / f"trial={trial_idx}_{i}.png"
             img = Image.open(img_path).convert("RGB")
-            color = "red" if i == oddball_idx else "green"
-            tiles.append(self._add_border(img, color, width=6))
+            color = "red" if i == oddball_idx else "gray"   # ORIGINAL styling
+            tiles.append(self._add_border_to_image(img, color, width=10))
 
         w, h = tiles[0].width, tiles[0].height
         grid = Image.new("RGB", (3 * w, 2 * h), "white")
@@ -565,25 +593,24 @@ class Task(ABC):
 
         grid.save(self.summaries_dir / f"trial={trial_idx}_grid.png")
 
-        # overlay numbers 1..6 on tiles (in-place)
-        for i in range(1, 7):
-            p = self.trials_dir / f"trial={trial_idx}_{i}.png"
-            self._overlay_text(p, f"{i}", p)
-
     @staticmethod
-    def _add_border(img: Image.Image, color: str, width: int = 6) -> Image.Image:
-        out = Image.new("RGB", (img.width + 2 * width, img.height + 2 * width), color)
-        out.paste(img, (width, width))
+    def _add_border_to_image(image: Image.Image, color: str, width: int = 10) -> Image.Image:
+        out = Image.new("RGB", (image.width + 2 * width, image.height + 2 * width), color)
+        out.paste(image, (width, width))
         return out
 
     @staticmethod
-    def _overlay_text(image_path: Path, text: str, output_path: Path):
+    def _add_label_to_image(image_path: Path | str, text: str, output_path: Path | str):
+        from PIL import Image, ImageDraw, ImageFont
         img = Image.open(image_path).convert("RGB")
         draw = ImageDraw.Draw(img)
+        W, H = img.size
+        # ~2x smaller than the previous 0.22 scaling
+        font_px = max(24, int(0.05 * min(W, H)))
         try:
-            # best effort; fallback if not present
-            font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 75)
+            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_px)
         except Exception:
             font = ImageFont.load_default()
-        draw.text((15, 15), text, fill="red", font=font)
+        margin = int(0.04 * min(W, H))
+        draw.text((margin, margin), text, fill="red", font=font)
         img.save(output_path)

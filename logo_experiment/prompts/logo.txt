@@ -1,7 +1,7 @@
-Concisely describe the this shape in terms of its constituent shapes in as few words as possible. 
-Examples of good descriptions:
+Describe this geometric pattern in as few words as possible, making use of clear abstractions when possible (e.g., a "six-sided snowflake with triangles as arms" instead of "six triangles alternating upward and downward orientation in a circular arrangement").
+Examples of good descriptions: 
 1. four squares in a row
-2. a five-sided snowflake with hexagons as arms
-3. two concentric circles
-4. a six-sided snowflake with triangles as arms
+2. two semicircles connected by a medium line to a small circle
+3. five sided snowflake with hexagons as arms
+4. two concentric circles
 5. a three stepped staircase

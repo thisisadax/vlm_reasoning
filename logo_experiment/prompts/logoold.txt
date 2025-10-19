@@ -1,0 +1,7 @@
+Concisely describe the this shape in terms of its constituent shapes in as few words as possible. 
+Examples of good descriptions:
+1. four squares in a row
+2. a five-sided snowflake with hexagons as arms
+3. two concentric circles
+4. a six-sided snowflake with triangles as arms
+5. a three stepped staircase

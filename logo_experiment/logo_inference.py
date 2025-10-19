@@ -3,7 +3,7 @@
 from anthropic_logo import MinimalAnthropicLogoModel  # fix the import
 model = MinimalAnthropicLogoModel(
     api_file="/scratch/gpfs/nb0564/vlm_reasoning/api_metadata.json",  # use absolute path outside the experiment
-    model_key="sonnet",
+    model_key="opus",
     prompt_file="/scratch/gpfs/nb0564/vlm_reasoning/logo_experiment/prompts/logo.txt",
     max_tokens=2048,
 )

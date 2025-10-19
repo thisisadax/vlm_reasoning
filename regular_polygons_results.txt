@@ -1,0 +1,10 @@
+===== Regular Polygons: Validation & Inference =====
+Date: Sat Oct 18 06:13:53 PM EDT 2025
+
+Step 1: Validating oddball control...
+✓ Validated 300 trials: 300 correct (100.0%)
+
+Step 2: Generating expanded dataset (100 trials per condition)...
+
+Level 1: 2 dims (n_sides, edge_type)
+  dim1/var0... 

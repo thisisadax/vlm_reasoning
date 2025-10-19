@@ -1,0 +1,6 @@
+defaults:
+  - base_task
+
+_target_: tasks.regular_polygons_variants.RegularPolygonsTwoDimTask
+task_name: regular_polygons_2dim
+

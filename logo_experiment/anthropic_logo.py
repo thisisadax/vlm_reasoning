@@ -23,6 +23,7 @@ class MinimalAnthropicLogoModel:
         api_model_identifier: str | None = None,
         max_tokens: int = 512,
         timeout: int = 60,
+        thinking = {"type": "enabled", "budget_tokens": 1024},
     ) -> None:
         config = json.loads(Path(api_file).read_text())
         creds = config[model_key]
@@ -31,7 +32,7 @@ class MinimalAnthropicLogoModel:
         self.model = (
             api_model_identifier
             or creds.get("model")
-            or self.DEFAULT_MODELS.get(model_key, "claude-3-5-sonnet-latest")
+            or self.DEFAULT_MODELS.get(model_key, "claude-4-5-sonnet-latest")
         )
 
         self.prompt: str = Path(prompt_file).read_text().strip()
@@ -85,6 +86,7 @@ class MinimalAnthropicLogoModel:
             model=self.model,
             max_tokens=self.max_tokens,
             messages=[{"role": "user", "content": content}],
+            thinking={"type": "enabled", "budget_tokens": 1024}
         )
         return self._parse_response(resp)
 
@@ -95,7 +97,7 @@ class MinimalAnthropicLogoModel:
             text, _ = self.infer_image(str(row[image_column]))
             responses.append(text)
 
-            # Clean, informative console print for prompt iteration
+            # console print 
             img = str(row[image_column]).split("/")[-1]
             prog = str(row.get("program_description", "")).strip()
             # Truncate for neat logging

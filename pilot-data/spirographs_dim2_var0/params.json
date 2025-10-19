@@ -1,0 +1,13 @@
+{
+  "task_name": "spirographs",
+  "n_dimensions": 2,
+  "reference_variance": 0,
+  "n_trials": 5,
+  "stroke_width": 3.0,
+  "dup_factor": 1,
+  "canvas_dim": 512,
+  "coord_bound": 5.0,
+  "exclude_keywords": [],
+  "data_dir": "data",
+  "dataset_dir": "data/spirographs_dim2_var0"
+}
