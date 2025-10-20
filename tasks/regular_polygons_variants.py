@@ -136,14 +136,15 @@ def _apply_transform(shape: str, transform_type: str, n_copies: int) -> str:
         return result
     
     elif transform_type == 'scale_outward':
-        # Exponential scaling with shared anchor point (bottom-left quadrant nesting)
-        # Each shape is scale_factor times larger, anchored at same origin
-        scale_factor = 1.4  # Each shape 1.4x larger than previous
+        # Geometric scaling about a fixed bottom-left anchor so shapes nest outward
+        # s = scale_factor**i; translate by (s-1, s-1) to pin bottom-left at (-1,-1)
+        scale_factor = 1.4
         parts = []
         for i in range(n_copies):
-            current_scale = scale_factor ** i
-            # Anchor at origin - smaller shapes nest inside larger ones
-            scaled = f"(T {shape} (M {current_scale:.3f} 0 0 0))"
+            s = scale_factor ** i
+            tx = s - 1.0
+            ty = s - 1.0
+            scaled = f"(T {shape} (M {s:.3f} 0 {tx:.3f} {ty:.3f}))"
             parts.append(scaled)
         result = parts[0]
         for p in parts[1:]:
@@ -286,8 +287,26 @@ def run_generate(outdir: str, n_trials: int, reference_variance: int,
         max_var = len(D3_ABS) - 1  # 0-5
     reference_variance = min(max(reference_variance, 0), max_var)
 
+    # Optional exclusion list via env var: EXCLUDE_CELLS='[{"odd":"n_copies","transform":"scale_outward","composition":"none"}, ...]'
+    try:
+        _exclude_cells_env = os.getenv("EXCLUDE_CELLS", "[]")
+        _exclude_cells_list = json.loads(_exclude_cells_env)
+        _exclude_set = set(
+            (str(e.get("odd")), str(e.get("transform")), str(e.get("composition")))
+            for e in _exclude_cells_list if isinstance(e, dict)
+        )
+    except Exception:
+        _exclude_set = set()
+
+    def _is_excluded_cell(odd: str, transform: str, composition: str) -> bool:
+        return (str(odd), str(transform), str(composition)) in _exclude_set
+
     rows = []
-    for t_idx in range(n_trials):
+    t_idx = 0
+    attempts = 0
+    max_attempts = max(1000, n_trials * 200)
+    while t_idx < n_trials and attempts < max_attempts:
+        attempts += 1
         # Initialize ALL dimensions with defaults first
         base = {}
         for dim in VALUE_SPACE:
@@ -299,11 +318,46 @@ def run_generate(outdir: str, n_trials: int, reference_variance: int,
         # Freeze controls for inactive dimensions
         frozen = freeze_controls(base, list(VALUE_SPACE.keys()), abstractions)
         
+        # Determine eligible abstractions (exclude subordinate params when their type disables them)
+        eligible_dims = list(abstractions)
+        if 'composition_type' in abstractions:
+            comp_t = base.get('composition_type', 'none')
+            # comp_scale only has an effect for 'nested' and 'layered'
+            if comp_t in ('none', 'rotated') and 'comp_scale' in eligible_dims:
+                eligible_dims.remove('comp_scale')
+                # ensure comp_scale is fixed to default when unused
+                base['comp_scale'] = VALUE_SPACE['comp_scale'][0]
+        
         # Pick oddball abstraction
-        oddball_abstraction = random.choice(abstractions)
+        oddball_candidates = eligible_dims if eligible_dims else abstractions
+        oddball_abstraction = random.choice(oddball_candidates)
         
         # Pick which other dims will vary (reference_variance controls this)
-        varying_dims = pick_varying_dims(abstractions, oddball_abstraction, reference_variance)
+        varying_pool = oddball_candidates
+        varying_dims = pick_varying_dims(varying_pool, oddball_abstraction, reference_variance)
+
+        # Guard against phantom oddballs: if composition_type is disabled or will vary/serve as oddball,
+        # comp_scale must NOT vary and must NOT be the oddball. Also fix comp_scale to default.
+        comp_t_base = base.get('composition_type', 'none')
+        comp_disabled = comp_t_base in ('none', 'rotated')
+        comp_varies_or_oddball = ('composition_type' in varying_dims) or (oddball_abstraction == 'composition_type')
+        if comp_disabled or comp_varies_or_oddball:
+            if 'comp_scale' in varying_dims:
+                varying_dims.remove('comp_scale')
+            if oddball_abstraction == 'comp_scale':
+                ocands = [d for d in oddball_candidates if d != 'comp_scale']
+                if ocands:
+                    oddball_abstraction = random.choice(ocands)
+            base['comp_scale'] = VALUE_SPACE['comp_scale'][0]
+
+        # CRITICAL: If oddball changed due to guards, recompute varying dims to exclude it
+        varying_dims = pick_varying_dims(varying_pool, oddball_abstraction, reference_variance)
+        # Recompute comp_varies_or_oddball using the final varying set
+        comp_varies_or_oddball = ('composition_type' in varying_dims) or (oddball_abstraction == 'composition_type')
+        # Ensure comp_scale still not varied when composition disabled/varies
+        if comp_disabled or comp_varies_or_oddball:
+            if 'comp_scale' in varying_dims:
+                varying_dims.remove('comp_scale')
 
         # Create reference schedules for varying dims
         ref_schedules = {}
@@ -335,6 +389,29 @@ def run_generate(outdir: str, n_trials: int, reference_variance: int,
 
         # Place oddball randomly
         oddball_idx = RNG.randint(1, 6)
+
+        # Normalize comp_scale to prevent phantom effects using actual per-tile composition
+        _default_comp_scale = VALUE_SPACE['comp_scale'][0]
+        comp_vals_refs = [t["features"].get("composition_type", "none") for t in ref_tiles]
+        comp_val_odd = oddf.get("composition_type", "none")
+        any_disabled_tile = any(c in ("none", "rotated") for c in comp_vals_refs) or (comp_val_odd in ("none", "rotated"))
+        comp_varies_actual = (len(set(comp_vals_refs + [comp_val_odd])) > 1)
+
+        # If composition varies or is disabled, comp_scale must be constant across all six
+        if any_disabled_tile or comp_varies_actual or comp_varies_or_oddball:
+            for t in ref_tiles:
+                t["features"]["comp_scale"] = _default_comp_scale
+            oddf["comp_scale"] = _default_comp_scale
+            # Additionally, if oddball was comp_scale under these circumstances, skip this trial to avoid ref-mismatch
+            if oddball_abstraction == 'comp_scale':
+                continue
+        
+        # Exclusion filter based on cell identity (before rendering)
+        sample_feats = ref_tiles[0]["features"] if ref_tiles else base
+        _transform_val = sample_feats.get("transform_type", "none")
+        _composition_val = sample_feats.get("composition_type", "none")
+        if _is_excluded_cell(oddball_abstraction, _transform_val, _composition_val):
+            continue
         tiles = []
         img_paths = []
         ref_iter = iter(ref_tiles)
@@ -372,10 +449,11 @@ def run_generate(outdir: str, n_trials: int, reference_variance: int,
             **val,
             tiles=tiles,
         ))
+        t_idx += 1
     
     write_trial_jsonl(outdir, rows)
     
-    # Write CSV
+    # Write CSV (robust to empty rows)
     import pandas as pd
     flat = []
     for r in rows:
@@ -388,7 +466,10 @@ def run_generate(outdir: str, n_trials: int, reference_variance: int,
             "n_dimensions": r["n_dimensions"],
             "abstraction_columns": ",".join(r.get("abstraction_columns", [])),
         })
-    pd.DataFrame(flat).sort_values("trial_idx").to_csv(os.path.join(outdir, "trials.csv"), index=False)
+    df = pd.DataFrame(flat)
+    if not df.empty and "trial_idx" in df.columns:
+        df = df.sort_values("trial_idx")
+    df.to_csv(os.path.join(outdir, "trials.csv"), index=False)
 
 
 class _BaseRegularPolygonsTask(Task):
