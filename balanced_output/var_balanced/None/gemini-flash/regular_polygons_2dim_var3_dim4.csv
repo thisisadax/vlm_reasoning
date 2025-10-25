@@ -1,0 +1,185 @@
+trial_idx,summary_path,oddball_idx,oddball_abstraction,reference_variance,n_dimensions,abstraction_columns,response,answer,n_input_tokens,n_thought_tokens,n_output_tokens
+0,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial0.png,2,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[2] {Images 1, 3, 4, 5, and 6 show a set of overlapping shapes that are all of the same type (e.g., all squares, all triangles). Image 2, however, shows a set of overlapping shapes that are not all of the same type; it appears to be a mix of curved segments forming a clover-like shape.}",2,1599,0,81
+1,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial1.png,1,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images display a concentric or symmetrical arrangement of shapes, while image 3 shows three disconnected and randomly placed pentagons.}",3,1599,0,29
+2,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial2.png,5,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[4] {This image contains three shapes, whereas all other images contain four shapes.}",4,1599,0,18
+3,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial3.png,6,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[2] {All other images consist of a series of shapes that are separated from each other or arranged in a way where they do not touch. Image 2 is the only one where the shapes are connected to form a larger, interconnected pattern.}",2,1599,0,50
+4,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial4.png,5,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {The images 1, 2, 4, 5, and 6 depict groups of overlapping shapes that are either curved or angled. However, image 3 is distinct as it presents a set of perfectly concentric circles, which differs from the other images that do not display concentricity. Also, all other images contain shapes that are not circular.}",3,1599,0,75
+5,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial5.png,6,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {Image 3 is the only one where all the shapes are aligned concentrically. In the other images, the shapes are rotated relative to each other or are overlapping without a clear concentric alignment.}",3,1599,0,42
+6,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial6.png,6,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images show nested or interconnected shapes, forming a single, complex object. Image 3 shows multiple distinct, separate objects.}",3,1599,0,30
+7,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial7.png,2,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[2] {Image 2 is the outlier because the nested shapes are spiraling and rotating, whereas in all other images, the nested shapes are centrally aligned without rotation.}",2,1599,0,35
+8,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial8.png,6,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[4] {All other images show a single, connected shape. Image 4 shows three distinct, unconnected shapes.}",4,1599,0,24
+9,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial9.png,1,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[1] {All other images (2, 3, 4, 5, 6) feature curved lines or shapes. Image 1 is composed entirely of straight lines forming polygons.}",1,1599,0,40
+10,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial10.png,6,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies",[6] {All other images contain only triangles or triangle-like shapes (inverted triangles with curved top edges). Image 6 contains only pentagons.},6,1599,0,31
+11,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial11.png,1,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies",[5] {Image 5 is identical to image 3. The other images are unique.},5,1599,0,20
+12,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial12.png,1,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[1] {All other images (2, 3, 4, 5, and 6) feature polygons as their basic shapes. Image 1 uses quadrilaterals with curved or rounded vertices, which are not polygons.}",1,1599,0,49
+13,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial13.png,3,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images display shapes that are rounded (either circles or ovals/squashed circles), whereas image 3 displays pentagons, which have straight sides and sharp corners.}",3,1599,0,39
+14,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial14.png,2,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[1] {All other images (2, 3, 4, 5, 6) feature concentric shapes, while image 1 does not. Images 5 and 6 also feature overlapping shapes like image 1, but the shapes in image 1 are not concentric.}",1,1599,0,59
+15,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial15.png,3,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","The visual feature to identify is the arrangement of the shapes.
+
+*   **Images 1, 2, 4, 5, and 6** all show shapes arranged in a clear, linear row.
+*   **Image 3** shows shapes scattered in a more irregular, non-linear arrangement.
+
+Therefore, the outlier is image 3.
+
+[3] {The shapes in this image are arranged in a scattered, non-linear pattern, whereas the shapes in all other images are arranged in a straight line.}",3,1599,0,110
+16,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial16.png,3,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images show distinct, identically sized shapes arranged in a pattern, while image 3 shows a series of progressively smaller, overlapping shapes.}",3,1599,0,32
+17,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial17.png,4,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies","[6] {Images 1, 2, 3, 4, and 5 contain identical duplicates within the set of six images. Specifically, image 2 and image 4 are identical, and image 3 and image 5 are identical. Image 1 is unique in its spiraling, asymmetric shape. Image 6 is unique in its star-like, concentric shape. The common feature is not having duplicates among the six images, or, conversely, sharing a duplicate with another image. Image 6 is the outlier because it is the only one without a direct duplicate among the provided six images, if considering the duplicates as the shared elementary visual feature. However, if the ""elementary visual feature"" refers to the *kind* of pattern, then images 2, 4, and 6 share the feature of being concentric and symmetrical, while images 1, 3, and 5 are asymmetrical and spiraling. In this interpretation, there isn't one clear outlier based on pattern type.}
+
+Let's re-evaluate based on a more direct ""elementary visual feature"".
+The images display two types of overall patterns:
+Type A: Concentric, symmetrical shapes (Images 2, 4, 6)
+Type B: Asymmetrical, spiraling shapes (Images 1, 3, 5)
+
+Within Type A:
+Images 2 and 4 are identical.
+Image 6 is a different shape (a pentagonal/star-like concentric pattern).
+
+Within Type B:
+Images 3 and 5 are identical.
+Image 1 is a different shape (a more rounded, spiraling pattern).
+
+The question states ""Five share an elementary visual feature, while one is clearly different.""
+
+If the feature is ""being a duplicate of another image in the set"":
+- Image 2 is a duplicate of 4.
+- Image 4 is a duplicate of 2.
+- Image 3 is a duplicate of 5.
+- Image 5 is a duplicate of 3.
+- Image 1 is not a duplicate of any other image.
+- Image 6 is not a duplicate of any other image.
+
+This interpretation leaves two outliers (1 and 6). This doesn't fit ""five share a feature, one is different"".
+
+Let's try: ""Five images belong to a certain *category* or *type* of visual pattern, and one does not.""
+
+Consider ""being a spiraling, asymmetrical pattern"".
+Images 1, 3, 5 fit this. This is 3 images.
+
+Consider ""being a concentric, symmetrical pattern"".
+Images 2, 4, 6 fit this. This is 3 images.
+
+Again, this leads to 3 vs 3.
+
+Let's consider the *shapes* more specifically.
+Images 2 and 4 are identical concentric square-like shapes.
+Image 6 is a concentric star/pentagon-like shape.
+Images 3 and 5 are identical spiraling angular shapes.
+Image 1 is a spiraling rounded shape.
+
+The statement ""Five share an elementary visual feature, while one is clearly different"" suggests a grouping of 5 vs 1.
+
+The most straightforward common feature across 5 images is the presence of a duplicate.
+- Images 2, 3, 4, 5 are all duplicates of another image in the set. (2 is a duplicate of 4, 4 is a duplicate of 2, 3 is a duplicate of 5, 5 is a duplicate of 3). This is four images.
+- Images 1 and 6 are unique, meaning they are not duplicates of any other image.
+
+This also leads to a 4 vs 2 split.
+
+What if the ""elementary visual feature"" is ""the image has a duplicate elsewhere in the set""?
+Images 2, 3, 4, 5 possess this feature. (4 images)
+Images 1, 6 do not possess this feature. (2 images)
+
+What if the ""elementary visual feature"" is ""the image is unique (not a duplicate)""?
+Images 1, 6 possess this feature. (2 images)
+Images 2, 3, 4, 5 do not possess this feature. (4 images)
+
+This is tricky. Let's think about the phrasing ""Five share an elementary visual feature, while one is clearly different."" This implies a very direct and obvious distinction.
+
+Could the feature be something about the *type* of corners or edges?
+Images 1, 2, 3, 4, 5 all feature shapes with pointed or angular corners/edges.
+Image 6 has a more 'blunt' or rounded appearance at its outermost corners/points, although the inner shapes are angular. However, this is subjective.
+
+Let's consider the number of distinct images. There are 4 distinct patterns:
+Pattern A: Image 1
+Pattern B: Image 2 (and 4)
+Pattern C: Image 3 (and 5)
+Pattern D: Image 6
+
+Perhaps the feature is ""being one of the three patterns that appear more than once (as a duplicate)"". No, this is incorrect phrasing.
+
+Let's consider the shapes again.
+1: Asymmetric, rounded segments.
+2/4: Symmetric, angular, concentric squares.
+3/5: Asymmetric, angular, spiraling.
+6: Symmetric, angular, concentric pentagram/star.
+
+The feature is that ""it is a duplicate of another image in the set"".
+Images 2, 3, 4, 5 are duplicates. (4 images)
+Images 1, 6 are not duplicates. (2 images)
+
+The only way to get 5 vs 1 is if one of the duplicates is treated differently.
+
+What if the feature is ""being a member of a pair of identical images""?
+- Images 2 and 4 form an identical pair.
+- Images 3 and 5 form an identical pair.
+So, images 2, 3, 4, 5 are all members of such pairs. That's 4 images.
+Images 1 and 6 are not members of such pairs. That's 2 images.
+
+This still does not give a 5 vs 1 split.
+
+Let's reconsider the possibility of image 1, 2, 3, 4, 5 being one group.
+Images 1, 2, 3, 4, 5 are all composed of individual shapes that are somewhat 'four-sided' or have four main points of reference, even if distorted.
+- Image 1: The individual elements are distorted quadrilaterals.
+- Image 2/4: Clearly concentric quadrilaterals.
+- Image 3/5: The individual elements are distorted quadrilaterals.
+- Image 6: The individual elements are pentagonal (five-sided).
+
+This seems like a strong candidate for the ""elementary visual feature"".
+Images 1, 2, 3, 4, 5 are composed of shapes that are effectively 4-sided (quadrilateral-like or having 4 primary vertices/cusps).
+Image 6 is composed of shapes that are 5-sided (pentagonal-like or having 5 primary vertices/cusps).
+
+Therefore:
+[6] {The shapes in images 1, 2, 3, 4, and 5 are all based on four-sided figures (quadrilaterals or distorted quadrilaterals), either concentric or spiraling. Image 6, however, is based on five-sided figures (pentagons or star-like shapes).}",6,1599,0,1635
+18,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial18.png,5,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[5] {All other images show a sequence of identical or similar shapes arranged horizontally, whereas image 5 shows a single shape composed of nested, similar shapes.}",5,1599,0,33
+19,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial19.png,4,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[4] {The other images consist of a series of repeated shapes (ovals, circles, or rounded squares) that are either aligned horizontally or nested, while image 4 shows concentric shapes with varying points, making it visually distinct.}",4,1599,0,48
+20,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial20.png,4,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies",[4] {It is the only image that contains circles (or shapes with rounded edges). All other images contain shapes with pointed corners.},4,1599,0,28
+21,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial21.png,5,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","The outlier is: [5] {The other five images consist of shapes that are formed using only straight lines or only curved lines, whereas image 5 consists of shapes (pentagons) that are formed using both straight and curved lines.}",5,1599,0,48
+22,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial22.png,2,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[2] {Images 1, 3, 4, 5, and 6 all show a sequence of shapes (curved quadrilaterals, hexagons, and squares) that decrease in size and are nested or partially overlapping, creating a receding or converging effect. Image 2, on the other hand, shows a horizontal row of identical, interconnected shapes, arranged linearly without any sense of depth or scaling.}",2,1599,0,86
+23,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial23.png,3,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images consist of multiple, separate shapes. Image 3 is composed of a single, albeit nested, shape.}",3,1599,0,28
+24,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial24.png,4,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images show multiple distinct shapes or concentric, non-overlapping shapes. Image 3 shows concentric shapes that are also overlapping.}",3,1599,0,30
+25,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial25.png,1,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[1] {All other images show nested shapes, while image 1 shows overlapping shapes that are not strictly nested.}",1,1599,0,24
+26,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial26.png,5,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies",[5] {All other images contain objects with curved edges. Image 5 is the only one with objects made solely of straight lines.},5,1599,0,28
+27,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial27.png,5,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[5] {The other images all feature concentric shapes (or shapes that appear to be concentric), while image 5 shows three separate, non-concentric pentagons.}",5,1599,0,35
+28,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial28.png,3,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {The images 1, 2, 4, 5, and 6 show geometric shapes arranged in a radial or clustered pattern around a central point. Image 3 shows shapes arranged in a linear pattern.}",3,1599,0,47
+29,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial29.png,2,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies",[1] {All other images show either multiple discrete shapes or shapes that appear to be made of straight lines.},1,1599,0,23
+30,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial30.png,6,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies",[6] {Image 6 is the only one that uses circles; all other images use polygons (hexagons or squares).},6,1599,0,26
+31,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial31.png,2,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies","[4] {This image is composed of concentric shapes, while all other images are composed of a linear arrangement of identical shapes (either touching or separated).}",4,1599,0,31
+32,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial32.png,4,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies",[4] {It is the only image composed of ovals. All other images are composed of hexagons or shapes derived from hexagons.},4,1599,0,27
+33,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial33.png,5,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[1] {All other images show either individual shapes or shapes spiraling/nesting. Image 1 shows a group of shapes arranged in a circular pattern, which is different from the other images.}",1,1599,0,41
+34,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial34.png,1,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","The visual feature being examined is the shape of the objects in the images.
+
+*   Images 1 and 4 contain multiple kite/rhombus-like shapes (though 1 has triangles).
+*   Images 2 and 5 contain multiple squares.
+*   Images 3 contains three kite/rhombus-like shapes.
+*   Image 6 contains multiple shapes that resemble rounded, curved kites, where the sides are not straight lines.
+
+The elementary visual feature that five images share is that all the individual shapes within them are composed of straight lines.
+
+[6] {The shapes in image 6 are composed of curved lines, while all the shapes in images 1, 2, 3, 4, and 5 are composed of straight lines.}",6,1599,0,162
+35,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial35.png,1,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[1] {All other images (2, 3, 4, 5, 6) contain shapes that are either rhombuses or shapes with four pointed corners, either stacked or in a row. Image 1 contains shield-like shapes that have one flat side and a curved base, making them distinct from the four-pointed shapes in the other images.}",1,1599,0,75
+36,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial36.png,6,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[2] {Images 1, 3, 4, 5, and 6 contain polygons (shapes with straight edges), while image 2 contains circles, which have curved edges.}",2,1599,0,40
+37,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial37.png,4,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies",[3] {Image 3 is identical to Image 1. All other images are unique.},3,1599,0,20
+38,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial38.png,1,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[1] {All other images show concentric shapes, while image 1 shows a sequence of connected shapes that are not concentric.}",1,1599,0,26
+39,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial39.png,2,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[5] {Image 5 contains an outlier shape with internal lines, while all other images contain only outlines of shapes.}",5,1599,0,25
+40,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial40.png,5,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies","[4] {Image 4 contains a row of identical pentagons, whereas images 3 and 6 contain similar shapes, but with curved edges, and images 1, 2, and 5 are nested shapes. The ""elementary visual feature"" shared by 1, 2, 3, 5, and 6 is that their shapes have curved edges, whereas 4's shapes are entirely composed of straight lines.}",4,1599,0,90
+41,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial41.png,6,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies","[2] {Images 1, 3, 5, and 6 show overlapping shapes, while image 2 shows distinct, non-overlapping shapes. Image 4 also shows distinct shapes, but unlike image 2, it is not an outlier because the shapes in image 4 are arranged in a circular pattern, whereas the other images with overlapping shapes (1, 3, 5, 6) feature clustered, entangled arrangements. Therefore, image 2 is the outlier as it presents distinct, scattered shapes, contrasting with the overlapping/clustered nature of the majority, or the structured arrangement of image 4.}",2,1599,0,128
+42,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial42.png,3,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images contain shapes that are either triangles or regular pentagons, while image 3 contains shapes that are five-pointed stars.}",3,1599,0,31
+43,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial43.png,1,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[1] {All other images show concentric shapes, while image 1 shows overlapping shapes that are not concentric.}",1,1599,0,23
+44,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial44.png,3,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","The outlier is [3] {because it is the only image composed of pentagons. Images 1, 2, and 4 are composed of star-like shapes with more than five points. Images 5 and 6 are composed of hexagons. All other images use shapes that are either 6-sided or have 6 points, while image 3 uses 5-sided shapes.}",3,1599,0,81
+45,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial45.png,5,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[5] {All other images consist of shapes that are based on triangles or shapes with straight edges, whereas image 5 shows only circles or curved shapes.}",5,1599,0,32
+46,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial46.png,4,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies","[2] {Images 1, 4 show nested squares; Images 3, 5, 6 show overlapping curved shapes. Image 2 is the only one showing nested triangles.}",2,1599,0,39
+47,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial47.png,2,n_copies,3,2,"n_sides,edge_type,transform_type,n_copies","The outlier is [6] {because it is the only image that contains overlapping or intersecting shapes, while all other images have distinct, non-overlapping shapes.}",6,1599,0,32
+48,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial48.png,6,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[6] {All other images display a design that is roughly circular or clustered in a central area, whereas image 6 shows a linear pattern.}",6,1599,0,30
+49,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial49.png,4,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies",[3] {Image 3 and Image 6 are identical. All other images are distinct from one another.},3,1599,0,23
+50,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial50.png,4,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies",[4] {This is the only image that consists of open shapes. All other images are composed of closed shapes.},4,1599,0,24
+51,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial51.png,1,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images show shapes that are not interconnected or overlapping (even if they are clustered together). Image 3 shows triangles that are directly connected to each other, sharing edges.}",3,1599,0,39
+52,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial52.png,5,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {Image 3 is the only one where the shapes overlap. All other images feature distinct, non-overlapping shapes arranged in a pattern.}",3,1599,0,31
+53,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial53.png,6,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[6] {All other images contain shapes that are not fully closed or are composed of straight lines and curves, whereas image 6 contains only fully closed circles.}",6,1599,0,33
+54,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial54.png,4,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[4] {This image features nested circles, whereas images 1, 2, 3, 5, and 6 contain shapes with pointed or curved-in edges.}",4,1599,0,37
+55,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial55.png,3,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images show a series of shapes that progressively decrease in size and either overlap or are nested within each other, creating a sense of depth or a spiral effect. Image 3, however, shows five identical circles arranged in a fixed, symmetrical pattern without any progressive scaling or nesting.}",3,1599,0,61
+56,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial56.png,2,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[2] {All other images show overlapping shapes, while image 2 shows distinct, non-overlapping shapes arranged in a pattern.}",2,1599,0,27
+57,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial57.png,3,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {Image 3 shows a set of concentric hexagons, while all other images display a group of overlapping, rotated shapes that are not perfectly concentric.}",3,1599,0,32
+58,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial58.png,3,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images contain some form of a downward-pointing triangle, either individually or nested, while image 3 contains nested rhombuses.}",3,1599,0,31
+59,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial59.png,2,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[2] {All other images show overlapping shapes, while image 2 shows four distinct shapes arranged in a row.}",2,1599,0,24
+60,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial60.png,5,edge_type,3,2,"n_sides,edge_type,transform_type,n_copies","[5] {All other images show shapes with straight edges, while image 5 shows shapes with curved edges.}",5,1599,0,23
+61,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial61.png,3,transform_type,3,2,"n_sides,edge_type,transform_type,n_copies","[3] {All other images show overlapping shapes, while image 3 shows concentric shapes.}",3,1599,0,19
+62,balanced_data/var_balanced/regular_polygons/dim2/var3/summaries/summary=trial62.png,4,n_sides,3,2,"n_sides,edge_type,transform_type,n_copies","[5] {It is the only image composed entirely of straight lines; all other images include curved lines or appear to be composed of curved lines due to the way they are drawn (e.g., overlapping elements creating a curvilinear effect).}",5,1599,0,49

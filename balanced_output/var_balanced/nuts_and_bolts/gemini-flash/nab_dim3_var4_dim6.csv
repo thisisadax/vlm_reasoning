@@ -1,0 +1,773 @@
+trial_idx,summary_path,oddball_idx,oddball_abstraction,reference_variance,n_dimensions,abstraction_columns,response,answer,n_input_tokens,n_thought_tokens,n_output_tokens
+0,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial0.png,4,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {It is the only image where the shape of the central object is different from the shapes of the four surrounding objects. In image 3, the central object is a circle, while the surrounding objects are diamonds. In all other images, the central object and the surrounding objects share the same basic shape (either circles, diamonds, or pentagons).}",3,1599,0,73
+1,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial1.png,5,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","The outlier is:
+
+[4] {This image is the only one with four outer circles and a square in the center, unlike the others which have either six outer circles and a square, or four outer circles and a hexagon, or six outer circles and a hexagon.}",4,1599,0,55
+2,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial2.png,3,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[3] {All other images have an outer square/diamond shape. Image 3 has an outer pentagonal shape.},3,1599,0,25
+3,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial3.png,5,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[5] {All other images have a central square and four identical shapes around it. Image 5 has a central square and six identical shapes around it.},5,1599,0,32
+4,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial4.png,3,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {The images either have all hexagons (1, 2, 4, 5, 6) or all circles (3) as the smaller outer shapes. However, images 1, 2, 5, and 6 have a double-lined outer border, while 3 and 4 have a single-lined outer border.
+
+A clearer distinction lies in the consistency of shapes. In images 1, 2, 5, and 6, the smallest shapes are hexagons. In image 3, the smallest shapes are circles. In image 4, the outer smaller shapes are hexagons, but the central shape is a pentagon.
+
+Let's look at the central shape. In 1, 2, and 3, the central shape is a circle. In 4, 5, and 6, the central shape is a pentagon.
+
+Consider the relationship between the outer border shape and the inner smaller shapes.
+- Image 1: Square outer, hexagons inside.
+- Image 2: Hexagon outer, hexagons inside.
+- Image 3: Square outer, circles inside.
+- Image 4: Square outer, hexagons inside.
+- Image 5: Hexagon outer, hexagons inside.
+- Image 6: Hexagon outer, hexagons inside.
+
+Five images (1, 2, 4, 5, 6) contain hexagons as the smaller outer shapes. Image 3 is the only one where the smaller outer shapes are circles.}",3,1599,0,316
+5,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial5.png,1,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {Image 1 is the outlier because it is the only image where the central shape is a polygon (a square), whereas in all other images, the central shape is a circle.}",1,1599,0,40
+6,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial6.png,2,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {Images 1, 3, 4, 5, and 6 all feature a double outline (either a double pentagon or a double circle), while image 2 only has a single outline for the pentagon.}",2,1599,0,50
+7,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial7.png,4,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {The image is a circle with a concentric inner circle, and six small pentagons arranged around the inner circle. All the other images have either four or five small pentagons (images 2, 3, 6 have four; images 1, 5 have five).}",4,1599,0,60
+8,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial8.png,1,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have a double-lined outer pentagon, while image 1 has a single-lined outer pentagon.}",1,1599,0,29
+9,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial9.png,2,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {This is the only image where all the inner shapes are identical (all squares). In all other images, there is a central shape different from the surrounding shapes.}",2,1599,0,36
+10,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial10.png,6,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have a central circular shape, whereas image 1 has a central square shape.}",1,1599,0,23
+11,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial11.png,3,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[3] {All other images contain five or more small shapes surrounding a central shape. Image 3 only contains three small shapes surrounding the central shape.},3,1599,0,31
+12,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial12.png,3,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {The outer shape of the figure is a hexagon, while in all other images, the outer shape is a pentagon.}",3,1599,0,28
+13,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial13.png,2,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {Image 2 is the outlier because the central shape is a square, while in all other images, the central shape is a pentagon.}",2,1599,0,32
+14,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial14.png,2,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[2] {Image 2 is the only one with six smaller shapes around the central shape. All other images have four smaller shapes.},2,1599,0,28
+15,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial15.png,1,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[1] {It is the only image with a double border.},1,1599,0,14
+16,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial16.png,3,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {The inner-most shape in image 3 is a hexagon, while in all other images, the inner-most shape is a pentagon.}",3,1599,0,33
+17,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial17.png,4,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {The outer shape has 5 sides (pentagon) and the central shape has 6 sides (hexagon), while the small shapes have 4 sides (rhombus). In all other images, the central shape has the same number of sides as the outer shape or is a circle, and the small shapes are either rhombuses (4 sides) or pentagons (5 sides). The mismatch in the number of sides between the outer and central shapes is unique to image 3.}",3,1599,0,101
+18,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial18.png,6,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {The small shapes around the central pentagon are hexagons in image 6, while in all other images they are circles.}",6,1599,0,28
+19,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial19.png,6,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[6] {The other five images have an outer shape with a double outline. Image 6 has a single outline for its outer shape.},6,1599,0,29
+20,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial20.png,2,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {All other images contain hexagons (either as the outer shape or inner shapes), while image 2 contains pentagons and a square as inner shapes.}",2,1599,0,33
+21,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial21.png,4,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {Image 4 is the outlier because the central shape (diamond) and the surrounding shapes (hexagons) do not match the outer border shape (hexagon). In all other images, the central shape matches the outer border shape if the surrounding shapes are different, or the surrounding shapes match the outer border shape if the central shape is different.}",4,1599,0,71
+22,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial22.png,4,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {This is the only image where the central shape is a pentagon; in all other images, the central shape is a square/diamond.}",4,1599,0,32
+23,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial23.png,2,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {The outer shape of the figure is a rhombus, while all other figures have an outer shape of a hexagon (1, 5, 6) or a rhombus (3, 4) with 6 circles inside. However, image 2 has 4 circles and a pentagon in the center. In images 1, 3, 5, there are squares/diamonds as smaller shapes, while in images 2, 4, 6, there are circles as smaller shapes. The most consistent visual feature that differentiates image 2 from all others is the central shape; it is a pentagon, whereas all other images (1, 3, 4, 5, 6) have a circle in the center.}",2,1599,0,155
+24,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial24.png,5,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {In image 3, the small shapes around the center are squares, while in all other images, the small shapes are either pentagons (1, 2, 5) or the central shape is a pentagon and the small shapes are squares (4, 6), or all shapes are pentagons (1, 2).}",3,1599,0,72
+25,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial25.png,2,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {All other images (1, 3, 4, 5, 6) feature a square or pentagon shape in the center, and a set of shapes (hexagons or pentagons) arranged around it, all enclosed within a large square or double-square outline. Image 2, however, features a pentagon in the center and shapes around it, but it lacks the double-line outer border that is present in images 1, 3, and 4, and the inner square border of images 5 and 6. Images 1, 3, 4 also have a double-line outer border, while image 2 has a single-line outer border, making it an outlier.}",2,1599,0,151
+26,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial26.png,6,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {It is the only image where the shape in the center (a pentagon) is different from the shape of the outer border (a circle). In all other images, these two shapes are the same.}",6,1599,0,45
+27,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial27.png,3,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images contain either 4, 5, 6, or 7 pentagons, whereas image 5 contains 3 pentagons and 1 circle.}",5,1599,0,38
+28,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial28.png,2,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {In all other images, the small surrounding shapes are hexagons. In image 2, the small surrounding shapes are pentagons.}",2,1599,0,29
+29,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial29.png,5,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {It is the only image where the central shape is a square and there are more than 4 small circles surrounding it. All other images with a central square (1, 6) have 4 small circles, and all other images with more than 4 small circles (4) have a central circle.}",3,1599,0,66
+30,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial30.png,1,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have six smaller shapes arranged around the central square, whereas image 1 has only four.}",1,1599,0,25
+31,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial31.png,5,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {It is the only image where the inner shapes are hexagons. In all other images, the inner shapes are diamonds.}",5,1599,0,27
+32,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial32.png,2,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {Images 1, 3, 4, 5, and 6 contain polygons within a larger polygon, where the smaller polygons have the same number of sides as the outermost polygon or the innermost polygon. Image 2, however, has small hexagons and an innermost pentagon, while the outer shape is a pentagon. This is the only image where the small polygons and the innermost polygon have different numbers of sides.}",2,1599,0,89
+33,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial33.png,3,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {It is the only image where the central shape is a pentagon, matching the outer shape, and the four surrounding shapes are also pentagons. In all other images, the central shape is either a circle or the outer shape is a hexagon, and the surrounding shapes are circles or pentagons, but not a consistent match of the outer, central, and surrounding shapes in the same way as image 3.}",3,1599,0,86
+34,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial34.png,5,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[5] {It is the only image with a pentagonal outer shape; all other images have a hexagonal outer shape.},5,1599,0,25
+35,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial35.png,5,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images have a circular outer border, whereas image 5 has a hexagonal outer border.}",5,1599,0,23
+36,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial36.png,2,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {The central polygon in image 4 has 6 sides (a hexagon), while the surrounding polygons (pentagons) each have 5 sides. In all other images, the central polygon and the surrounding polygons share the same number of sides. Specifically, in images 1, 5, and 3, both the central and surrounding polygons are hexagons/pentagons. In images 2 and 6, the central polygon is a pentagon, and the surrounding polygons are diamonds/squares, which can be seen as quadrilaterals, thus still aligning in terms of the number of sides (5 sides vs 4 sides in the surrounding shapes).}",4,1599,0,135
+37,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial37.png,4,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {The central shape is a circle, while in all other images the central shape is a diamond.}",4,1599,0,23
+38,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial38.png,1,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","The outlier is [5] because {it is the only image that contains both pentagons and diamonds. Images 1, 5, and 6 contain diamonds, while images 2, 3, and 4 contain pentagons. Image 5 uniquely contains six diamond shapes, while the other images contain four or six shapes of a single type.}",5,1599,0,72
+39,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial39.png,3,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[3] {All other images contain four smaller shapes arranged around a central square. Image 3 contains six smaller shapes.},3,1599,0,25
+40,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial40.png,6,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {The central shape in image 6 is a circle, while in all other images the central shape is a pentagon.}",6,1599,0,28
+41,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial41.png,3,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {It is the only image where the shape of the outer border matches the shape of the inner border. In all other images, the outer border is either a circle and the inner border is a polygon, or the outer border is a hexagon and the inner border is a pentagon.}",4,1599,0,60
+42,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial42.png,3,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {All other images contain only circles within their main shape (either a larger circle or a pentagon), while image 3 contains diamonds within a pentagon.}",3,1599,0,35
+43,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial43.png,3,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","The outlier is:
+
+[3] {Image 3 is the only one where the outer boundary consists of a single line. All other images have a double-line boundary.}",3,1599,0,36
+44,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial44.png,3,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[3] {It is the only image where the outermost shape is a circle. All other images have a hexagon as the outermost shape.},3,1599,0,28
+45,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial45.png,3,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[3] {All other images contain at least one diamond shape. Image 3 is the only one that does not contain a diamond shape.},3,1599,0,29
+46,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial46.png,1,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[6] {The other five images all have either the large outer shape or the large central shape (or both) outlined with a double line. Image 6 is the only one where all shapes have a single line outline.},6,1599,0,46
+47,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial47.png,2,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {All other images have a central shape that is a square or diamond, while image 2 has a central hexagon.}",2,1599,0,27
+48,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial48.png,3,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {All other images have a single outer border, while image 3 has a double outer border.}",3,1599,0,23
+49,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial49.png,1,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[5] {It is the only image where all the inner shapes are hexagons.},5,1599,0,17
+50,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial50.png,2,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {Image 2 is the outlier because it has 6 circles, while all other images have 4 circles.}",2,1599,0,26
+51,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial51.png,3,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[3] {It is the only image that has a double border around the outer shape.},3,1599,0,19
+52,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial52.png,3,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {All other images have a central circle, whereas image 3 has a central square.}",3,1599,0,21
+53,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial53.png,3,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[3] {All other images have a central shape and four smaller shapes around it. Image 3 has a central shape and six smaller shapes around it.},3,1599,0,32
+54,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial54.png,6,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[6] {Images 1-5 all feature circles in the outer positions; image 6 features hexagons in the outer positions.},6,1599,0,27
+55,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial55.png,4,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[4] {It is the only image where the outer shape is a circle instead of a hexagon.},4,1599,0,21
+56,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial56.png,5,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {Images 1, 3, 4, 5, and 6 show a central shape where the number of sides of the innermost shape is different from the number of sides of the outermost shape. Image 2, however, shows a central shape (square) that has the same number of sides as the outermost shape (a square oriented as a diamond).}",2,1599,0,77
+57,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial57.png,3,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {In images 1, 2, 4, 5, and 6, the four smaller shapes surrounding the central shape are hexagons. In image 3, these four smaller shapes are circles.}",3,1599,0,45
+58,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial58.png,5,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {It is the only image where the small shapes along the perimeter are hexagons, while the large central shape is a hexagon. In all other images, either the small shapes are pentagons and the large central shape is a pentagon, or the small shapes are pentagons and the large central shape is a hexagon, or the small shapes are hexagons and the large central shape is a pentagon. Thus, image 5 is the only one where both the small perimeter shapes and the central large shape are both hexagons.}",5,1599,0,106
+59,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial59.png,6,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {All other images contain a square within a square, while image 6 contains a circle within a square.}",6,1599,0,25
+60,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial60.png,5,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {Image 5 is the only one where the central shape is a pentagon. In all other images, the central shape is a square/diamond. Also, it is the only image where the surrounding shapes are diamonds and the outer shape is a square.}",5,1599,0,55
+61,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial61.png,3,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {This is the only image that has a mix of shapes for the small elements and the central element. All other images maintain consistency: either all small shapes match the central shape or all small shapes are different from the central shape, but consistent among themselves.}",4,1599,0,54
+62,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial62.png,1,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {It is the only image where the central shape (a circle) is different from the outer shapes (diamonds). In all other images, the central shape is a hexagon, and the outer shapes are either hexagons or diamonds.}",1,1599,0,48
+63,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial63.png,4,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {The outer shape is a hexagon, but the inner central shape is a pentagon. In all other images, the inner central shape matches the outer shape (either both hexagons or both pentagons).}",4,1599,0,43
+64,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial64.png,1,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have a hexagonal outer boundary, while image 1 has a circular outer boundary.}",1,1599,0,23
+65,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial65.png,1,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have two concentric outer shapes, whereas image 1 only has one.}",1,1599,0,21
+66,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial66.png,3,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[3] {It is the only image with a double-lined outer shape.},3,1599,0,17
+67,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial67.png,2,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {All other images have a central shape that is either a pentagon or a square/diamond. Image 2 is the only one where the central shape is not present; instead, there are five smaller pentagons arranged in a circle, with the fifth one in the center, not a larger central shape.}",2,1599,0,65
+68,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial68.png,1,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have a central shape that is different from the surrounding shapes, or all shapes are the same (outer and inner). In image 1, the inner central shape (hexagon) is the same as the surrounding shapes (diamonds), which is not true for any other image. Additionally, images 2, 4, and 6 have a central diamond and surrounding hexagons, while images 3 and 5 have a central hexagon and surrounding diamonds. Image 1 has a central hexagon and surrounding diamonds.}",1,1599,0,107
+69,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial69.png,6,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[6] {All other images show 4 smaller shapes surrounding a central shape. Image 6 shows 6 smaller shapes surrounding a central shape.},6,1599,0,30
+70,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial70.png,4,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","The outlier is [4] {because it is the only image where the small shapes around the central shape are hexagons. In all other images, the small shapes are circles.}",4,1599,0,35
+71,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial71.png,3,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {All other images have a double outline for the outer shape, while image 3 only has a single outline.}",3,1599,0,26
+72,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial72.png,6,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {It is the only image that contains more than 5 shapes (1 hexagon, 1 inner hexagon, and 6 small hexagons). All other images contain exactly 5 shapes (1 hexagon, 1 central shape, and 3-4 smaller shapes).}",6,1599,0,56
+73,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial73.png,5,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images contain a smaller, unbordered inner polygon. Image 5 is the only one where the inner polygon fills the space from the inner border.}",5,1599,0,35
+74,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial74.png,4,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {Image 2 is the only image where the outer shape (pentagon), the inner small shapes (pentagons), and the inner large shape (circle) are all different shapes. In all other images, at least two of these features share a shape (e.g., in image 1, the outer shape and inner small shapes are both pentagons; in image 4, the outer shape and inner small shapes are both hexagons and the inner large shape is a circle; in image 5, the outer shape and inner small shapes are both hexagons and the inner large shape is a square).}",2,1599,0,124
+75,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial75.png,3,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[3] {All other images contain a pentagon as either the inner shape or the small shapes around the inner shape. Image 3 has a pentagon as the inner shape but squares as the small shapes around it.},3,1599,0,45
+76,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial76.png,1,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","The elementary visual feature to observe is the shapes and their arrangement.
+
+In images 1, 2, 4, and 6, there is a central shape (either a circle or a pentagon) and four or six smaller shapes arranged symmetrically around it. The smaller shapes are consistently the same type (pentagons or hexagons).
+
+In image 3 and 5, there is a central shape and six smaller shapes arranged around it.
+
+Now let's look at the types of shapes:
+- **Image 1:** Outer circle, inner circle, four surrounding pentagons.
+- **Image 2:** Outer square (rotated), inner circle, four surrounding hexagons.
+- **Image 3:** Outer circle, inner pentagon, six surrounding hexagons.
+- **Image 4:** Outer square (rotated), inner pentagon, four surrounding hexagons.
+- **Image 5:** Outer square (rotated), inner pentagon, six surrounding pentagons.
+- **Image 6:** Outer circle, inner circle, six surrounding pentagons.
+
+The most consistent feature among five of the images is that the surrounding shapes are *different* from the central shape (if the central shape is not the outer frame's shape).
+
+Let's re-evaluate based on the relationship between the *central* shape and the *smaller surrounding* shapes.
+
+- In image 1, the central shape is a circle, and the surrounding shapes are pentagons. (Different)
+- In image 2, the central shape is a circle, and the surrounding shapes are hexagons. (Different)
+- In image 3, the central shape is a pentagon, and the surrounding shapes are hexagons. (Different)
+- In image 4, the central shape is a pentagon, and the surrounding shapes are hexagons. (Different)
+- In image 6, the central shape is a circle, and the surrounding shapes are pentagons. (Different)
+
+- In image 5, the central shape is a pentagon, and the surrounding shapes are also pentagons. (Same)
+
+Therefore, the outlier is image 5.
+
+[5] {In all other images (1, 2, 3, 4, 6), the smaller shapes surrounding the central element are of a different geometric type than the central element itself. In image 5, the smaller surrounding shapes (pentagons) are the same geometric type as the central element (a pentagon).}",5,1599,0,509
+77,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial77.png,1,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have a circular outer border, while image 1 has a hexagonal outer border.}",1,1599,0,23
+78,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial78.png,4,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[4] {The image is the only one with 6 small shapes along its perimeter. All other images have 4 small shapes.},4,1599,0,28
+79,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial79.png,5,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images have a central square (or diamond, which is a rotated square) shape, while image 5 has a central pentagon.}",5,1599,0,33
+80,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial80.png,3,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {All other images have a circular outer shape, while image 3 has a hexagonal outer shape.}",3,1599,0,23
+81,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial81.png,6,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {All other images have an outer shape that is a square rotated by 45 degrees (a diamond shape), whereas image 6 has an outer pentagonal shape.}",6,1599,0,37
+82,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial82.png,5,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[5] {All other images contain five smaller shapes (circles or diamonds) arranged around a central shape. Image 5 contains only four smaller circles.},5,1599,0,31
+83,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial83.png,5,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","The outlier is [5] {because it is the only image where the central shape is a pentagon and the surrounding shapes are diamonds. All other images have either a square in the center with diamonds/hexagons around it, or a pentagon in the center with hexagons around it, or a square in the center with hexagons around it, or a pentagon in the center with hexagons around it. Specifically, in images 1, 2, and 6, the central shape is a square. In images 3 and 4, the central shape is a pentagon. In image 5, the central shape is also a pentagon, but it is the only image with a pentagon in the center that also has surrounding shapes that are diamonds (like in image 3 where there is a pentagon but the surrounding shapes are diamonds, but the overall design of the outer circle is also different, having a double ring).
+
+A more consistent distinction is based on the number of surrounding shapes.
+Images 1, 4, 6 have 4 surrounding shapes.
+Images 2, 3, 5 have more than 4 surrounding shapes.
+
+Let's re-evaluate based on the number of surrounding shapes and the type of central/surrounding shapes.
+
+Images with a square in the center: 1, 2, 6
+  1: Square center, 4 diamonds surrounding. (Single outer ring)
+  2: Square center, 6 hexagons surrounding. (Single outer ring)
+  6: Square center, 4 hexagons surrounding. (Double outer ring)
+
+Images with a pentagon in the center: 3, 4, 5
+  3: Pentagon center, 6 diamonds surrounding. (Double outer ring)
+  4: Pentagon center, 4 hexagons surrounding. (Double outer ring)
+  5: Pentagon center, 6 diamonds surrounding. (Single outer ring)
+
+The ""elementary visual feature"" could be the double outer ring.
+Images with a double outer ring: 3, 4, 6.
+Images with a single outer ring: 1, 2, 5.
+
+Let's look at the variety of shapes for the small elements.
+Diamonds: 1, 3, 5
+Hexagons: 2, 4, 6
+
+Outlier based on surrounding shapes:
+The visual feature could be matching the number of sides of the central shape to the number of sides of the surrounding shapes.
+1: Square (4 sides) - Diamond (4 sides). Matches.
+2: Square (4 sides) - Hexagon (6 sides). Does not match.
+3: Pentagon (5 sides) - Diamond (4 sides). Does not match.
+4: Pentagon (5 sides) - Hexagon (6 sides). Does not match.
+5: Pentagon (5 sides) - Diamond (4 sides). Does not match.
+6: Square (4 sides) - Hexagon (6 sides). Does not match.
+
+This doesn't seem to work, as only one image matches. The prompt states ""five share an elementary visual feature, while one is clearly different.""
+
+Let's consider the number of surrounding shapes.
+1: 4 surrounding shapes
+2: 6 surrounding shapes
+3: 6 surrounding shapes
+4: 4 surrounding shapes
+5: 6 surrounding shapes
+6: 4 surrounding shapes
+
+So, 1, 4, 6 have 4 surrounding shapes.
+And 2, 3, 5 have 6 surrounding shapes.
+This means there are 3 of each, so this is not the outlier.
+
+Let's consider the type of the outer circle.
+Single ring: 1, 2, 5
+Double ring: 3, 4, 6
+Again, 3 of each.
+
+Let's consider the type of the central shape.
+Square: 1, 2, 6
+Pentagon: 3, 4, 5
+Again, 3 of each.
+
+Let's consider the type of the small surrounding shapes.
+Diamond: 1, 3, 5
+Hexagon: 2, 4, 6
+Again, 3 of each.
+
+This implies a combination of features.
+
+Let's look for a consistent pattern in 5 images.
+
+Images 1, 3, 5 use diamonds as the surrounding shapes.
+Images 2, 4, 6 use hexagons as the surrounding shapes.
+This again gives 3 vs 3.
+
+Let's combine the central shape type and the surrounding shape type.
+1: Square, Diamond
+2: Square, Hexagon
+3: Pentagon, Diamond
+4: Pentagon, Hexagon
+5: Pentagon, Diamond
+6: Square, Hexagon
+
+Notice that the combinations are:
+Square/Diamond: 1
+Square/Hexagon: 2, 6 (2 images)
+Pentagon/Diamond: 3, 5 (2 images)
+Pentagon/Hexagon: 4
+
+If we look at the combination of (Central Shape, Surrounding Shape Type), image 4 is the only one with (Pentagon, Hexagon). All other images either have a Square with Diamonds (1), Square with Hexagons (2, 6), or Pentagon with Diamonds (3, 5).
+
+Therefore, the outlier is [4] because it is the only image with a pentagon in the center and hexagons as the surrounding smaller shapes. All other images either have a square in the center (1, 2, 6) or a pentagon in the center with diamonds as the surrounding shapes (3, 5).
+}",4,1599,0,1199
+84,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial84.png,1,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have the same number of small shapes as the number of sides of the outer shape. Image 1 has an outer pentagon (5 sides) but contains 6 small pentagons. Images 2 and 4 have outer pentagons and 4 small shapes. Images 3, 5, and 6 have outer circles (infinite sides) but contain 6, 4, and 4 small shapes respectively, which doesn't directly relate to ""sides"" of a circle.
+
+A simpler observation: In images 2, 3, 4, 5, and 6, the inner shapes (small pentagons or diamonds) are placed symmetrically around the central hexagon. In image 1, the small pentagons are placed in a circle, but one is directly below the hexagon and another directly above it, while the others are offset, creating an asymmetry not present in the other images.
+
+Also, images 2, 4, 5, and 6 have 4 small shapes. Image 3 has 6 small shapes. Image 1 has 6 small shapes. This doesn't isolate one.
+
+Let's re-evaluate the shapes.
+Images 1, 2, 4 have a pentagonal outer boundary. Images 3, 5, 6 have a circular outer boundary.
+Images 1, 2, 6 have small pentagonal shapes. Images 3, 4, 5 have small diamond shapes.
+All images have a central hexagon.
+
+Consider the count of small shapes:
+1: 6 small pentagons
+2: 4 small pentagons
+3: 6 small diamonds
+4: 6 small diamonds
+5: 4 small diamonds
+6: 4 small pentagons
+
+It appears there's a mix of features. Let's look for a consistent elementary visual feature.
+
+How about the relationship between the outer boundary and the small shapes?
+In images 2, 4, 5, 6, the number of small shapes is 4.
+In images 1 and 3, the number of small shapes is 6. This doesn't single one out.
+
+Let's consider the *type* of outer shape versus the *type* of small shapes.
+- Images 1, 2, 4: Outer pentagon.
+  - 1: Small pentagons.
+  - 2: Small pentagons.
+  - 4: Small diamonds.
+- Images 3, 5, 6: Outer circle.
+  - 3: Small diamonds.
+  - 5: Small diamonds.
+  - 6: Small pentagons.
+
+This doesn't seem to isolate one either.
+
+Let's re-examine the original suggestion about the number of sides.
+Images 2 and 4 have an outer pentagon.
+Image 2 has 4 small pentagons.
+Image 4 has 6 small diamonds. My count above was incorrect. Let's re-count for image 4. Image 4 clearly has 6 small diamonds.
+
+New count of small shapes:
+1: 6 small pentagons
+2: 4 small pentagons
+3: 6 small diamonds
+4: 6 small diamonds
+5: 4 small diamonds
+6: 4 small pentagons
+
+Now, let's group by number of small shapes:
+- 4 small shapes: 2, 5, 6
+- 6 small shapes: 1, 3, 4
+
+This again splits the images.
+
+Let's consider the elementary visual feature as *consistency in shape*.
+- In image 1, the outer shape is a pentagon, and the inner small shapes are also pentagons.
+- In image 2, the outer shape is a pentagon, and the inner small shapes are also pentagons.
+- In image 6, the outer shape is a circle, and the inner small shapes are pentagons. (Inconsistent)
+
+Let's look for consistency in shape *type* between the outer boundary and the small shapes, or at least some visual relationship.
+
+Images 1, 2, 4: Outer pentagon.
+  - 1: Small pentagons (consistent shape type with outer boundary, if you consider the ""pointiness"").
+  - 2: Small pentagons (consistent shape type).
+  - 4: Small diamonds (inconsistent shape type).
+
+Images 3, 5, 6: Outer circle.
+  - 3: Small diamonds (inconsistent shape type).
+  - 5: Small diamonds (inconsistent shape type).
+  - 6: Small pentagons (inconsistent shape type).
+
+Based on this, images 1 and 2 are the only ones where the small inner shapes share the same general form (pentagon) as the outer boundary (pentagon). All other images have small shapes that are different from the outer boundary (diamonds with pentagon, or diamonds/pentagons with a circle).
+
+This feature groups 1 and 2 together as similar. We are looking for an outlier.
+
+Let's try a different visual feature: The presence of a double line for the outer boundary.
+- Double outer line: 2, 3, 4.
+- Single outer line: 1, 5, 6.
+This groups them differently.
+
+Let's consider the *number* of small shapes relative to the outer shape.
+- Image 2 has an outer pentagon (5 sides) and 4 small pentagons.
+- Image 4 has an outer pentagon (5 sides) and 6 small diamonds.
+- Image 1 has an outer pentagon (5 sides) and 6 small pentagons.
+
+This line of reasoning doesn't make any of them an obvious outlier on its own.
+
+Let's consider the *type* of inner-most polygon. All have a hexagon. This is common.
+
+Let's look at the arrangement and number of the small shapes.
+1: 6 pentagons arranged in a circle.
+2: 4 pentagons, one on each ""side"" of the inner hexagon (ignoring the bottom vertex of the outer pentagon).
+3: 6 diamonds arranged in a circle.
+4: 6 diamonds, one on each ""side"" of the inner hexagon.
+5: 4 diamonds, one on each ""side"" of the inner hexagon.
+6: 4 pentagons, one on each ""side"" of the inner hexagon.
+
+Here's a strong feature: The shapes of the small inlays.
+- Small pentagons: 1, 2, 6
+- Small diamonds: 3, 4, 5
+
+This again divides them.
+
+Let's consider images where the small shapes are *not* rotated.
+- In 1, 2, 6, the small pentagons are oriented upright (one vertex pointing up).
+- In 3, 4, 5, the small diamonds are oriented with a vertex pointing up and down, and horizontal sides.
+
+What if the outlier is the one where the *count* of small shapes is different from the number of sides of the outer large shape (if applicable)?
+- 1: Outer pentagon (5 sides), 6 small pentagons. (Count is different from sides)
+- 2: Outer pentagon (5 sides), 4 small pentagons. (Count is different from sides)
+- 4: Outer pentagon (5 sides), 6 small diamonds. (Count is different from sides)
+
+For the circles (3, 5, 6), the ""number of sides"" is undefined (or infinite), so this comparison doesn't apply directly.
+
+Let's reconsider the shapes themselves.
+The question states ""elementary visual feature.""
+
+Consider *all polygons have the same number of sides*.
+- Image 1: Outer pentagon, inner hexagon, small pentagons. (Pentagon, hexagon, pentagon - not all same)
+- Image 2: Outer pentagon, inner hexagon, small pentagons. (Pentagon, hexagon, pentagon - not all same)
+- Image 3: Outer circle, inner hexagon, small diamonds (quadrilaterals). (Circle, hexagon, quadrilateral - not all same)
+- Image 4: Outer pentagon, inner hexagon, small diamonds (quadrilaterals). (Pentagon, hexagon, quadrilateral - not all same)
+- Image 5: Outer circle, inner hexagon, small diamonds (quadrilaterals). (Circle, hexagon, quadrilateral - not all same)
+- Image 6: Outer circle, inner hexagon, small pentagons. (Circle, hexagon, pentagon - not all same)
+
+This doesn't work.
+
+Let's look at image 1. It has an outer pentagon. The small shapes are also pentagons. The arrangement of the small pentagons seems different from how the small shapes are arranged in the other images.
+In images 2, 4, 5, 6, the small shapes are positioned in such a way that they appear to correspond to the ""sides"" or ""corners"" of the inner hexagon, or perhaps the vertices of the outer shape.
+- In image 2, there are 4 small pentagons, roughly at the 12, 3, 6, 9 o'clock positions relative to the hexagon, fitting within the pentagon.
+- In image 4, there are 6 small diamonds, one for each side of the hexagon, positioned outside it but inside the outer pentagon.
+- In image 5, there are 4 small diamonds.
+- In image 6, there are 4 small pentagons.
+- In image 3, there are 6 small diamonds, one for each side of the hexagon.
+
+In images 2, 3, 4, 5, 6, the small shapes are contained *within* the space between the central hexagon and the outermost boundary. Their placement often relates to the sides of the hexagon (4 or 6 shapes).
+
+Now look at image 1:
+- Outer pentagon.
+- Central hexagon.
+- 6 small pentagons.
+
+If the feature is *all polygons are regular polygons*, then:
+- Pentagon (outer), Hexagon (inner), Pentagon (small) - all regular. (Image 1, 2, 6)
+- Circle (outer), Hexagon (inner), Diamond (small) - (Diamond is a quadrilateral, but not necessarily regular (square)). The diamonds shown in 3, 4, 5 are rhombuses, which are regular if they are squares. They are not squares here. So this feature rules out 3, 4, 5.
+
+Let's refine: *All polygonal shapes (excluding circles) are regular polygons*.
+- 1: Pentagon, Hexagon, Pentagon - All regular.
+- 2: Pentagon, Hexagon, Pentagon - All regular.
+- 3: Circle, Hexagon, Diamond - Diamond is NOT a regular polygon here.
+- 4: Pentagon, Hexagon, Diamond - Diamond is NOT a regular polygon here.
+- 5: Circle, Hexagon, Diamond - Diamond is NOT a regular polygon here.
+- 6: Circle, Hexagon, Pentagon - Hexagon and Pentagon are regular.
+
+So images 3, 4, 5 contain non-regular polygons (the diamonds). This means the outlier should be among these three if the ""elementary visual feature"" is the regularity of polygons.
+
+However, the question implies five share a feature, and one is different. This analysis groups 3, 4, 5 as similar (they have irregular diamonds) and 1, 2, 6 as similar (they have only regular polygons or circles). This means the outlier should be one from the smaller group.
+
+Let's re-examine image 6. It has an outer circle, a central hexagon (regular), and small pentagons (regular). So 6 fits the ""only regular polygons or circles"" group.
+So, images 1, 2, 6 have only regular polygons (or circles).
+Images 3, 4, 5 have non-regular polygons (the diamonds).
+
+If 1, 2, 6 share this feature, and 3, 4, 5 share another, then there isn't one outlier.
+
+Let's try to find a feature that *only one* image lacks or possesses.
+
+Consider the *orientation* of the small shapes relative to the outer boundary or inner hexagon.
+- In 1, 2, 6: The small pentagons have one side parallel to an imaginary horizontal line.
+- In 3, 4, 5: The small diamonds have a horizontal side.
+
+This is not distinguishing.
+
+What about the *number of sides of the outer shape* compared to the *number of sides of the inner small shapes*?
+- 1: Outer pentagon (5 sides), Small pentagons (5 sides). **Same number of sides.**
+- 2: Outer pentagon (5 sides), Small pentagons (5 sides). **Same number of sides.**
+- 3: Outer circle (undefined sides), Small diamonds (4 sides).
+- 4: Outer pentagon (5 sides), Small diamonds (4 sides). **Different number of sides.**
+- 5: Outer circle (undefined sides), Small diamonds (4 sides).
+- 6: Outer circle (undefined sides), Small pentagons (5 sides).
+
+This is a promising lead. Images 1 and 2 are the only ones where the outer polygonal shape has the same number of sides as the small inner polygonal shapes.
+
+So, 1 and 2 share the feature: ""Outer polygon has the same number of sides as the small inner polygons.""
+The remaining images (3, 4, 5, 6) *do not* share this feature.
+- 3: Circle (not a polygon), small diamonds (4 sides).
+- 4: Pentagon (5 sides), small diamonds (4 sides). (Different number of sides)
+- 5: Circle (not a polygon), small diamonds (4 sides).
+- 6: Circle (not a polygon), small pentagons (5 sides).
+
+This means 1 and 2 are similar, and 4 is different from them. But 3, 5, 6 are also different. This doesn't make one an outlier.
+
+Let's try one more time for a very elementary feature.
+The number of shapes in total.
+1: 1 outer, 1 central, 6 small = 8 shapes.
+2: 1 outer, 1 central, 4 small = 6 shapes.
+3: 1 outer, 1 central, 6 small = 8 shapes.
+4: 1 outer, 1 central, 6 small = 8 shapes.
+5: 1 outer, 1 central, 4 small = 6 shapes.
+6: 1 outer, 1 central, 4 small = 6 shapes.
+
+So, images 1, 3, 4 have 8 shapes. Images 2, 5, 6 have 6 shapes. This still leads to two groups.
+
+What if the outlier relates to the *symmetry* of the overall design?
+All images seem to have rotational symmetry.
+
+Let's look at image 1 more closely.
+It has an outer pentagon, a central hexagon, and 6 small pentagons.
+The other images either have 4 small shapes or 6 small shapes.
+If 6 small shapes, they either match the number of sides of the central hexagon (images 3, 4) or are just 6 shapes.
+
+Consider the arrangement of the small shapes.
+- In 2, 4, 5, 6: The small shapes are positioned on the ""sides"" or roughly equidistant from the central hexagon.
+  - 2, 5, 6 have 4 shapes.
+  - 3, 4 have 6 shapes. In these, the shapes are clearly aligned with the vertices or midpoints of the central hexagon's sides.
+  - Image 1 has 6 small pentagons. They are arranged in a circular pattern around the central hexagon. But their arrangement is not as clearly aligned with the hexagon's sides or vertices as in 3 and 4. In fact, they seem slightly offset.
+
+Let's consider the number of small shapes in relation to *how many sides the largest polygon (if any) has*.
+- 1: Outer pentagon (5 sides), 6 small shapes.
+- 2: Outer pentagon (5 sides), 4 small shapes.
+- 3: Outer circle (infinite sides), 6 small shapes.
+- 4: Outer pentagon (5 sides), 6 small shapes.
+- 5: Outer circle (infinite sides), 4 small shapes.
+- 6: Outer circle (infinite sides), 4 small shapes.
+
+In images 1 and 4, the outer shape is a pentagon (5 sides), but there are 6 small shapes. This is a mismatch.
+In image 2, the outer shape is a pentagon (5 sides), but there are 4 small shapes. Also a mismatch.
+
+This doesn't seem to isolate one.
+
+Let's focus on the *type* of polygons:
+- In 1, 2, 6, the inner small shapes are pentagons.
+- In 3, 4, 5, the inner small shapes are diamonds (rhombuses).
+
+So images 3, 4, 5 share the feature of having small diamond shapes.
+Images 1, 2, 6 share the feature of having small pentagon shapes.
+Again, two groups of three. This means the outlier is not defined by this.
+
+What if the elementary feature is *all shapes have straight edges*?
+- 1, 2, 4: All shapes (outer, central, small) have straight edges (polygons).
+- 3, 5, 6: The outer shape is a circle, which has a curved edge.
+
+This feature makes 3, 5, 6 the group that *doesn't* have all straight edges.
+So, 1, 2, 4 *share* the feature of ""all shapes have straight edges"".
+Therefore, one of the images from 3, 5, 6 must be the outlier. But which one? They all have a circle.
+
+Let's consider the *number of sides of the small shapes*.
+- 1, 2, 6: Small shapes are pentagons (5 sides).
+- 3, 4, 5: Small shapes are diamonds (4 sides).
+
+This again creates two groups of three.
+
+Let's look at the outermost shape and its direct relation to the *number* of shapes.
+- Image 1: Outer pentagon. Contains 6 small pentagons.
+- Image 2: Outer pentagon. Contains 4 small pentagons.
+- Image 4: Outer pentagon. Contains 6 small diamonds.
+
+So among the images with an outer pentagon (1, 2, 4), the number of small shapes is either 4 or 6. None is 5 (matching the pentagon sides).
+
+Let's go back to the idea of *all elements being polygons*.
+1, 2, 4: Outer is a polygon, center is a polygon, small shapes are polygons.
+3, 5, 6: Outer is a circle, center is a polygon, small shapes are polygons.
+
+So, 1, 2, 4 form a group where *all visual elements are polygons*.
+3, 5, 6 form a group where *not all visual elements are polygons* (due to the circle).
+
+This interpretation suggests the outlier should be *one* of the members of these groups that behaves differently from the rest of its group, or from the overall pattern.
+
+Let's assume the ""elementary visual feature"" relates to the *number of vertices*.
+- Images 1, 2, 4: Outer shape is a pentagon (5 vertices).
+- Images 3, 5, 6: Outer shape is a circle (infinite ""vertices"", or 0 if treated as a single curve).
+
+This is a clear distinction. Let's assume the 5 that share the feature are 1, 2, 4, 3, 5, and 6, and only one is different.
+
+Let's consider the feature that ""the small shapes are of the same type as the outer boundary (if polygonal)"".
+- 1: Outer pentagon, small pentagons (MATCH)
+- 2: Outer pentagon, small pentagons (MATCH)
+- 4: Outer pentagon, small diamonds (NO MATCH)
+- 3: Outer circle, small diamonds (NO MATCH)
+- 5: Outer circle, small diamonds (NO MATCH)
+- 6: Outer circle, small pentagons (NO MATCH)
+
+This means 1 and 2 share a feature that 3, 4, 5, 6 do not. This still results in a group of two and a group of four. Not five and one.
+
+What if the outlier is the one where the *number of sides of the outer shape* (if polygonal) is equal to the *number of small shapes*?
+- 1: Outer pentagon (5 sides), 6 small shapes. (No)
+- 2: Outer pentagon (5 sides), 4 small shapes. (No)
+- 4: Outer pentagon (5 sides), 6 small shapes. (No)
+
+This doesn't work.
+
+Consider the *number of small shapes*.
+- 4 small shapes: 2, 5, 6
+- 6 small shapes: 1, 3, 4
+
+This gives two groups of three.
+
+Let's consider the *type* of small shapes.
+- Pentagons: 1, 2, 6
+- Diamonds: 3, 4, 5
+
+Still two groups of three.
+
+The central shape is always a hexagon.
+
+Let's focus on images with an outer pentagon: 1, 2, 4.
+- 1: Small pentagons, 6 of them.
+- 2: Small pentagons, 4 of them.
+- 4: Small diamonds, 6 of them.
+
+If the feature is ""small shapes are pentagons AND the outer shape is a pentagon"", then 1 and 2 share this. 4 does not.
+If the feature is ""number of small shapes is 6"", then 1 and 4 share this. 2 does not.
+
+Let's reconsider the ""all shapes have straight edges"" feature.
+Images 1, 2, 4 have *only* polygons (all straight edges).
+Images 3, 5, 6 have a circle (curved edge).
+
+This forms two groups: {1, 2, 4} and {3, 5, 6}.
+If we are looking for an outlier where *five share an elementary visual feature*, it means one group should be of size 5 and the other of size 1. This means the above feature is not the one.
+
+Let's try: ""The outer shape and the small shapes are the same type of polygon.""
+- 1: Outer pentagon, small pentagons. (Yes)
+- 2: Outer pentagon, small pentagons. (Yes)
+- 3: Outer circle, small diamonds. (No, circle is not a polygon, diamond is not a circle)
+- 4: Outer pentagon, small diamonds. (No, different polygon types)
+- 5: Outer circle, small diamonds. (No)
+- 6: Outer circle, small pentagons. (No)
+
+This groups 1 and 2 as sharing the feature. The remaining 3, 4, 5, 6 do not. This is a 2 vs 4 split. Still not 5 vs 1.
+
+What if the elementary feature is that the *number of small shapes is not 6*?
+- 2 (4 shapes), 5 (4 shapes), 6 (4 shapes) share this.
+- 1 (6 shapes), 3 (6 shapes), 4 (6 shapes) do not.
+
+What if the elementary feature is that *the outer boundary is a circle*?
+- 3, 5, 6 share this.
+- 1, 2, 4 do not.
+
+This suggests that the feature is likely very subtle, or I am misinterpreting the images.
+
+Let's assume that there's a feature about the *count* of small shapes.
+Images 2, 5, 6 have 4 small shapes.
+Images 1, 3, 4 have 6 small shapes.
+
+This is a 3-3 split.
+
+Let's look at the shape and number of small objects.
+1. Outer pentagon, 6 small pentagons.
+2. Outer pentagon, 4 small pentagons.
+3. Outer circle, 6 small diamonds.
+4. Outer pentagon, 6 small diamonds.
+5. Outer circle, 4 small diamonds.
+6. Outer circle, 4 small pentagons.
+
+Consider the elementary feature: ""The number of small shapes is *not* equal to the number of sides of the central hexagon (6 sides)"".
+- 1: 6 small shapes. (No, it IS equal to 6)
+- 2: 4 small shapes. (Yes, not equal to 6)
+- 3: 6 small shapes. (No, it IS equal to 6)
+- 4: 6 small shapes. (No, it IS equal to 6)
+- 5: 4 small shapes. (Yes, not equal to 6)
+- 6: 4 small shapes. (Yes, not equal to 6)
+
+This makes 2, 5, 6 the group that *shares* the feature. 1, 3, 4 do not share it.
+This is a 3 vs 3 split.
+
+Let's consider the elementary feature: ""The small shapes are not diamonds"".
+- 1 (pentagons), 2 (pentagons), 6 (pentagons) share this.
+- 3 (diamonds), 4 (diamonds), 5 (diamonds) do not.
+This is a 3 vs 3 split.
+
+What if the outlier is about the *regularity of the small shapes*?
+- 1, 2, 6: Small shapes are pentagons, which are regular polygons.
+- 3, 4, 5: Small shapes are diamonds (rhombuses), which are generally not regular polygons (unless they are squares, which these are not).
+
+So, images 1, 2, 6 share the feature ""small shapes are regular polygons"".
+Images 3, 4, 5 share the feature ""small shapes are not regular polygons"".
+
+This is a 3 vs 3 split, still not 5 vs 1.
+
+This is tough. Let's look for something very simple.
+What if it's about the *outermost shape being a pentagon*?
+- 1, 2, 4 are pentagons.
+- 3, 5, 6 are circles.
+
+What if it's about the *number of distinct shapes*? All have 3 types: outer, central, small.
+
+Let's focus on image 1 again.
+Outer pentagon. 6 small pentagons. Central hexagon.
+Compare it to image 2. Outer pentagon. 4 small pentagons. Central hexagon.
+Compare it to image 4. Outer pentagon. 6 small diamonds. Central hexagon.
+
+In images 2, 4, the small shapes are positioned in such a way that they appear to be contained in the ""sides"" or segments created by the inner hexagon and outer pentagon.
+- In 2, there are 4 small pentagons. The outer pentagon has 5 vertices. The inner hexagon has 6 vertices. The arrangement seems to make sense relative to the overall pentagonal shape.
+- In 4, there are 6 small diamonds, clearly one for each side of the hexagon. This is a very clear arrangement pattern.
+
+In image 1, the 6 small pentagons are arranged in a circular fashion, but their count (6) doesn't match the outer pentagon's sides (5), nor are they aligned with the inner hexagon's sides in a directly obvious ""one per side"" manner like in image 4. The arrangement feels a bit ""off"" or less integrated than the others.
+
+Let's consider a feature: ""The number of small shapes does not match the number of sides of the outer polygon (if it's a polygon).""
+- 1: Outer pentagon (5 sides), 6 small shapes. (YES, 6 != 5)
+- 2: Outer pentagon (5 sides), 4 small shapes. (YES, 4 != 5)
+- 4: Outer pentagon (5 sides), 6 small shapes. (YES, 6 != 5)
+
+This groups 1, 2, 4 as having this feature. The images with circles (3, 5, 6) are outside this consideration.
+
+Let's try ""The number of small shapes is *not* 4"".
+- 1 (6 shapes), 3 (6 shapes), 4 (6 shapes) share this.
+- 2 (4 shapes), 5 (4 shapes), 6 (4 shapes) do not.
+
+What if the question implies the ""elementary visual feature"" to be something extremely specific, and only one image *violates* it?
+
+Let's consider the *outermost boundary type and number of small shapes*.
+1. Pentagon, 6 shapes.
+2. Pentagon, 4 shapes.
+3. Circle, 6 shapes.
+4. Pentagon, 6 shapes.
+5. Circle, 4 shapes.
+6. Circle, 4 shapes.
+
+Look at images 1, 3, 4. They all have 6 small shapes.
+Image 1: Outer pentagon, 6 small pentagons.
+Image 3: Outer circle, 6 small diamonds.
+Image 4: Outer pentagon, 6 small diamonds.
+
+The fact that 1 and 4 have an outer pentagon, but 3 has an outer circle, breaks this group too.
+
+Let's assume the elementary feature is that *the small shapes are not rotated*.
+All pentagons (in 1, 2, 6) have a vertex pointing upwards.
+All diamonds (in 3, 4, 5) have a vertex pointing upwards.
+This is not a distinguishing feature.
+
+Consider the combination of features.
+1. Outer pentagon, small pentagons, 6 of them.
+2. Outer pentagon, small pentagons, 4 of them.
+3. Outer circle, small diamonds, 6 of them.
+4. Outer pentagon, small diamonds, 6 of them.
+5. Outer circle, small diamonds, 4 of them.
+6. Outer circle, small pentagons, 4 of them.
+
+Let's try: ""The outer boundary is a circle AND there are 4 small shapes.""
+- 5 and 6 share this feature. (Outer circle, 4 small shapes)
+- 3 has outer circle, 6 small shapes. (Different)
+- 1, 2, 4 have outer pentagon. (Different)
+This is a 2-1-3 split.
+
+Let's try: ""The outer boundary is a pentagon AND there are 6 small shapes.""
+- 1 and 4 share this feature. (Outer pentagon, 6 small shapes)
+- 2 has outer pentagon, 4 small shapes. (Different)
+- 3, 5, 6 have outer circle. (Different)
+This is a 2-1-3 split.
+
+I am struggling to find a feature that is shared by 5 and not by 1.
+
+Let's consider the *consistency of the shape of the outer element with the inner small elements*.
+- Image 1: Outer pentagon, small pentagons. (Consistent polygon type)
+- Image 2: Outer pentagon, small pentagons. (Consistent polygon type)
+- Image 3: Outer circle, small diamonds. (Inconsistent - circle vs. polygon)
+- Image 4: Outer pentagon, small diamonds. (Inconsistent - pentagon vs. diamond)
+- Image 5: Outer circle, small diamonds. (Inconsistent)
+- Image 6: Outer circle, small pentagons. (Inconsistent)
+
+So images 1 and 2 share the feature of having consistent polygon types between the outer and small shapes. The other four do not. This still leads to a 2 vs 4 split.
+
+Let's look for a single distinguishing feature that sets one image apart from the others.
+Perhaps it's the *number of lines in the outer boundary*.
+- 1, 5, 6 have a single outer line.
+- 2, 3, 4 have a double outer line.
+This is a 3 vs 3 split.
+
+What if the outlier is the only one with *no diamonds*?
+- 1, 2, 6 have no diamonds.
+- 3, 4, 5 have diamonds.
+This is a 3 vs 3 split.
+
+What if the outlier is the only one with *no pentagons* (other than the central hexagon)?
+- Image 3 has an outer circle, a central hexagon, and small diamonds. No pentagons.
+- Image 1, 2, 6 have small pentagons.
+- Image 4 has an outer pentagon.
+This implies 3 is the outlier, as it's the only one without *any* pentagon shapes. (Central shape is a hexagon, so not a pentagon).
+
+Let's test the feature: ""Contains at least one pentagonal shape (other than the central hexagon).""
+- 1: Yes (outer pentagon, small pentagons).
+- 2: Yes (outer pentagon, small pentagons).
+- 3: No (outer circle, small diamonds).
+- 4: Yes (outer pentagon).
+- 5: No (outer circle, small diamonds).  Wait, 5 also has no pentagon shapes.
+- 6: Yes (small pentagons).
+
+So images 1, 2, 4, 6 contain at least one pentagonal shape.
+Images 3, 5 *do not* contain any pentagonal shape.
+This is a 4 vs 2 split. Still not 5 vs 1.
+
+Let's try: ""The number of distinct types of polygons (excluding circles) in the image is 2"".
+- 1: Pentagon, Hexagon (2 distinct types of polygons) - yes
+- 2: Pentagon, Hexagon (2 distinct types of polygons) - yes
+- 3: Hexagon, Diamond (2 distinct types of polygons) - yes
+- 4: Pentagon, Hexagon, Diamond (3 distinct types of polygons) - no
+- 5: Hexagon, Diamond (2 distinct types of polygons) - yes
+- 6: Hexagon, Pentagon (2 distinct types of polygons) - yes
+
+So, image 4 is the outlier because it contains 3 distinct types of polygons (pentagon, hexagon, diamond), while all other images contain only 2 distinct types of polygons (e.g., in image 1: pentagon and hexagon; in image 3: hexagon and diamond; in image 5: hexagon and diamond; in image 6: hexagon and pentagon).
+
+This seems like a solid elementary visual feature that isolates one image.
+
+Justification for [4]:
+1. Image 1: Outer pentagon, central hexagon, small pentagons. (2 distinct polygon types: pentagon, hexagon)
+2. Image 2: Outer pentagon, central hexagon, small pentagons. (2 distinct polygon types: pentagon, hexagon)
+3. Image 3: Outer circle, central hexagon, small diamonds. (2 distinct polygon types: hexagon, diamond) (Circle is not a polygon)
+4. Image 4: Outer pentagon, central hexagon, small diamonds. (3 distinct polygon types: pentagon, hexagon, diamond)
+5. Image 5: Outer circle, central hexagon, small diamonds. (2 distinct polygon types: hexagon, diamond)
+6. Image 6: Outer circle, central hexagon, small pentagons. (2 distinct polygon types: hexagon, pentagon)
+
+Therefore, image 4 is the outlier because it is the only image that features three distinct types of polygons (pentagon, hexagon, and diamond). The other five images each feature only two distinct types of polygons (ignoring the circle, which is not a polygon).",4,1599,0,8034
+85,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial85.png,6,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {The other five images have six smaller hexagonal shapes arranged in a circle, whereas image 6 has six smaller circular shapes.}",6,1599,0,28
+86,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial86.png,5,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {It is the only image where the surrounding smaller shapes are circles; in all other images, they are hexagons.}",5,1599,0,26
+87,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial87.png,2,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {All other images contain a central pentagon, but image 2 contains a central square.}",2,1599,0,22
+88,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial88.png,2,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {Images 1, 3, 5 are hexagons. Images 4, 6 are squares with an outer border. Image 2 is a square without an outer border.}",2,1599,0,40
+89,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial89.png,2,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {In image 3, the shape of the inner figure is a pentagon, while the surrounding smaller figures are hexagons. In all other images, the shape of the inner figure matches the shape of the surrounding smaller figures.}",3,1599,0,48
+90,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial90.png,5,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {It is the only image where the large outer pentagon is doubled (has an outline), while all other images have a single-line outer pentagon.}",5,1599,0,35
+91,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial91.png,4,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {It is the only image with a double-lined outer hexagon, while all other images have a single-lined outer hexagon.}",4,1599,0,29
+92,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial92.png,2,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[5] {All other images have the same shape for the outer boundary and the central shape. Image 5 has a square outer boundary and a diamond central shape.},5,1599,0,34
+93,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial93.png,1,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {It is the only image where the inner shapes (hexagons) do not match the outer shapes of the figure (hexagon). In images 1 and 2, the inner shapes (diamonds) do not match the outer shape (hexagon). In images 3 and 4, the inner shapes (hexagons) match the outer shape (hexagon). In image 6, the inner shapes (diamonds) do not match the outer shape (square). Image 5 is an outlier because the outer shape is a hexagon, while the inner shapes are hexagons. In images 1, 2, and 6, the outer shapes are hexagons or squares, and the inner shapes are diamonds. In images 3 and 4, the outer shapes are hexagons, and the inner shapes are hexagons.}",5,1599,0,163
+94,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial94.png,1,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have a pentagon at the center, whereas image 1 has a hexagon at the center.}",1,1599,0,26
+95,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial95.png,5,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images are circular, whereas image 5 is square.}",5,1599,0,17
+96,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial96.png,4,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {The central shape in image 4 is a square, while the central shape in all other images is a hexagon.}",4,1599,0,27
+97,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial97.png,2,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[2] {Image 2 is the only one without a circle. All other images contain at least one circle.},2,1599,0,24
+98,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial98.png,3,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {The other five images have a central shape and four smaller shapes around it where the smaller shapes are the same as the outline shape, but image 3 has a central hexagonal shape and four small circles around it while its outline shape is circular.}",3,1599,0,52
+99,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial99.png,3,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {All other images have a hexagon as their outermost shape, whereas image 3 has a circle as its outermost shape.}",3,1599,0,27
+100,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial100.png,5,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images have diamond shapes as the smaller, repeated inner elements, whereas image 5 has hexagonal shapes.}",5,1599,0,26
+101,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial101.png,3,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {All other images have a diamond shape in their center, while image 3 has a circle.}",3,1599,0,23
+102,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial102.png,1,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images contain circles, while image 1 contains pentagons.}",1,1599,0,18
+103,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial103.png,5,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images contain a central shape that is either a pentagon or a circle. Image 5 contains a central circle, but it is surrounded by smaller pentagons, making it visually distinct from the other images where the central shape is always the dominant central element.}",5,1599,0,57
+104,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial104.png,3,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {All other images feature a central square (diamond) shape, while image 3 features a central pentagon.}",3,1599,0,26
+105,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial105.png,6,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","The outlier is [3] {because it is the only image where the inner polygon has a different number of sides (6) than the outer polygon (5) and the smaller shapes (5-sided pentagons). In all other images, the inner and outer polygons, as well as the smaller shapes, either all have the same number of sides, or the number of small shapes matches the number of sides of the outer polygon, and their shape matches the inner polygon.}",3,1599,0,95
+106,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial106.png,6,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {The outer shape in image 6 is a circle, while in all other images the outer shape is a pentagon.}",6,1599,0,28
+107,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial107.png,5,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {The outer shape of the figure is a pentagon, but the inner shape is a hexagon, making it the only image where the inner and outer shapes do not share the same number of sides (or are not both circles).}",4,1599,0,49
+108,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial108.png,5,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images contain hexagons, while image 5 contains squares/diamonds.}",5,1599,0,19
+109,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial109.png,6,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have a double outline for the outermost shape, while image 1 has only a single outline.}",1,1599,0,26
+110,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial110.png,6,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images contain holes that match the shape of the outer border (images 1, 2, 3 have round outer borders and round central holes, and images 4, 6 have pentagonal outer borders and pentagonal holes), except image 5, which has a pentagonal outer border but hexagonal holes.}",5,1599,0,69
+111,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial111.png,5,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[5] {All other images have a hexagon in the center or at the four cardinal points. Image 5 has a hexagon in the center but circles at the four cardinal points.},5,1599,0,37
+112,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial112.png,2,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {The outer shape of image 2 is a pentagon, and the inner small shapes are circles. All other images either have outer shapes as hexagons or inner shapes as pentagons. In particular, images 1, 4, and 5 have an outer hexagon, while images 3 and 6 have inner pentagons as small shapes. Image 2 is the only one with both an outer pentagon and inner circles as small shapes.}",2,1599,0,93
+113,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial113.png,5,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images consistently use pentagons (5 sides) or hexagons (6 sides) for both the inner and outer shapes, and the small shapes surrounding the inner shape. Image 5, however, uses hexagons for the small shapes while the main central shape is a pentagon and the outer shape is a circle. This mix of geometric shapes is inconsistent with the other images which maintain a pattern related to the number of sides.}",5,1599,0,89
+114,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial114.png,4,nested_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[4] {This image is the only one that contains a circle, instead of a pentagon, as its central shape.}",4,1599,0,26
+115,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial115.png,1,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[1] {All other images have a singular outer border while image 1 has a double outer border.},1,1599,0,22
+116,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial116.png,5,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[5] {All other images have a circular outer shape, while image 5 has a square outer shape.}",5,1599,0,23
+117,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial117.png,6,outer_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {All other images have an outer shape of a pentagon, while image 6 has an outer shape of a square.}",6,1599,0,28
+118,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial118.png,5,inner_n_shapes,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[6] {It is the only image where the shape of the central polygon and the shapes of the smaller outer polygons are different from each other. In all other images, these shapes are the same (either both hexagons, both squares, or both pentagons).}",6,1599,0,53
+119,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial119.png,1,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant",[4] {This is the only image that does not have a double outline around its main shape.},4,1599,0,21
+120,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial120.png,1,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have hexagonal bolts/holes, while image 1 has pentagonal ones.}",1,1599,0,22
+121,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial121.png,2,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[2] {All other images contain hexagons either as the outer shape, the inner central shape, or the smaller shapes surrounding the center. Image 2 is the only one that contains pentagons, making it the outlier.}",2,1599,0,45
+122,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial122.png,1,nested_shape_scale,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[1] {All other images have a central hole that is either circular or hexagonal, surrounded by other holes that are all of the same shape as each other, but different from the central hole's shape. Image 1 has a hexagonal central hole, and hexagonal surrounding holes, violating the 'different from central hole's shape' rule. Or, image 1 has a central hexagonal hole, and its surrounding holes are hexagonal. All other images have an outer shape, a central hole, and a set of smaller holes. In all other images, the central hole is a different shape from the smaller holes. In image 1, both the central hole and the smaller holes are hexagons. More simply, in all other images, there are two distinct shapes of holes; in image 1, there is only one shape of hole.}",1,1599,0,169
+123,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial123.png,3,outer_ring_variant,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {All other images have a double outline for the outermost shape, while image 3 only has a single outline.}",3,1599,0,26
+124,balanced_data/var_balanced/nuts_and_bolts/dim3/var4/summaries/summary=trial124.png,3,inner_shape_type,4,3,"nested_shape_type,nested_shape_scale,inner_shape_type,inner_n_shapes,outer_shape_type,outer_ring_variant","[3] {It is the only image where the small shapes around the central shape are pentagons. In all other images, these small shapes are hexagons.}",3,1599,0,32

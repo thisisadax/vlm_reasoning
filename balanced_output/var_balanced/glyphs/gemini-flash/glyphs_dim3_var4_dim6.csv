@@ -1,0 +1,406 @@
+trial_idx,summary_path,oddball_idx,oddball_abstraction,reference_variance,n_dimensions,abstraction_columns,response,answer,n_input_tokens,n_thought_tokens,n_output_tokens
+0,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial0.png,1,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {All other images contain elements drawn in at least three different colors (black, red, and blue/green). Image 2 only has elements in black and red.}",2,1599,0,37
+1,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial1.png,1,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[1] {It is the only image where the top horizontal elements are two distinct circles instead of a single continuous line (straight or wavy).},1,1599,0,29
+2,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial2.png,1,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have a wavy line in either the top, middle, or bottom horizontal position. Image 1 has straight lines for all three horizontal elements, and the bottom elements are diamond shapes instead of circles.}",1,1599,0,46
+3,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial3.png,5,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[5] {It is the only image that contains the color red.},5,1599,0,15
+4,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial4.png,6,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {The other five images all contain two small blue circles at the bottom, while image 6 does not.}",6,1599,0,25
+5,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial5.png,6,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {The other five images all contain elements of red and blue, whereas image 6 does not.}",6,1599,0,23
+6,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial6.png,5,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {The outlier is image 4 because it is the only image where all the horizontal lines are straight. In all other images, at least one of the horizontal lines is wavy.}",4,1599,0,39
+7,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial7.png,1,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images contain small colored circles, while image 1 contains only lines.}",1,1599,0,20
+8,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial8.png,6,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {Image 3 is the only one where all three colored lines (two straight, one wavy) are blue.}",3,1599,0,26
+9,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial9.png,5,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {It is the only image where the top horizontal line is green. In all other images, the top horizontal line is red.}",5,1599,0,29
+10,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial10.png,2,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {All other images contain three horizontal lines, two vertical lines, and at least one green line and one red line. Image 2 has two red circles and no green lines, making it distinct from the others.}",2,1599,0,46
+11,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial11.png,6,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {Image 6 is the only one that uses three distinct colors for the horizontal lines and dots: green, red, and a combination of red/green for the dots. All other images use at most two colors for these elements (e.g., green and blue, or blue and red, or green and red, or blue and blue, or blue and green).}",6,1599,0,78
+12,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial12.png,2,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {Image 2 is the outlier because it is the only image where the two vertical black lines are connected at the top by a curved red line. All other images have two distinct vertical lines, either with a horizontal line across them or four circles between them.}",2,1599,0,55
+13,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial13.png,3,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {Image 3 is the only image where all the colored elements (the horizontal bar and the circles) are the same color (red). In all other images, there are at least two different colors used for the colored elements.}",3,1599,0,49
+14,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial14.png,2,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {Image 6 is identical to image 1, creating a duplicate. All other images are unique.}",6,1599,0,24
+15,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial15.png,5,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {It is the only image where all three colored elements (top, middle, and bottom) are red or green, whereas the other images contain at least one blue element.}",5,1599,0,38
+16,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial16.png,2,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[3] {Image 3 is the only one with four circles; all other images have two or three circles.},3,1599,0,24
+17,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial17.png,2,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[1] {It is the only image where both the top and bottom horizontal lines are straight and both internal circles are blue.},1,1599,0,26
+18,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial18.png,4,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[4] {It is the only image where all the colored lines are straight.},4,1599,0,17
+19,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial19.png,3,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {It is the only image where all three horizontal lines are wavy. In images 1 and 2, the top line is straight, and in images 4, 5, and 6, both the top and middle lines are straight.}",3,1599,0,53
+20,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial20.png,1,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have at least one straight horizontal line, while image 1 has a curved top and bottom horizontal line.}",1,1599,0,28
+21,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial21.png,4,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {It is the only image where all the circular elements are red. In all other images, there is at least one green circular element.}",3,1599,0,31
+22,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial22.png,5,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {Image 5 is the only image where a horizontal line is red. In all other images, horizontal lines are either blue or green, or black if they are part of the main 'H' shape.}",5,1599,0,45
+23,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial23.png,6,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[6] {All other images have two horizontal/curved lines (top and bottom) and two small circles (or one horizontal line and two small circles) inside. Image 6 has only one curved line at the bottom and four small circles inside.},6,1599,0,52
+24,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial24.png,4,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {All other images contain at least one wavy line or at least one pair of circles, whereas image 2 contains only straight lines and no circles.}",2,1599,0,33
+25,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial25.png,1,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have a horizontal line segment in the middle, while image 1 has a wavy line in the middle.}",1,1599,0,28
+26,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial26.png,3,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {The other five images all contain two small circular shapes (o) of the same color, usually red, green, or blue. Image 6 does not contain any such circular shapes.}",6,1599,0,41
+27,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial27.png,5,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[5] {It is the only image that does not contain any circles.},5,1599,0,16
+28,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial28.png,1,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images show a structure with three horizontal lines connecting two vertical lines, while image 1 has only two horizontal lines and two circles at the top.}",1,1599,0,35
+29,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial29.png,1,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {All other images contain at least two colors for the lines, while image 2 only contains two colors (black and red).}",2,1599,0,29
+30,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial30.png,5,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[4] {This is the only image that has all of its horizontal lines in green. All other images have at least one blue horizontal line.},4,1599,0,30
+31,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial31.png,3,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images contain at least one straight horizontal line or one curved horizontal line segment, whereas image 1 only contains vertical lines and horizontal sets of dots.}",1,1599,0,35
+32,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial32.png,4,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {Images 1-5 all have an element that is a curved line at the top, while image 6 has straight lines across the top.}",6,1599,0,33
+33,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial33.png,5,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {Image 5 is the only image that doesn't have a horizontal line connecting the two vertical black lines. Instead, it has two pairs of circles.}",5,1599,0,35
+34,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial34.png,3,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","The outlier is:
+
+[6] {Images 1, 4, 2, 3, and 5 all have at least one blue element. Image 6 is the only one that is entirely red and black, with no blue elements.}",6,1599,0,52
+35,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial35.png,6,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {It is the only image where the two pairs of colored lines inside the main structure do not share the same color. In images 2 and 4, the inner elements are monochromatic. In images 1, 3, and 5, the two colored lines defining the top and bottom of the main structure share the same color with an interior line, maintaining a monochromatic top/bottom and interior pattern. Image 6 deviates from this pattern with red and blue interior elements.}",6,1599,0,99
+36,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial36.png,3,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {All other images contain small circular shapes inside the vertical lines, while image 5 does not.}",5,1599,0,23
+37,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial37.png,2,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {It is the only image that contains more than two colors (red, blue, green, and black). All other images contain only three colors.}",3,1599,0,33
+38,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial38.png,5,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","The images depict simple stick figures or abstract designs, primarily using black, red, and green colors, with one instance of blue. The core structure seems to be two parallel black vertical lines, often connected by horizontal or wavy lines of different colors, and sometimes containing circular elements.
+
+Let's analyze each image:
+
+*   **Image 1:** Two vertical black lines, a red horizontal line at the top, a wavy red line in the middle, and two small red circles at the bottom.
+*   **Image 2:** Two vertical black lines, a red horizontal line at the top, two small green circles in the middle, and two small red circles at the bottom.
+*   **Image 3:** Two vertical black lines, a red horizontal line at the top, a wavy green line in the middle, and two small red circles at the bottom.
+*   **Image 4:** Two vertical black lines, a red horizontal line at the top, two small red circles in the middle, and a green horizontal line at the bottom.
+*   **Image 5:** Two vertical black lines, a blue horizontal line at the top, a wavy red line in the middle, and a green horizontal line at the bottom.
+*   **Image 6:** Two vertical black lines, a red horizontal line at the top, two small green circles in the middle, and a green horizontal line at the bottom.
+
+The common feature among images 1, 2, 3, 4, and 6 is the presence of at least one pair of circles.
+*   Image 1 has two red circles.
+*   Image 2 has two green circles and two red circles.
+*   Image 3 has two red circles.
+*   Image 4 has two red circles.
+*   Image 6 has two green circles.
+
+Image 5, however, does not contain any circles. Instead, it features three horizontal lines: one blue, one wavy red, and one green.
+
+Therefore, image 5 is the outlier.
+
+[5] {It is the only image that does not contain any circular shapes.}",5,1599,0,442
+39,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial39.png,2,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {All other images contain at least one blue line or shape, whereas image 5 contains only black and green lines.}",5,1599,0,27
+40,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial40.png,2,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {All other images have a blue line at the bottom, whereas image 2 has a blue line at the top and no blue line at the bottom.}",2,1599,0,34
+41,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial41.png,6,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {Image 4 is the only one that has two red horizontal lines. All other images have one red horizontal line (1, 2, 3, 5, 6).}",4,1599,0,41
+42,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial42.png,4,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {Image 3 is the only one where all three horizontal lines (top, middle, and bottom) are green and wavy. All other images have at least one horizontal line that is either straight or a different color, or both straight and a different color, or has two distinct circles instead of a line.}",3,1599,0,65
+43,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial43.png,1,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images contain at least one wavy line, whereas image 1 has only straight lines and circles.}",1,1599,0,25
+44,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial44.png,2,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[5] {All other images feature at least two different colors. Image 5 only contains red and black lines.},5,1599,0,24
+45,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial45.png,4,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have at least one green element, while image 1 does not.}",1,1599,0,21
+46,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial46.png,4,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[4] {The other five images all have at least two circles of the same color. Image 4 is the only one where all circles are of different colors.},4,1599,0,34
+47,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial47.png,4,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {This is the only image that does not contain any red circles. All other images have either red circles, red wavy lines, or both.}",4,1599,0,32
+48,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial48.png,2,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {All other images show two distinct colors of circles, while image 3 shows only one color of circles (blue).}",3,1599,0,27
+49,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial49.png,2,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {This image is the only one that contains more than one internal horizontal element, and the only one in which the internal elements are circles, not lines. Also, it is the only image that has all of its non-black elements in red.}",4,1599,0,53
+50,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial50.png,2,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {This image is the only one that consists solely of lines and circles, without any curved or wavy lines.}",4,1599,0,25
+51,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial51.png,5,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {It is the only image where all the circular elements are green, and all the horizontal lines are blue.}",4,1599,0,25
+52,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial52.png,1,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have circles, while image 1 has lines at the top and bottom.}",1,1599,0,22
+53,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial53.png,4,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {Image 4 is the only one that uses three distinct colors (blue, red, and green) for its horizontal elements. All other images use only two distinct colors for their horizontal elements.}",4,1599,0,42
+54,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial54.png,1,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have a curved line in the middle, while image 1 has a straight line.}",1,1599,0,24
+55,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial55.png,3,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {It is the only image where all the colored lines are blue, except for the horizontal one which is green. In all other images, there are either no blue lines, or the blue lines are paired with red or green lines in a different configuration.}",4,1599,0,54
+56,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial56.png,3,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {Image 3 is the only one that uses green lines on the bottom edge of the vertical black lines, while the other five images either have red lines, no lines, or a wavy line on top.}",3,1599,0,45
+57,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial57.png,5,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {All other images (1, 2, 3, 4, 6) have at least one straight horizontal line. Image 5 only contains curved horizontal lines (red) or straight vertical lines (black).}",5,1599,0,48
+58,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial58.png,1,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","The outlier is:
+
+[1] {Images 2, 3, 4, 5, and 6 each have two types of colored markings (wavy lines and circles), with at least one marking of each type in blue, green, or red. Image 1, however, only has blue markings (wavy lines and circles).}",1,1599,0,72
+59,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial59.png,2,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {It is the only image where all three horizontal lines are curved. In all other images, at least one horizontal line is straight.}",5,1599,0,30
+60,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial60.png,1,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images contain small colored circles inside the main structure, while image 1 contains only lines.}",1,1599,0,24
+61,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial61.png,1,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","The outlier is: [5]
+{All other images feature a combination of either two circles or a wavy line and a straight line, but not a straight line as the bottom-most colored feature with two wavy lines in blue and red above it. Image 5 is the only one that uses three wavy lines (top blue, middle red, bottom red) in conjunction with the two vertical black lines, whereas the others contain either circles, or a straight line at the bottom, or a straight line at the top, or a green line at the top (image 1), or a green wavy line at the top (image 3).}",5,1599,0,130
+62,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial62.png,5,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {Image 2 is the only one where both the top and bottom horizontal lines are straight. In all other images, at least one of these lines is wavy.}",2,1599,0,36
+63,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial63.png,4,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {This image is the only one where all the colored lines are wavy or curved. In all other images, at least one of the colored lines is straight.}",4,1599,0,35
+64,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial64.png,5,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {The other five images contain at least one pair of circles, whereas image 4 contains only wavy lines.}",4,1599,0,25
+65,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial65.png,2,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {All other images have at least one wavy line or at least one red or green circle, while image 5 has no wavy lines and no red or green circles.}",5,1599,0,37
+66,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial66.png,6,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {Image 2 is the only one where all of the circles are green. In all other images, at least one circle is blue.}",2,1599,0,31
+67,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial67.png,4,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have at least one wavy line, while image 1 only has straight and slightly curved lines.}",1,1599,0,26
+68,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial68.png,3,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {It is the only image where all the colored lines are wavy instead of straight, or where there are only straight lines.}",3,1599,0,28
+69,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial69.png,6,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[6] {Image 6 is the outlier because it is the only image where the two circles at the bottom are missing.},6,1599,0,26
+70,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial70.png,5,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","The elementary visual feature common to five of the images is that they depict two vertical lines (poles) with a horizontal or curved line at the bottom, and either two circles or a curved line at the top. The varying features are the color of these elements and their specific arrangement.
+
+Let's analyze each image:
+*   **Image 1:** Two black vertical lines, a blue horizontal line at the bottom, two green circles at the top, and two red circles in the middle.
+*   **Image 2:** Two black vertical lines, a blue curved line at the bottom, a blue curved line at the top, and a red curved line in the middle.
+*   **Image 3:** Two black vertical lines, a blue horizontal line at the bottom, two blue circles at the top, and two green circles in the middle.
+*   **Image 4:** Two black vertical lines, a blue horizontal line at the bottom, a green curved line at the top, and two red circles in the middle.
+*   **Image 5:** Two black vertical lines, a green horizontal line at the bottom, two blue circles at the top, and a green curved line in the middle.
+*   **Image 6:** Two black vertical lines, a blue curved line at the bottom, a green curved line at the top, and a green curved line in the middle.
+
+The key distinction appears to be the presence of ""circles"" versus ""curved lines"" for the elements not part of the main ""H"" shape.
+
+In images 1, 3, 4, and 5, there are two circles in one of the positions (either top or middle).
+In images 2 and 6, all elements not forming the main ""H"" are curved lines.
+
+Let's re-evaluate based on the structure of the ""H"" and its additions.
+The ""H"" structure is made of two vertical black lines.
+The bottom connection is either a straight blue line (1, 3, 4) or a curved blue line (2, 6) or a straight green line (5).
+The top connection is either two circles (1, 3, 5) or a curved line (2, 4, 6).
+The middle element is either two circles (1, 3, 4) or a curved line (2, 5, 6).
+
+This pattern is not immediately revealing an outlier.
+
+Let's consider the presence of specific shapes:
+- Circles are present in images 1, 3, 4, 5.
+- Curved lines for the horizontal/top/middle elements are present in images 2, 4, 5, 6.
+- Straight lines are present in images 1, 3, 4 (at the bottom) and 5 (at the bottom).
+
+Let's look at what fills the ""container"" formed by the two vertical black lines and the bottom line.
+Images 1, 3, 4 have two circles inside this ""container"" (red for 1 and 4, green for 3). They also have either two circles (1, 3) or a curved line (4) at the top.
+Image 5 has a green curved line inside the container and two blue circles at the top.
+Images 2 and 6 have only curved lines.
+
+The most consistent feature among five images seems to be the presence of at least one pair of **circles**.
+*   Image 1 has green circles at the top and red circles in the middle.
+*   Image 3 has blue circles at the top and green circles in the middle.
+*   Image 4 has red circles in the middle.
+*   Image 5 has blue circles at the top.
+
+Image 2 and 6 do *not* have any circles. They both consist entirely of lines (two vertical black, one horizontal/curved blue at the bottom, one curved line at the top, and one curved line in the middle).
+
+If we consider ""circles"" as the key visual feature, then images 1, 3, 4, 5 all contain at least one pair of circles.
+Image 2 contains no circles.
+Image 6 contains no circles.
+
+This leads to two outliers if we consider ""contains circles"" vs ""does not contain circles"". We need one outlier.
+
+Let's look at the type of lines/shapes used for the **horizontal connecting elements**.
+In images 1, 3, 4, 5, the ""middle"" or ""top"" elements are sometimes circles.
+In image 2, all horizontal elements are curved lines.
+In image 6, all horizontal elements are curved lines.
+
+What if the elementary visual feature is the presence of **at least one pair of circles**?
+*   Image 1: Yes (green circles at top, red circles in middle)
+*   Image 3: Yes (blue circles at top, green circles in middle)
+*   Image 4: Yes (red circles in middle)
+*   Image 5: Yes (blue circles at top)
+*   Image 2: No circles.
+*   Image 6: No circles.
+
+This again gives two outliers.
+
+What if the elementary visual feature is that at least one of the connecting elements (top, middle, or bottom) is a **straight line**?
+*   Image 1: Bottom is a straight blue line. Yes.
+*   Image 2: All curved lines. No.
+*   Image 3: Bottom is a straight blue line. Yes.
+*   Image 4: Bottom is a straight blue line. Yes.
+*   Image 5: Bottom is a straight green line. Yes.
+*   Image 6: All curved lines. No.
+
+This also gives two outliers (2 and 6).
+
+Let's look for a single distinguishing feature.
+What if it's about the **colors** used?
+All images use black for the vertical lines.
+Images 1, 2, 3, 4, 6 use blue.
+Images 1, 3, 4, 5, 6 use green.
+Images 1, 2, 4 use red.
+
+All images except 3 and 5 use red. So 3 and 5 are outliers if the rule is ""uses red"". This doesn't work.
+
+Consider the elements *inside* the ""H"" formed by the black vertical lines and the bottom line.
+- Images 1, 3, 4 have two circles inside.
+- Image 5 has a curved line inside.
+- Images 2, 6 have a curved line inside.
+
+Consider the **nature of the top closure**.
+- Images 1, 3, 5 have two circles at the top.
+- Images 2, 4, 6 have a curved line at the top.
+
+So, images 1, 3, 5 are similar in having two circles at the top.
+Images 2, 4, 6 are similar in having a curved line at the top.
+This also gives two groups of three.
+
+Let's re-examine image 2.
+It has two black vertical lines.
+A blue curved line at the bottom.
+A blue curved line at the top.
+A red curved line in the middle.
+Crucially, **all** its non-black lines are **curved**. Also, it contains **no circles**.
+
+Let's check the other images for these properties:
+*   Image 1: Has straight lines (bottom), and circles (top and middle).
+*   Image 3: Has straight lines (bottom), and circles (top and middle).
+*   Image 4: Has straight lines (bottom), circles (middle). Also has a curved line at top.
+*   Image 5: Has straight lines (bottom), circles (top). Also has a curved line in middle.
+*   Image 6: Has curved lines (bottom, top, middle). No circles.
+
+So, images 2 and 6 are unique in containing **no circles**. This is still two.
+Images 1, 3, 4, 5 all contain at least one pair of circles.
+
+Let's look at the types of lines/shapes for the *horizontal/connecting* elements.
+- Image 1: Bottom (straight), Top (circles), Middle (circles).
+- Image 2: Bottom (curved), Top (curved), Middle (curved). **All curved.**
+- Image 3: Bottom (straight), Top (circles), Middle (circles).
+- Image 4: Bottom (straight), Top (curved), Middle (circles).
+- Image 5: Bottom (straight), Top (circles), Middle (curved).
+- Image 6: Bottom (curved), Top (curved), Middle (curved). **All curved.**
+
+Both images 2 and 6 have *all* their non-vertical lines as *curved lines*.
+All other images (1, 3, 4, 5) have at least one straight line (at the bottom) or at least one pair of circles.
+
+This means images 2 and 6 are the outliers if the rule is ""contains at least one straight line or at least one pair of circles"".
+
+Let's try a different approach. What if we count the *number of different colors* used for the non-black elements?
+*   Image 1: Blue, Green, Red (3 colors)
+*   Image 2: Blue, Red (2 colors)
+*   Image 3: Blue, Green (2 colors)
+*   Image 4: Blue, Green, Red (3 colors)
+*   Image 5: Blue, Green (2 colors)
+*   Image 6: Blue, Green (2 colors)
+
+Based on the number of non-black colors:
+Images 1 and 4 use 3 colors.
+Images 2, 3, 5, 6 use 2 colors.
+This makes 1 and 4 the outliers. This also doesn't seem right.
+
+What if the elementary feature is the presence of **red elements**?
+*   Image 1: Yes, red circles.
+*   Image 2: Yes, red curved line.
+*   Image 3: No red.
+*   Image 4: Yes, red circles.
+*   Image 5: No red.
+*   Image 6: No red.
+
+If the rule is ""contains red elements"", then images 3, 5, 6 are outliers. (3 images)
+If the rule is ""does NOT contain red elements"", then images 1, 2, 4 are outliers. (3 images)
+
+Let's focus on images 2 and 6 again, as they stand out by having *no circles*.
+However, only one can be the outlier.
+
+Let's look more closely at the elements.
+Images 1, 3, 4, 5 have at least one pair of circles.
+Images 2 and 6 have no circles.
+
+Now, let's distinguish between 2 and 6.
+Both have two vertical black lines.
+Image 2: bottom blue curved, top blue curved, middle red curved.
+Image 6: bottom blue curved, top green curved, middle green curved.
+
+The difference here is the color of the top and middle lines. In Image 2, the top and bottom are blue. In image 6, the top and middle are green.
+
+Consider the property of having the **same color for the top and bottom elements** (excluding vertical black lines).
+*   Image 1: Top green, Bottom blue. Different.
+*   Image 2: Top blue, Bottom blue. Same.
+*   Image 3: Top blue, Bottom blue. Same.
+*   Image 4: Top green, Bottom blue. Different.
+*   Image 5: Top blue, Bottom green. Different.
+*   Image 6: Top green, Bottom blue. Different.
+
+This makes Image 2 and 3 the candidates for having the ""same color for top and bottom elements"". But they are clearly different visually, as one has circles and the other has curved lines.
+
+Let's reconsider the shapes. The ""elementary visual feature"" should be simple.
+Perhaps it's the number of *distinct shapes* for the non-black parts.
+*   Image 1: Straight line (bottom), Circle (top, middle). 2 distinct shapes.
+*   Image 2: Curved line (bottom, top, middle). 1 distinct shape.
+*   Image 3: Straight line (bottom), Circle (top, middle). 2 distinct shapes.
+*   Image 4: Straight line (bottom), Curved line (top), Circle (middle). 3 distinct shapes.
+*   Image 5: Straight line (bottom), Curved line (middle), Circle (top). 3 distinct shapes.
+*   Image 6: Curved line (bottom, top, middle). 1 distinct shape.
+
+If the elementary visual feature is ""uses only one type of non-vertical shape (straight, curved, or circle)"", then 2 and 6 are the outliers as they use only curved lines. Images 1, 3, 4, 5 use combinations.
+
+This line of reasoning again leads to two items (2 and 6) being similar in being different from the rest.
+This means the feature should be something that applies to 5 and not to 1.
+
+Let's look at the **type of element in the middle**.
+*   Images 1, 3, 4 have circles in the middle.
+*   Images 2, 5, 6 have curved lines in the middle.
+
+This again gives two groups.
+
+What about the **colors of the circles**?
+Images 1 (green, red), 3 (blue, green), 4 (red), 5 (blue).
+The presence of red circles (1, 4) or green circles (1, 3) or blue circles (3, 5).
+
+Let's consider the overall visual impression.
+Five images look like they represent some sort of container or structure with various contents or toppings.
+Images 1, 3, 4, 5 all contain pairs of **circles**.
+Image 2 contains no circles, but it contains a red curved line in the middle.
+Image 6 contains no circles and no red elements.
+
+Could the outlier be image 6?
+*   It does not contain any circles (like image 2).
+*   It does not contain any red color (like images 3 and 5).
+*   It does not contain any straight line (like images 2).
+
+Let's try: ""All images contain at least one element that is either a straight line or a pair of circles, except for one.""
+*   Image 1: Straight line (bottom), Circles (top, middle).
+*   Image 2: No straight lines, no circles. Only curved lines. **This could be the outlier.**
+*   Image 3: Straight line (bottom), Circles (top, middle).
+*   Image 4: Straight line (bottom), Circles (middle). Also has curved line (top).
+*   Image 5: Straight line (bottom), Circles (top). Also has curved line (middle).
+*   Image 6: No straight lines, no circles. Only curved lines. This is like image 2.
+
+This property groups (1, 3, 4, 5) together, and (2, 6) together. This means the elementary visual feature is not just about the presence of straight lines or circles.
+
+Let's reconsider the *shape* and *color* combinations that differentiate 2 and 6.
+In Image 2, the bottom and top curved lines are *blue*. The middle curved line is *red*.
+In Image 6, the bottom curved line is *blue*. The top and middle curved lines are *green*.
+
+What if the rule is about the **color of the 'contents' or 'fillers' within the vertical lines**?
+For images with circles:
+*   Image 1: red circles in the middle.
+*   Image 3: green circles in the middle.
+*   Image 4: red circles in the middle.
+*   Image 5: green curved line in the middle.
+
+For images with a middle line:
+*   Image 2: red curved line in the middle.
+*   Image 5: green curved line in the middle.
+*   Image 6: green curved line in the middle.
+
+This means images 1, 2, 4 have red elements in the middle/contents.
+Images 3, 5, 6 have green elements in the middle/contents. This gives a 3 vs 3 split.
+
+Let's consider the colors that are *not* black for the vertical lines.
+All images use blue for at least one element, except Image 5 (uses green for bottom line, blue for top circles).
+All images use green for at least one element, except Image 2.
+All images use red for at least one element, except Images 3, 5, 6.
+
+This is a good candidate: **Image 2 is the only one that does NOT use the color green.**
+Let's verify:
+*   Image 1: Green circles at the top. (Uses green)
+*   Image 2: No green color anywhere. (Does NOT use green)
+*   Image 3: Green circles in the middle. (Uses green)
+*   Image 4: Green curved line at the top. (Uses green)
+*   Image 5: Green horizontal line at the bottom, green curved line in the middle. (Uses green)
+*   Image 6: Green curved lines at the top and middle. (Uses green)
+
+Yes, this fits the condition perfectly. Five images (1, 3, 4, 5, 6) use the color green. Only one image (Image 2) does not use the color green.
+
+The outlier is [2] {It is the only image that does not contain any green colored elements.}",2,1599,0,3934
+71,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial71.png,3,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {It is the only image where the two small circles inside the rectangle are blue; in all other images, they are red.}",3,1599,0,29
+72,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial72.png,4,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[4] {This is the only image that has two horizontal lines that are green. All other images have exactly one green horizontal line.},4,1599,0,28
+73,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial73.png,6,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[6] {All other images contain a straight line segment. Image 6 contains only curved line segments.},6,1599,0,22
+74,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial74.png,5,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {Image 5 is the only image where the top horizontal line is straight, not wavy. All other images have wavy lines at the top, or at both top and bottom, or only at the bottom.}",5,1599,0,45
+75,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial75.png,6,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images contain at least two different colors, while image 1 uses only one color for the horizontal lines.}",1,1599,0,27
+76,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial76.png,6,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {All other images contain two or more small circles, whereas image 6 does not contain any circles.}",6,1599,0,24
+77,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial77.png,2,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {The other five images have exactly two red elements, while image 5 has only one red element (the wavy line).}",5,1599,0,28
+78,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial78.png,1,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images show straight lines for the top and bottom horizontal segments, or straight lines for the green internal segment. Image 1 has a wavy blue top segment and a wavy red bottom segment.}",1,1599,0,43
+79,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial79.png,2,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {Image 3 is the only image that contains only green circles, whereas the other five images contain circles of at least two different colors, or a colored wavy line in addition to colored circles.}",3,1599,0,42
+80,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial80.png,1,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images use either only red circles or only green circles, or only green wavy lines. Image 1 uses a combination of red circles, green circles, and a red wavy line, making it distinct in its use of color and shape variety.}",1,1599,0,54
+81,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial81.png,2,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {All other images contain two types of visual features: either circles and lines, or two types of curved/straight lines. Image 2 contains three distinct features: straight lines, a wavy line, and a straight line that connects the two vertical lines.}",2,1599,0,54
+82,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial82.png,6,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have a single horizontal line or a single wavy line across the two vertical lines. Image 1 has two pairs of circles, one blue and one red.}",1,1599,0,38
+83,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial83.png,6,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {All other images contain at least one pair of circles, whereas image 6 only contains wavy lines and no circles.}",6,1599,0,27
+84,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial84.png,1,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {The other images show a 'H' shape with one curved line and one straight line, plus two small circles (or a straight line at the top/bottom). Image 3 is the only one with two curved lines and four small circles, deviating from the pattern of one straight line and two circles.}",3,1599,0,66
+85,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial85.png,6,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {In image 3, the two small circles are blue. In all other images where two small circles are present (1, 2, 4, 5, 6), they are either green or red.}",3,1599,0,48
+86,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial86.png,5,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {It is the only image that contains three different colors (red, green, and blue). All other images contain only two colors.}",5,1599,0,30
+87,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial87.png,2,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {All other images contain at least two different colors for the shapes and lines, while image 5 only uses blue for the shapes and black for the lines.}",5,1599,0,35
+88,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial88.png,2,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","The outlier is: [5]
+{All other images feature a horizontally symmetrical design (the top half mirrors the bottom half, though colours may vary). Image 5, however, has a top half with two red circles and a red curved line, while the bottom half only has a green curved line, making it asymmetrical.}",5,1599,0,66
+89,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial89.png,1,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {The top line is curved, while in all other images, the corresponding top line is straight.}",1,1599,0,23
+90,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial90.png,1,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images show two red circles at the top, while image 1 shows two green circles at the top.}",1,1599,0,27
+91,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial91.png,5,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {This is the only image that has all three colors (red, blue, and black) and circles at the top, while the other images either have two colors or circles at the bottom, or a combination of two colors and circles at the top or bottom.}",4,1599,0,56
+92,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial92.png,4,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","The outlier is [6] {because it is the only image that has four small circular shapes inside the vertical lines, while the others either have two or a horizontal line, or a combination of both but never four circles.}",6,1599,0,45
+93,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial93.png,6,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {All other images contain at least one curved line, whereas image 6 contains only straight lines and circles.}",6,1599,0,25
+94,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial94.png,4,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[4] {This image is the only one that features a horizontal wavy line.},4,1599,0,17
+95,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial95.png,3,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[5] {Image 5 is the only image that does not contain any red color. All other images contain at least one red element.},5,1599,0,29
+96,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial96.png,2,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {The center horizontal line is perfectly straight in image 4, while in all other images, the center horizontal line is wavy.}",4,1599,0,29
+97,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial97.png,4,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {This is the only image that contains a red line. All other images use only blue, green, and black lines.}",4,1599,0,28
+98,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial98.png,5,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {Image 5 is the outlier because it contains three different colors (red, blue, and green) among its horizontal lines, whereas all other images contain only two different colors among their horizontal lines.}",5,1599,0,43
+99,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial99.png,5,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images contain at least one straight horizontal line, or a pair of circles. Image 1 has only curved lines (excluding the vertical black lines).}",1,1599,0,35
+100,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial100.png,4,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[4] {This is the only image that has two red circles in the middle. All other images either have two green circles at the top or two blue circles at the bottom.},4,1599,0,37
+101,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial101.png,1,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have a wavy red line in the middle of the ""H"" shape, while image 1 has a wavy blue line.}",1,1599,0,32
+102,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial102.png,1,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images contain at least one pair of circles, whereas image 1 contains only lines.}",1,1599,0,23
+103,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial103.png,5,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {All other images contain at least one straight horizontal line, either at the top or bottom of the vertical lines. Image 5 only has curved horizontal lines.}",5,1599,0,35
+104,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial104.png,4,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {The outlier is image 4 because it is the only one that contains a red line. All other images contain only black, blue, and green lines/shapes.}",4,1599,0,37
+105,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial105.png,3,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images contain at least one instance of a circular or elliptical shape, whereas image 1 only contains lines.}",1,1599,0,27
+106,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial106.png,1,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[1] {All other images have a single horizontal line connecting the two vertical lines. Image 1 has two wavy lines.},1,1599,0,26
+107,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial107.png,4,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {It is the only image where the internal circular shapes are green. In all other images with internal circular shapes, they are blue or red. The remaining images either have horizontal lines instead of circular shapes or they are blue/red.}",3,1599,0,50
+108,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial108.png,4,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[4] {It is the only image where all three horizontal lines are different colors (red, blue, and green). In all other images, at least two of the horizontal lines share the same color.}",4,1599,0,42
+109,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial109.png,1,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images show at least one horizontal line that is wavy or straight, separating two regions. Image 1 shows two small circles within the region, rather than a line separating it.}",1,1599,0,41
+110,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial110.png,6,emb3_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[6] {It is the only image where the two top horizontal elements are not connected, instead being two separate circles.}",6,1599,0,25
+111,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial111.png,3,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {It is the only image where all three horizontal lines are blue. In all other images, at least two colors are used for the horizontal lines.}",3,1599,0,33
+112,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial112.png,4,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",[4] {It is the only image where all the lines are straight; the others all have at least one wavy line.},4,1599,0,26
+113,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial113.png,3,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {It is the only image where all horizontal or circular elements are the same color. In images 1, 2, 4, 5, and 6, there are at least two different colors used for the horizontal lines and/or circles.}",3,1599,0,55
+114,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial114.png,1,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {It is the only image that does not contain any green colored element. All other images have at least one green element, either a wavy line or a pair of circles.}",3,1599,0,38
+115,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial115.png,2,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {Images 1, 3, 4, 5, and 6 contain small circles (o shapes) while image 2 does not. Image 2 only has straight or slightly curved lines.}",2,1599,0,45
+116,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial116.png,2,emb1_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {The other five images have curved lines, while image 3 only has straight lines and circles.}",3,1599,0,23
+117,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial117.png,1,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images contain a red line segment, whereas image 1 does not.}",1,1599,0,20
+118,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial118.png,2,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[2] {Image 2 is the only one that features two wavy lines, one red and one blue, while the other images have either two sets of circles or one wavy line and one set of circles.}",2,1599,0,43
+119,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial119.png,1,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images show horizontal lines that are curved, while image 1 has a straight horizontal line.}",1,1599,0,24
+120,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial120.png,2,emb2_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {The other five images consistently use exactly three colors: blue, red, and either green or black. Image 3, however, uses four colors: black, red, green, and blue.}",3,1599,0,43
+121,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial121.png,1,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[3] {All other images contain either two colored circles or a single horizontal line, whereas image 3 contains two horizontal lines (one blue, one green) and no circles.}",3,1599,0,37
+122,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial122.png,5,emb2_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[5] {All other images contain elements where the color matches the position (red at the top, blue in the middle, green at the bottom), or the elements are all uniform in color. Image 5 is the only one where a red line is in the middle, and green is at the top.}",5,1599,0,63
+123,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial123.png,3,emb1_type,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color",The outlier is [3] {because it is the only image where the bottom wavy line is straight and not wavy like the others.},3,1599,0,27
+124,balanced_data/var_balanced/glyphs/dim3/var4/summaries/summary=trial124.png,6,emb3_color,4,3,"emb1_type,emb1_color,emb2_type,emb2_color,emb3_type,emb3_color","[1] {All other images have at least one wavy line, either at the top or bottom, or both, while image 1 only has straight lines and one wavy line at the bottom.}",1,1599,0,40

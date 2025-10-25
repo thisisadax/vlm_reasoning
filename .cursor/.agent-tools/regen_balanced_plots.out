@@ -1,0 +1,17 @@
+dim_balanced rows: 1500
+Saved: /scratch/gpfs/nb0564/vlm_reasoning/plots/publication/balanced_accuracy_vs_dim.pdf
+P1:
+    dim   mean     lo     hi    n
+0    1  0.994  0.986  1.000  500
+1    2  0.834  0.800  0.866  500
+2    3  0.768  0.730  0.804  500
+var_balanced rows: 3000
+Saved: /scratch/gpfs/nb0564/vlm_reasoning/plots/publication/balanced_accuracy_vs_var.pdf
+P2:
+    var   mean       lo     hi    n
+0    0  0.992  0.98400  0.998  500
+1    1  0.962  0.94400  0.978  500
+2    2  0.808  0.77095  0.844  500
+3    3  0.666  0.62400  0.706  500
+4    4  0.574  0.53095  0.616  500
+5    5  0.498  0.45400  0.542  500

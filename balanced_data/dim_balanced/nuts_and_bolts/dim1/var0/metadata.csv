@@ -1,0 +1,9 @@
+program_string,nested_shape_type,nested_shape_scale,render_filepath
+(T (repeat (T l (M 0.10467191248588766 0 -0.05233595624294383 0.9986295347545738)) 60 (M 1 0.10471975511965977 0 0)) (M 1 0.05235987755982988 0 0)),c,1.0,balanced_data/dim_balanced/nuts_and_bolts/dim1/var0/images/0.png
+(T (repeat (T l (M 0.23027820746895286 0 -0.11513910373447643 2.1969849764600626)) 60 (M 1 0.10471975511965977 0 0)) (M 1 0.05235987755982988 0 0)),c,2.2,balanced_data/dim_balanced/nuts_and_bolts/dim1/var0/images/1.png
+(T (repeat (T l (M 1.414213562373095 0 -0.7071067811865475 0.7071067811865476)) 4 (M 1 1.5707963267948966 0 0)) (M 1 0.7853981633974483 0 0)),s,1.0,balanced_data/dim_balanced/nuts_and_bolts/dim1/var0/images/2.png
+(T (repeat (T l (M 3.111269837220809 0 -1.5556349186104046 1.5556349186104048)) 4 (M 1 1.5707963267948966 0 0)) (M 1 0.7853981633974483 0 0)),s,2.2,balanced_data/dim_balanced/nuts_and_bolts/dim1/var0/images/3.png
+(T (repeat (T l (M 1.1755705045849463 0 -0.5877852522924731 0.8090169943749475)) 5 (M 1 1.2566370614359172 0 0)) (M 1 0.6283185307179586 0 0)),p,1.0,balanced_data/dim_balanced/nuts_and_bolts/dim1/var0/images/4.png
+(T (repeat (T l (M 2.586255110086882 0 -1.293127555043441 1.7798373876248845)) 5 (M 1 1.2566370614359172 0 0)) (M 1 0.6283185307179586 0 0)),p,2.2,balanced_data/dim_balanced/nuts_and_bolts/dim1/var0/images/5.png
+(T (repeat (T l (M 0.9999999999999999 0 -0.49999999999999994 0.8660254037844387)) 6 (M 1 1.0471975511965976 0 0)) (M 1 0.5235987755982988 0 0)),h,1.0,balanced_data/dim_balanced/nuts_and_bolts/dim1/var0/images/6.png
+(T (repeat (T l (M 2.1999999999999997 0 -1.0999999999999999 1.9052558883257653)) 6 (M 1 1.0471975511965976 0 0)) (M 1 0.5235987755982988 0 0)),h,2.2,balanced_data/dim_balanced/nuts_and_bolts/dim1/var0/images/7.png

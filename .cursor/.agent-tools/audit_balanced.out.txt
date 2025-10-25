@@ -1,0 +1,92 @@
+=== VAR-BALANCED audit ===
+Counts by domain,var,dim (first 24):
+domain          var  dim
+glyphs          0    1       42
+                     2       42
+                     3       42
+                1    1       42
+                     2       42
+                     3       42
+                2    2       63
+                     3       63
+                3    2       63
+                     3       63
+                4    3      125
+                5    3      125
+nuts_and_bolts  0    1       42
+                     2       42
+                     3       41
+                1    1       42
+                     2       42
+                     3       41
+                2    2       62
+                     3       62
+                3    2       62
+                     3       62
+                4    3      125
+                5    3      125
+Name: n, dtype: int64
+
+Statuses OK? False
+          domain  dim  var   n                                       status                                file
+regular_polygons    1    0  42 issues dim=42 var=42 odd_ref=35 odd_match=18 regular_polygons_1dim_var0_dim2.csv
+regular_polygons    1    1  42 issues dim=42 var=42 odd_ref=30 odd_match=18 regular_polygons_1dim_var1_dim2.csv
+regular_polygons    2    0  42 issues dim=42 var=42 odd_ref=34 odd_match=15 regular_polygons_2dim_var0_dim4.csv
+regular_polygons    2    1  42 issues dim=42 var=42 odd_ref=33 odd_match=18 regular_polygons_2dim_var1_dim4.csv
+regular_polygons    2    2  63 issues dim=50 var=50 odd_ref=46 odd_match=29 regular_polygons_2dim_var2_dim4.csv
+regular_polygons    2    3  63 issues dim=50 var=50 odd_ref=41 odd_match=21 regular_polygons_2dim_var3_dim4.csv
+regular_polygons    3    0  42 issues dim=42 var=42 odd_ref=33 odd_match=16 regular_polygons_3dim_var0_dim6.csv
+regular_polygons    3    1  42 issues dim=42 var=42 odd_ref=32 odd_match=20 regular_polygons_3dim_var1_dim6.csv
+regular_polygons    3    2  63 issues dim=50 var=50 odd_ref=39 odd_match=24 regular_polygons_3dim_var2_dim6.csv
+regular_polygons    3    3  63 issues dim=50 var=50 odd_ref=39 odd_match=20 regular_polygons_3dim_var3_dim6.csv
+regular_polygons    3    4 125 issues dim=50 var=50 odd_ref=38 odd_match=23 regular_polygons_3dim_var4_dim6.csv
+regular_polygons    3    5 125 issues dim=50 var=50 odd_ref=39 odd_match=22 regular_polygons_3dim_var5_dim6.csv
+          glyphs    1    0  42 issues dim=42 var=42 odd_ref=33 odd_match=15           glyphs_dim1_var0_dim2.csv
+          glyphs    1    1  42 issues dim=42 var=42 odd_ref=33 odd_match=11           glyphs_dim1_var1_dim2.csv
+          glyphs    2    0  42 issues dim=42 var=42 odd_ref=33 odd_match=15           glyphs_dim2_var0_dim4.csv
+          glyphs    2    1  42 issues dim=42 var=42 odd_ref=35 odd_match=17           glyphs_dim2_var1_dim4.csv
+          glyphs    2    2  63 issues dim=50 var=50 odd_ref=37 odd_match=18           glyphs_dim2_var2_dim4.csv
+          glyphs    2    3  63 issues dim=50 var=50 odd_ref=45 odd_match=14           glyphs_dim2_var3_dim4.csv
+          glyphs    3    0  42 issues dim=42 var=42 odd_ref=33 odd_match=11           glyphs_dim3_var0_dim6.csv
+          glyphs    3    1  42 issues dim=42 var=42 odd_ref=35 odd_match=17           glyphs_dim3_var1_dim6.csv
+
+Dim coverage per var (first 20):
+          domain  var dims_present dims_expected  exact_match
+regular_polygons    0    [1, 2, 3]     [1, 2, 3]         True
+regular_polygons    1    [1, 2, 3]     [1, 2, 3]         True
+regular_polygons    2       [2, 3]        [2, 3]         True
+regular_polygons    3       [2, 3]        [2, 3]         True
+regular_polygons    4          [3]           [3]         True
+regular_polygons    5          [3]           [3]         True
+          glyphs    0    [1, 2, 3]     [1, 2, 3]         True
+          glyphs    1    [1, 2, 3]     [1, 2, 3]         True
+          glyphs    2       [2, 3]        [2, 3]         True
+          glyphs    3       [2, 3]        [2, 3]         True
+          glyphs    4          [3]           [3]         True
+          glyphs    5          [3]           [3]         True
+  nuts_and_bolts    0    [1, 2, 3]     [1, 2, 3]         True
+  nuts_and_bolts    1    [1, 2, 3]     [1, 2, 3]         True
+  nuts_and_bolts    2       [2, 3]        [2, 3]         True
+  nuts_and_bolts    3       [2, 3]        [2, 3]         True
+  nuts_and_bolts    4          [3]           [3]         True
+  nuts_and_bolts    5          [3]           [3]         True
+          totems    0    [1, 2, 3]     [1, 2, 3]         True
+          totems    1    [1, 2, 3]     [1, 2, 3]         True
+
+Problems (first 30):
+NONE
+
+=== DIM-BALANCED accuracy by domain,dim ===
+dim                      1         2         3
+domain                                        
+glyphs            1.000000  0.838962  0.733730
+nuts_and_bolts    0.975806  0.903226  0.887302
+regular_polygons  1.000000  0.790575  0.767460
+totems            1.000000  0.814516  0.686111
+
+Overall by dim:
+dim
+1    0.993952
+2    0.836820
+3    0.768651
+Name: acc, dtype: float64

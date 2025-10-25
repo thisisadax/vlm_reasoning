@@ -1,0 +1,25 @@
+domain	var	dims_present	dims_expected	exact_match
+regular_polygons	0	[1, 2, 3]	[1, 2, 3]	True
+regular_polygons	1	[1, 2, 3]	[1, 2, 3]	True
+regular_polygons	2	[2, 3]	[2, 3]	True
+regular_polygons	3	[2, 3]	[2, 3]	True
+regular_polygons	4	[3]	[3]	True
+regular_polygons	5	[3]	[3]	True
+glyphs	0	[1, 2, 3]	[1, 2, 3]	True
+glyphs	1	[1, 2, 3]	[1, 2, 3]	True
+glyphs	2	[2, 3]	[2, 3]	True
+glyphs	3	[2, 3]	[2, 3]	True
+glyphs	4	[3]	[3]	True
+glyphs	5	[3]	[3]	True
+nuts_and_bolts	0	[1, 2, 3]	[1, 2, 3]	True
+nuts_and_bolts	1	[1, 2, 3]	[1, 2, 3]	True
+nuts_and_bolts	2	[2, 3]	[2, 3]	True
+nuts_and_bolts	3	[2, 3]	[2, 3]	True
+nuts_and_bolts	4	[3]	[3]	True
+nuts_and_bolts	5	[3]	[3]	True
+totems	0	[1, 2, 3]	[1, 2, 3]	True
+totems	1	[1, 2, 3]	[1, 2, 3]	True
+totems	2	[2, 3]	[2, 3]	True
+totems	3	[2, 3]	[2, 3]	True
+totems	4	[3]	[3]	True
+totems	5	[3]	[3]	True

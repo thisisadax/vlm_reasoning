@@ -1,0 +1,10 @@
+program_string,module1_shape,module1_color,render_filepath
+(color 1 0 0 (T (repeat (T l (M 0.41926223426432957 0 -0.20963111713216478 3.9999999999999996)) 60 (M 1 0.10471975511965977 0 0)) (M 1 0 0 0.0))),circle,red,balanced_data/var_balanced/totems/dim1/var1/images/0.png
+(color 0 1 0 (T (repeat (T l (M 0.41926223426432957 0 -0.20963111713216478 3.9999999999999996)) 60 (M 1 0.10471975511965977 0 0)) (M 1 0 0 0.0))),circle,green,balanced_data/var_balanced/totems/dim1/var1/images/1.png
+(color 0 0 1 (T (repeat (T l (M 0.41926223426432957 0 -0.20963111713216478 3.9999999999999996)) 60 (M 1 0.10471975511965977 0 0)) (M 1 0 0 0.0))),circle,blue,balanced_data/var_balanced/totems/dim1/var1/images/2.png
+(color 1 0 0 (T (T (repeat (T l (M 9.237604307034012 0 -4.618802153517006 2.666666666666667)) 3 (M 1 2.0943951023931953 0 0)) (M 1 0 0 1.333333333333333)) (M 1 0 0 0.0))),triangle,red,balanced_data/var_balanced/totems/dim1/var1/images/3.png
+(color 0 1 0 (T (T (repeat (T l (M 9.237604307034012 0 -4.618802153517006 2.666666666666667)) 3 (M 1 2.0943951023931953 0 0)) (M 1 0 0 1.333333333333333)) (M 1 0 0 0.0))),triangle,green,balanced_data/var_balanced/totems/dim1/var1/images/4.png
+(color 0 0 1 (T (T (repeat (T l (M 9.237604307034012 0 -4.618802153517006 2.666666666666667)) 3 (M 1 2.0943951023931953 0 0)) (M 1 0 0 1.333333333333333)) (M 1 0 0 0.0))),triangle,blue,balanced_data/var_balanced/totems/dim1/var1/images/5.png
+(color 1 0 0 (T (repeat (T l (M 7.999999999999998 0 -3.999999999999999 4.0)) 4 (M 1 1.5707963267948966 0 0)) (M 1 0 0 0.0))),square,red,balanced_data/var_balanced/totems/dim1/var1/images/6.png
+(color 0 1 0 (T (repeat (T l (M 7.999999999999998 0 -3.999999999999999 4.0)) 4 (M 1 1.5707963267948966 0 0)) (M 1 0 0 0.0))),square,green,balanced_data/var_balanced/totems/dim1/var1/images/7.png
+(color 0 0 1 (T (repeat (T l (M 7.999999999999998 0 -3.999999999999999 4.0)) 4 (M 1 1.5707963267948966 0 0)) (M 1 0 0 0.0))),square,blue,balanced_data/var_balanced/totems/dim1/var1/images/8.png

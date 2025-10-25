@@ -1,0 +1,11 @@
++ set -euo pipefail
+++ pwd
++ BASE=/scratch/gpfs/nb0564/vlm_reasoning
++ SEED=42
++ MODEL=google/gemini-flash
++ PROMPT=prompts/CoT.txt
++ TOTAL_PER_DIM=500
++ TOTAL_PER_VAR=500
++ PYTHON=python
++ '[' -f /home/nb0564/.bashrc ']'
++ source /home/nb0564/.bashrc

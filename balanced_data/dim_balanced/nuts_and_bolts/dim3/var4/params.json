@@ -1,0 +1,13 @@
+{
+  "task_name": "nuts_and_bolts",
+  "n_dimensions": 3,
+  "reference_variance": 1,
+  "n_trials": 100,
+  "stroke_width": 3.0,
+  "dup_factor": 1,
+  "canvas_dim": 512,
+  "coord_bound": 5.0,
+  "exclude_keywords": [],
+  "data_dir": "balanced_data/dim_balanced/nuts_and_bolts/dim3",
+  "dataset_dir": "balanced_data/dim_balanced/nuts_and_bolts/dim3/var4"
+}

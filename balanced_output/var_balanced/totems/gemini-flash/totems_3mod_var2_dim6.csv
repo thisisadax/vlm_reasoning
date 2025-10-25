@@ -1,0 +1,191 @@
+trial_idx,summary_path,oddball_idx,oddball_abstraction,reference_variance,n_dimensions,abstraction_columns,response,answer,n_input_tokens,n_thought_tokens,n_output_tokens
+0,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial0.png,2,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[2] {This image is the only one where the shapes are not all either red or blue. The square in image 2 is green.},2,1599,0,30
+1,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial1.png,3,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[3] {Image 3 is the only image where all shapes are the same color (blue). In all other images, there is at least one green shape.}",3,1599,0,34
+2,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial2.png,4,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[4] {This is the only image where all shapes are the same color (red).},4,1599,0,19
+3,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial3.png,4,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[4] {This image is the only one where shapes are of different colors. All other images have shapes that are uniformly blue.},4,1599,0,27
+4,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial4.png,4,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[4] {This image is the only one that contains a circle. All other images contain only squares and triangles.},4,1599,0,24
+5,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial5.png,2,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[2] {It is the only image where one of the shapes (the bottom circle) is blue, while the other images have red or green shapes but no blue shape (or blue in the middle square in images 3, 4, 6).}",2,1599,0,53
+6,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial6.png,2,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","The images show vertical arrangements of three shapes. Let's analyze the properties of each shape in each image:
+
+*   **Image 1:** Red square, Red circle, Green circle.
+*   **Image 2:** Red inverted triangle, Red square, Green circle.
+*   **Image 3:** Red square, Red circle, Green circle.
+*   **Image 4:** Blue square, Red circle, Green circle.
+*   **Image 5:** Blue inverted triangle, Red circle, Green circle.
+*   **Image 6:** Blue inverted triangle, Red circle, Green circle.
+
+The common feature among five of the images is that the **bottom two shapes are always a red circle and a green circle**, arranged vertically with the red circle on top of the green circle. The top shape varies in form and color.
+
+In Image 2, the bottom two shapes are a red square and a green circle. This breaks the pattern observed in the other images where the bottom two shapes are consistently a red circle and a green circle.
+
+[2] {The bottom-most shape is a green circle in all images. In all images except image 2, the middle shape is a red circle. In image 2, the middle shape is a red square.}",2,1599,0,265
+7,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial7.png,5,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[5] {Image 5 is the only image where the top shape is a triangle. In all other images, the top shape is a square.}",5,1599,0,31
+8,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial8.png,6,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {All other images contain at least one triangle, while image 6 only contains circles.}",6,1599,0,21
+9,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial9.png,1,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[1] {All other images contain at least one red circle and at least one red triangle, except for image 1, which only has blue shapes. Also, image 1 is the only one with two blue circles.}",1,1599,0,46
+10,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial10.png,6,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {Images 1, 2, 3, 4, and 5 contain at least one circle. Image 6 is the only image that contains a triangle.}",6,1599,0,38
+11,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial11.png,2,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[2] {Image 2 has three red triangles, while all other images have at least two different colors of shapes.}",2,1599,0,25
+12,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial12.png,3,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[3] {The other five images all have two squares and one circle, whereas image 3 has two squares and one circle, but one of the squares is green. Additionally, in all other images, the top shape is red, the middle shape is blue, and the bottom shape is either blue or green. In image 3, the top shape is red (a circle), the middle shape is blue (a square), and the bottom shape is green (a square).}",3,1599,0,97
+13,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial13.png,1,module2_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[1] {All other images show at least one blue shape, while image 1 only contains red shapes.}",1,1599,0,23
+14,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial14.png,2,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[1] {All other images show the bottom shape as a rectangle or a square, while image 1 shows a triangle. Also, image 1 has a blue circle as the middle shape, while all other images have a blue or green rectangle as the middle shape.}",1,1599,0,55
+15,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial15.png,6,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[6] {Image 6 is the outlier because it is the only image that does not contain a circle.},6,1599,0,23
+16,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial16.png,1,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {It is the only image where the blue shape is between two red shapes. In all other images, there is one blue shape and two red shapes (or vice versa).}",6,1599,0,38
+17,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial17.png,6,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","The outlier is: [1]
+{Image 1 is the only image where the top shape is a square and the bottom shape is a triangle, but the middle shape is red.}",1,1599,0,38
+18,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial18.png,6,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[3] {Image 3 contains two circles and one triangle, while all other images contain exactly one circle, one square, and one triangle OR two triangles and one circle/square.}",3,1599,0,38
+19,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial19.png,2,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[2] {Image 2 is the outlier because it is the only image that contains a square as its top shape. All other images have a circle as their top shape.},2,1599,0,36
+20,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial20.png,2,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[2] {Images 1, 4, 5, and 6 each contain exactly two different colors. Image 3 has three colors (blue, red, green). Image 2 has three colors (blue, red, and the green ""2""). It seems there's an error in the problem as images 1 and 4 are identical, and 3 and 6 are identical. Assuming the question refers to the colors of the shapes:
+Images 1, 4, 5: The shapes consist of three different colors (blue, green, red).
+Images 3, 6: The shapes consist of two different colors (blue, red).
+Image 2: The shapes consist of two different colors (blue, red).
+
+If the outlier is defined by the number of colors in the shapes:
+Images 1, 4, 5 have three distinct colors for the shapes.
+Images 2, 3, 6 have two distinct colors for the shapes.
+In this case, it is not possible to identify a single outlier.
+
+Let's re-examine if there's another pattern.
+In images 1, 4, 5, the top shape is a blue circle, the middle shape is a green circle, and the bottom shape is a red triangle.
+In images 3, 6, the top shape is a blue triangle, the middle shape is a red circle, and the bottom shape is a red triangle.
+In image 2, the top shape is a blue circle, the middle shape is a red circle, and the bottom shape is a blue triangle.
+
+The common feature is having three shapes stacked vertically, with the bottom shape always being a triangle pointing downwards.
+In images 1, 4, 5, the middle shape is green.
+In images 2, 3, 6, the middle shape is red.
+This means 1, 4, 5 are a group, and 2, 3, 6 are a group. This doesn't identify a single outlier.
+
+Let's consider the top shape.
+In images 1, 2, 4, the top shape is a blue circle.
+In images 3, 5, 6, the top shape is a blue triangle.
+This also divides the images into two groups.
+
+Let's consider the bottom shape.
+In images 1, 3, 4, 5, 6, the bottom shape is a red triangle.
+In image 2, the bottom shape is a blue triangle.
+This identifies image 2 as the outlier. The other five images have a red triangle as the bottom shape, while image 2 has a blue triangle as the bottom shape.}",2,1599,0,577
+21,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial21.png,2,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[2] {It is the only image where the top and bottom shapes are different types (circle and squares). All other images have either two triangles or one triangle and one square at the top/bottom, or the top and bottom are squares.}",2,1599,0,50
+22,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial22.png,3,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[3] {It is the only image that contains more than one color (green and blue) in its drawing, while all other images are drawn with a single color (blue).}",3,1599,0,37
+23,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial23.png,5,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[5] {It is the only image that does not contain a circle.},5,1599,0,16
+24,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial24.png,3,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[3] {It is the only image where the top shape is red. All other images have a blue top shape (square or circle).},3,1599,0,29
+25,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial25.png,6,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {The other five images depict two circles and one inverted triangle, resembling an ice cream cone. Image 6 has one circle and two inverted triangles, and thus a different shape composition.}",6,1599,0,40
+26,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial26.png,3,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[3] {It is the only image where the top and bottom shapes are the same color (green), but the middle shape is a different color (red). In all other images, there are two distinct colors used for the shapes, or all shapes are the same color.}",3,1599,0,56
+27,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial27.png,1,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[1] {All other images show the bottom shape as a square, while image 1 shows a triangle.}",1,1599,0,23
+28,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial28.png,5,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[5] {In all other images, the top shape is a circle and the bottom shape is green. In image 5, the top shape is a square.}",5,1599,0,34
+29,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial29.png,6,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {Image 6 is the only image where the middle shape has the same color as one of the other shapes but is not touching that same-colored shape. In image 6, the bottom circle is blue, matching the top circle, but the middle shape is green, separating the two blue circles. In the other images, if there are two shapes of the same color, they are either touching or there's only one shape of that color.}",6,1599,0,94
+30,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial30.png,5,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[1] {All other images show three distinct geometric shapes. Image 1 shows a stack of three circles, two of which are identical, making only two distinct shapes.}",1,1599,0,35
+31,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial31.png,6,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[6] {All other images contain at least one green shape.},6,1599,0,14
+32,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial32.png,1,module2_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[1] {It is the only image where all shapes are outlined in either red or green. All other images have outlines in red, green, and blue.}",1,1599,0,33
+33,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial33.png,6,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {It is the only image where the middle shape is a triangle and the top shape is a circle. In all other images, the top two shapes are circles, and the bottom shape varies between a square and a triangle.}",6,1599,0,48
+34,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial34.png,4,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[4] {This image is the only one that uses a triangle shape, while all other images use a circle.}",4,1599,0,24
+35,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial35.png,5,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[5] {It is the only image where there is a square at the bottom of the stack, rather than a circle.}",5,1599,0,26
+36,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial36.png,2,module2_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[5] {All other images show three distinct shapes or three distinct colors, whereas image 5 only has two distinct colors (blue and red) and three distinct shapes. If you consider the bottom shape (triangle) as a color, it's green. But if you consider the other shapes (two squares and one triangle) as distinct, there are still only two colors (blue and red). If the shapes are classified as either a square or a triangle, then 1, 2, and 6 have a triangle on top, a square in the middle, and a triangle at the bottom. Images 3, 4, and 5 have a square on top, a square in the middle, and a triangle at the bottom. However, in images 3 and 4, the top two shapes are blue and red, and the bottom shape is green. In image 5, the top two shapes are blue and red, and the bottom shape is green. In image 5, the top square is blue, the middle square is red, and the bottom triangle is green, which follows the same color pattern as images 3 and 4. The shapes are also consistent with 3 and 4 (square, square, triangle). The initial premise was that ""five share an elementary visual feature, while one is clearly different.""
+
+Let's re-examine the color patterns.
+Image 1: Blue, Red, Green
+Image 2: Blue, Green, Red
+Image 3: Blue, Red, Red
+Image 4: Blue, Red, Green
+Image 5: Blue, Red, Green
+Image 6: Blue, Red, Red
+
+In terms of shape:
+Images 1, 2, 6: Triangle, Square, Triangle
+Images 3, 4, 5: Square, Square, Triangle
+
+If we look at the color of the *outermost* shapes:
+Image 1: Blue (top), Green (bottom)
+Image 2: Blue (top), Red (bottom)
+Image 3: Blue (top), Red (bottom)
+Image 4: Blue (top), Green (bottom)
+Image 5: Blue (top), Green (bottom)
+Image 6: Blue (top), Red (bottom)
+
+The outlier seems to be related to either a unique color combination or a unique shape combination.
+
+Let's look at the number of unique colors in each image:
+Image 1: 3 colors (Blue, Red, Green)
+Image 2: 3 colors (Blue, Green, Red)
+Image 3: 2 colors (Blue, Red)
+Image 4: 3 colors (Blue, Red, Green)
+Image 5: 3 colors (Blue, Red, Green)
+Image 6: 2 colors (Blue, Red)
+
+Based on the number of unique colors, images 3 and 6 are outliers because they only have 2 unique colors, while the others have 3. This contradicts the ""one is clearly different"" premise.
+
+Let's look at the arrangement of colors:
+Images 1, 2, 4, 5: all three colors (blue, red, green) are present.
+Images 3, 6: only blue and red are present. This makes 3 and 6 outliers.
+
+Let's consider another feature: whether the top shape is a triangle or a square.
+Images 1, 2, 6: Top shape is a triangle.
+Images 3, 4, 5: Top shape is a square.
+This again leads to multiple ""outliers"".
+
+Let's look for a repeating pattern in the colors that might be broken by one image.
+Images 1, 2, 4, 5, 6 all have a blue top shape.
+Images 1, 2, 3, 4, 5, 6 all have a red middle shape. (No, Image 2 has a green middle shape.)
+
+Let's re-evaluate all colors:
+1: Blue (T), Red (M), Green (B) - T=Triangle, M=Square, B=Triangle
+2: Blue (T), Green (M), Red (B) - T=Triangle, M=Square, B=Triangle
+3: Blue (T), Red (M), Red (B) - T=Square, M=Square, B=Triangle
+4: Blue (T), Red (M), Green (B) - T=Square, M=Square, B=Triangle
+5: Blue (T), Red (M), Green (B) - T=Square, M=Square, B=Triangle
+6: Blue (T), Red (M), Red (B) - T=Triangle, M=Square, B=Triangle
+
+Consider the combination of the top and bottom shapes.
+Images 1, 2, 6 have triangles on top and bottom.
+Images 3, 4, 5 have squares on top and a triangle on the bottom.
+
+This suggests that images 1, 2, and 6 form one group (triangle-square-triangle) and images 3, 4, and 5 form another group (square-square-triangle). This doesn't help identify a single outlier.
+
+Let's focus on the number of each shape or color.
+Images 1, 2, 6: 2 triangles, 1 square.
+Images 3, 4, 5: 1 triangle, 2 squares.
+
+Let's look at the colors again, specifically for images that have only two colors.
+Images 3 and 6 have only blue and red.
+In image 3, the top is blue (square), middle is red (square), bottom is red (triangle).
+In image 6, the top is blue (triangle), middle is red (square), bottom is red (triangle).
+
+Now consider images with three colors:
+Image 1: Blue (T), Red (S), Green (T)
+Image 2: Blue (T), Green (S), Red (T) - This is the only one where the middle shape is green.
+Image 4: Blue (S), Red (S), Green (T)
+Image 5: Blue (S), Red (S), Green (T)
+
+Therefore, image 2 is the outlier because it's the only one with a green middle square. All other images either have a red middle square (1, 3, 4, 5, 6) or a green middle square (only 2). The premise ""five share an elementary visual feature, while one is clearly different"" fits this observation. The elementary visual feature is ""the middle shape is not green"".
+
+Let's double-check.
+1: Middle shape is RED.
+2: Middle shape is GREEN.
+3: Middle shape is RED.
+4: Middle shape is RED.
+5: Middle shape is RED.
+6: Middle shape is RED.
+
+Yes, image 2 is the only one where the middle shape is green. All other five images have a red middle shape.}",5,1599,0,1517
+37,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial37.png,4,module2_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[3] {In image 3, all shapes are blue. In all other images, there is at least one red shape.}",3,1599,0,27
+38,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial38.png,4,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[1] {It is the only image where all three shapes are drawn in red or green. The other images contain at least one blue shape.},1,1599,0,30
+39,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial39.png,6,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[6] {All other images depict shapes that are either squares or downward-pointing triangles. Image 6 contains a circle.},6,1599,0,26
+40,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial40.png,3,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[3] {The colors of the two lower squares in image 3 are red and blue, respectively. In all other images, the two lower squares share the same color (either both blue or both green).}",3,1599,0,43
+41,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial41.png,2,module2_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[2] {Image 2 is the only one that contains three different colors (blue, green, and red). All other images contain only two colors (blue and red).}",2,1599,0,36
+42,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial42.png,2,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[5] {It is the only image where the bottommost shape is a circle colored red. In all other images, the bottommost shape is either a green triangle or a green circle.}",5,1599,0,39
+43,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial43.png,5,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[5] {It is the only image that does not contain a triangle.},5,1599,0,16
+44,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial44.png,6,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {The other five images consistently use only red and green colors, whereas image 6 introduces blue.}",6,1599,0,23
+45,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial45.png,3,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[3] {It is the only image where all three shapes are of the same type (triangles and a circle) and where the top shape is a circle, and the middle shape is a triangle.}",3,1599,0,42
+46,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial46.png,3,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[3] {Image 3 is the only one where the color of the square and the lowest triangle are the same, and different from the middle triangle. All other images have the square and middle triangle in the same color, and the lowest triangle in a different color (or all the same color).}",3,1599,0,61
+47,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial47.png,6,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {It is the only image where the bottom shape is a triangle. In all other images, the bottom shape is a square.}",6,1599,0,29
+48,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial48.png,6,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {The other five images consist of three shapes stacked vertically, where the bottom shape is blue and the middle shape is red. Images 1, 2, and 4 have a circle as the top shape, while images 3 and 5 have a red square as the top shape. Image 6 differs from the others as its bottom shape is a blue triangle, not a blue square, and its top shape is a green square, not a circle or a red square.}",6,1599,0,100
+49,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial49.png,2,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[2] {Image 2 is the only one that does not contain a circle. All other images contain a square, an inverted triangle, and a circle.}",2,1599,0,33
+50,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial50.png,6,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[6] {It is the only image where one of the shapes is green. All other images use only red and blue shapes.},6,1599,0,27
+51,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial51.png,4,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[4] {It is the only image where not all three shapes are circles. The top shape in image 4 is a square, while all other images consist solely of circles.}",4,1599,0,37
+52,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial52.png,2,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[2] {Image 2 is the only one where all three shapes are circles. All other images include at least one square or triangle.},2,1599,0,29
+53,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial53.png,5,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[5] {Image 5 is the only image that consists of three square shapes stacked on top of each other. All other images consist of two squares and one triangle in between them.},5,1599,0,38
+54,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial54.png,2,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[2] {Image 2 is the only image where there isn't a triangle shape. All other images contain at least one triangle.},2,1599,0,29
+55,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial55.png,6,module3_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[6] {The other five images all feature a blue triangle at the top.},6,1599,0,17
+56,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial56.png,3,module1_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[6] {It is the only image where all three shapes are the same color (red).},6,1599,0,20
+57,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial57.png,4,module2_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[4] {The outlier is image 4 because it is the only image where all three shapes are the same color (red). In all other images, there are at least two different colors among the three shapes.}",4,1599,0,44
+58,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial58.png,3,module1_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[3] {It is the only image where all the shapes are blue. The other images have at least one red or green shape.},3,1599,0,28
+59,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial59.png,6,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {All other images (1-5) contain a blue downward-pointing triangle, while image 6 does not.}",6,1599,0,27
+60,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial60.png,6,module2_shape,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color","[6] {All other images show at least one square shape, whereas image 6 only shows circles.}",6,1599,0,22
+61,balanced_data/var_balanced/totems/dim3/var2/summaries/summary=trial61.png,3,module3_color,2,3,"module1_shape,module1_color,module2_shape,module2_color,module3_shape,module3_color",[4] {Image 4 is the only one that is not unique. It is a duplicate of image 1.},4,1599,0,25
