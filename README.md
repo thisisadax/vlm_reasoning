@@ -1,4 +1,4 @@
-# VLM Geometry: Visual Language Model Evaluation Framework
+# VLM Geometry: Vision Language Model Evaluation Framework
 
 A comprehensive framework for evaluating Vision-Language Models (VLMs) on geometric reasoning tasks using stimuli generated from symbolic Domain-Specific Languages (DSLs). This codebase creates oddball detection tasks where VLMs must identify visual outliers in sets of algorithmically generated geometric patterns.
 
