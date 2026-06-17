@@ -6,3 +6,10 @@ test.py
 tasks/relational_OLD.py
 renderer/languages/relational_OLD.py
 prompts/CoT_OLD.txt
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
